@@ -57,6 +57,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findView();
+        setListener();
+        doNetWork();
+    }
+
+    private void findView() {
         mResponseTextview = findViewById(R.id.response_textview);
         mGetButton = findViewById(R.id.get_button);
         mGetgsonButton = findViewById(R.id.getgson_button);
@@ -64,16 +70,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mPostButton = findViewById(R.id.post_button);
         mPostGsonButton = findViewById(R.id.postgson_button);
         mExitButton = findViewById(R.id.exit_button);
+    }
 
+    private void setListener() {
         mGetButton.setOnClickListener(this);
         mGetgsonButton.setOnClickListener(this);
         mGetuserButton.setOnClickListener(this);
         mPostButton.setOnClickListener(this);
         mPostGsonButton.setOnClickListener(this);
         mExitButton.setOnClickListener(this);
+    }
 
+    private void doNetWork() {
         mResponseTextview.setMovementMethod(ScrollingMovementMethod.getInstance());
-
         mListService = RetrofitNetNew.getInstance().get().create(ListService.class);
         mProductService = RetrofitNetNew.build(ProductService.class);
     }
@@ -142,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable  t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 t.printStackTrace();
             }
         });
@@ -177,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     message.obj = response.body().string();
                     mHandler.sendMessage(message);
-                } catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -189,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void postgson(){
+    private void postgson() {
         mProductService.getBeanProducts("searchProducts", "笔记本").enqueue(new Callback<SearchProductsBean>() {
             @Override
             public void onResponse(Call<SearchProductsBean> call, Response<SearchProductsBean> response) {

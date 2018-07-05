@@ -33,9 +33,9 @@ public class RetrofitNetNew {
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 50); //50Mb 缓存的大小
         client = new OkHttpClient
                 .Builder()
-                .addInterceptor(addQueryParameterInterceptor())  //参数添加
-                .addInterceptor(addHeaderInterceptor()) // token过滤
-                .addInterceptor(new LoggingInterceptor()) //日志,所有的请求响应度看到 LoggingInterceptor
+                .addInterceptor(addQueryParameterInterceptor()) //参数添加
+                .addInterceptor(addHeaderInterceptor())         //token过滤
+                .addInterceptor(new LoggingInterceptor())       //日志，所有的请求响应都看到 LoggingInterceptor
                 .cache(cache)  //添加缓存
                 .connectTimeout(30l, TimeUnit.SECONDS)
                 .readTimeout(30l, TimeUnit.SECONDS)
