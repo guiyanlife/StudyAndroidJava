@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+def config = rootProject.ext
+def librarys = rootProject.ext.dependencies
+
+android {
+    compileSdkVersion config.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.github.studyandroid.hios"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName "P002_Hios"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation librarys.appcompatV7
+    implementation librarys.multidexVersion
+    testImplementation librarys.junit
+
+    implementation project(':commonlibs:libwebview')
+}

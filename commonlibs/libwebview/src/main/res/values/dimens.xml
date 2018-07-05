@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_bar_height">48dp</dimen>
+    <dimen name="title_icon_height">26dp</dimen>
+    <dimen name="title_icon_width">26dp</dimen>
+    <dimen name="title_font_size">18sp</dimen>
+</resources>
