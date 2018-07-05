@@ -19,7 +19,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitNetNew {
     private static RetrofitNetNew sInstance;
-
     private static Retrofit retrofit;
     private OkHttpClient client;
 
@@ -77,9 +76,22 @@ public class RetrofitNetNew {
     }
 
     /**
-     * 创建一个业务请求 <br />
+     * 创建一个业务请求
      *
-     * @param convertClass 业务请求接口的class
+     * @param convertClass
+     * @param <T>
+     * @return
+     */
+    public static <T> T build(Class<T> convertClass) {
+        return getInstance().get().create(convertClass);
+    }
+
+    /**
+     * 创建一个业务请求
+     *
+     * @param convertClass
+     * @param tag
+     * @param <T>
      * @return
      */
     public static <T> T build(Class<T> convertClass, Object tag) {
@@ -169,8 +181,6 @@ public class RetrofitNetNew {
                 sInstanceApp = app;
             }
         }
-
         return sInstanceApp;
     }
-
 }

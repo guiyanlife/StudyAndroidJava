@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+def config = rootProject.ext
+def librarys = rootProject.ext.dependencies
+
+android {
+    compileSdkVersion config.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.github.studyandroid.retrofit"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName "P001_Retrofit"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation librarys.appcompatV7
+    implementation librarys.multidexVersion
+    implementation librarys.retrofit
+    implementation librarys.retrofitconverters
+    implementation librarys.retrofitgconverter
+
+    implementation project(':commonlibs:libretrofit')
+}
