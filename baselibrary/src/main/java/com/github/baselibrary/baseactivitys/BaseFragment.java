@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.haier.cellarette.baselibrary.common.BaseApp;
-import com.haier.cellarette.baselibrary.common.BaseViewHelper;
+import com.github.baselibrary.common.BaseApp;
+import com.github.baselibrary.common.BaseViewHelper;
 
 
 public abstract class BaseFragment extends Fragment {

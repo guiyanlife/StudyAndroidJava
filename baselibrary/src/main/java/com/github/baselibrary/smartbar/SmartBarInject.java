@@ -3,7 +3,7 @@ package com.github.baselibrary.smartbar;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 
-import com.haier.cellarette.baselibrary.R;
+import com.github.baselibrary.R;
 
 public class SmartBarInject {
 

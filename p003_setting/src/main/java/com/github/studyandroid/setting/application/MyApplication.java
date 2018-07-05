@@ -1,14 +1,13 @@
-package com.github.studyandroid.retrofit.application;
+package com.github.studyandroid.setting.application;
 
 import android.content.Context;
-import android.os.Environment;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
-import com.github.commonlibs.libretrofit.RetrofitNetNew;
+import com.github.commonlibs.libwebview.hios2.HiosHelper;
 
-public class MyApplicaiton extends MultiDexApplication {
-    public static final String DIR_PROJECT = "/studyandroid/retrofit/app/";
+public class MyApplication extends MultiDexApplication {
+    public static final String DIR_PROJECT = "/studyandroid/setting/app/";
     public static final String DIR_CACHE = DIR_PROJECT + "cache/";   // 网页缓存路径
     public static final String IMG_CACHE = DIR_PROJECT + "image/";   // image缓存路径
     public static final String VIDEO_CACHE = DIR_PROJECT + "video/"; // video缓存路径
@@ -22,13 +21,11 @@ public class MyApplicaiton extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        configMyRetrofit();
+        configHios();
     }
 
-    private void configMyRetrofit() {
-        String cacheDir = Environment.getExternalStorageDirectory() + DIR_CACHE;
-        RetrofitNetNew.config();
+    private void configHios() {
+        HiosHelper.config("ad.github.web.page", "github.web.page");
     }
-
 
 }

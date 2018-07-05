@@ -1,5 +1,3 @@
-include ':app', ':p002_hios', ':p001_retrofit', ':p003_setting'
-
 //start commonlibs
 include ':baselibrary'
 
@@ -10,7 +8,7 @@ include ':commonlibs:libmvp',
 //end commonlibs
 
 //start study APP Pxxx
-include ':p001_retrofit',
-        ':p002_hios',
-        ':p003_setting'
+include ':p003_setting',
+        ':p001_retrofit',
+        ':p002_hios'
 //end study APP Pxxx
