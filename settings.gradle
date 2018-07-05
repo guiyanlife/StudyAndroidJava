@@ -1,1 +1,1 @@
-include ':app', ':commonlibs:libwebview', ':commonlibs:libutils', ':hios', ':p002_hios'
+include ':app', ':commonlibs:libmvp', ':commonlibs:libretrofit', ':commonlibs:libutils', ':commonlibs:libwebview', ':p002_hios'

@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-def config = rootProject.ext
-def librarys = rootProject.ext.dependencies
+def config = rootProject.ext //配置
+def librarys = rootProject.ext.dependencies //依赖
 
 android {
     compileSdkVersion config.compileSdkVersion
@@ -11,13 +11,6 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
-    }
-
-    lintOptions {
-        checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
-        abortOnError false
     }
 
     buildTypes {
@@ -31,5 +24,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation librarys.appcompatV7
+    implementation librarys.retrofit
+    implementation librarys.retrofitgconverter
+    implementation librarys.okhttpVersion
+    implementation librarys.okhttploggerinter
+    implementation librarys.gsonJson
 }

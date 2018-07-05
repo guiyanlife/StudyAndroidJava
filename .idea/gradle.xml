@@ -10,9 +10,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/commonlibs" />
+            <option value="$PROJECT_DIR$/commonlibs/libmvp" />
+            <option value="$PROJECT_DIR$/commonlibs/libretrofit" />
             <option value="$PROJECT_DIR$/commonlibs/libutils" />
             <option value="$PROJECT_DIR$/commonlibs/libwebview" />
-            <option value="$PROJECT_DIR$/hios" />
             <option value="$PROJECT_DIR$/p002_hios" />
           </set>
         </option>
