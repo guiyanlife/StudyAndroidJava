@@ -81,6 +81,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         mContext = MainActivity.this;
         initView();
+        setListener();
+        doNetWork();
     }
 
     private void initView() {
@@ -102,7 +104,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         tvCenDegree = f(R.id.tv_cen_degree);
         tvFahDegree = f(R.id.tv_fah_degree);
         tvVolume = f(R.id.tv_volume);
+    }
 
+    private void setListener() {
         tvlogout = f(R.id.tv_logout);
         ivBack.setOnClickListener(this);
         tvClearMemory.setOnClickListener(this);
@@ -119,7 +123,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         scbCenDegree.setOnCheckedChangeListener(this);
         scbFahDegree.setOnCheckedChangeListener(this);
         tvVolume.setOnClickListener(this);
+    }
 
+    private void doNetWork() {
         Message msg = new Message();
         msg.what = MSG_UPDATE_CACHEMEM_UI;
         mHandler.sendMessage(msg);
@@ -158,7 +164,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         } else if (id == R.id.tv_about) {
             Toasty.normal(this, "tv_about").show();
             HiosHelper.resolveAd(MainActivity.this, MainActivity.this, "http://pc.jiuzhidao.com/portal/page/index/id/9.html");
-        } else if (id == R.id.tv_volume){
+        } else if (id == R.id.tv_volume) {
             startActivity(new Intent("hs.act.phone.RingActivity"));
         }
     }
@@ -169,22 +175,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         if (id == R.id.sb_msg_notice) {
             if (isChecked) {
                 Toasty.normal(this, "sb_msg_notice: checked").show();
-            }
-            else {
+            } else {
                 Toasty.normal(this, "sb_msg_notice: unchecked").show();
             }
         } else if (id == R.id.sb_open_notice) {
             if (isChecked) {
                 Toasty.normal(this, "sb_open_notice: checked").show();
-            }
-            else {
+            } else {
                 Toasty.normal(this, "sb_open_notice: unchecked").show();
             }
         } else if (id == R.id.sb_trouble_notice) {
             if (isChecked) {
                 Toasty.normal(this, "sb_trouble_notice: checked").show();
-            }
-            else {
+            } else {
                 Toasty.normal(this, "sb_trouble_notice: unchecked").show();
             }
         }
