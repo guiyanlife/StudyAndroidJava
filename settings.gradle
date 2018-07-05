@@ -1,1 +1,16 @@
-include ':app', ':commonlibs:libmvp', ':commonlibs:libretrofit', ':commonlibs:libutils', ':commonlibs:libwebview', ':p002_hios', ':p001_retrofit'
+include ':app', ':p002_hios', ':p001_retrofit', ':p003_setting'
+
+//start commonlibs
+include ':baselibrary'
+
+include ':commonlibs:libmvp',
+        ':commonlibs:libretrofit',
+        ':commonlibs:libutils',
+        ':commonlibs:libwebview'
+//end commonlibs
+
+//start study APP Pxxx
+include ':p001_retrofit',
+        ':p002_hios',
+        ':p003_setting'
+//end study APP Pxxx
