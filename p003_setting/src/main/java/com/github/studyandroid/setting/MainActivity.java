@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,7 +27,6 @@ import com.github.commonlibs.libwebview.hios2.HiosHelper;
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener, SmoothCheckBox.OnCheckedChangeListener, SwitchButton.OnCheckedChangeListener {
     private static final int MSG_UPDATE_CACHEMEM_UI = 0;
-
     private Context mContext;
     private ImageView ivBack;
     private TextView tvCenDegree;
@@ -44,8 +42,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private TextView tvAbout;
     private TextView tvCacheMem;
     private TextView tvVolume;
-
-
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -74,7 +70,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         super.setup(savedInstanceState);
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
         mContext = MainActivity.this;
         initView();
         setListener();
@@ -180,7 +175,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 Toasty.normal(this, "scb_fah_degree: unchecked").show();
         }
     }
-
 
     private void showAlert(String str, final int flag) {
         final AlertView dialog = new AlertView(mContext, "温馨提示", str,
