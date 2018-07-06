@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+def config = rootProject.ext
+def librarys = rootProject.ext.dependencies
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+    defaultConfig {
+        applicationId "com.github.studyandroid.app"
+        minSdkVersion 22
+        targetSdkVersion 28
+        versionCode 1
+        versionName "App"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation librarys.appcompatV7
+    implementation librarys.multidexVersion
+}

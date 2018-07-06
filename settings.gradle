@@ -8,7 +8,9 @@ include ':commonlibs:libmvp',
 //end commonlibs
 
 //start study APP Pxxx
-include ':p003_setting',
-        ':p001_retrofit',
-        ':p002_hios'
+include ':app'
+
+include ':p001_retrofit',
+        ':p002_hios',
+        ':p003_setting'
 //end study APP Pxxx
