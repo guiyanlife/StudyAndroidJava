@@ -144,7 +144,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             }
         } else if (id == R.id.tv_logout) {
 //            showAlert("你确定退出此账号", 3);
-            startActivity(new Intent("hs.act.phone.uploadpic"));
+            startActivity(new Intent("hs.act.github.phone.uploadpic"));
         } else if (id == R.id.tv_about) {
             Toasty.normal(this, "tv_about").show();
             HiosHelper.resolveAd(MainActivity.this, MainActivity.this, "http://pc.jiuzhidao.com/portal/page/index/id/9.html");
@@ -187,30 +187,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 "取消", "确定");
         dialog.show();
         dialog.setClicklistener(new AlertView.ClickListenerInterface() {
-                                    @Override
-                                    public void doLeft() {
-                                        dialog.dismiss();
-                                    }
+            @Override
+            public void doLeft() {
+                dialog.dismiss();
+            }
 
-                                    @Override
-                                    public void doRight() {
-                                        dialog.dismiss();
-                                        if (flag == 1) {
-                                            //TODO 清除应用缓存
-                                            CacheUtil.clearAllCache(BaseApp.get());
-                                            Toasty.normal(mContext, "清除完毕").show();
+            @Override
+            public void doRight() {
+                dialog.dismiss();
+                if (flag == 1) {
+                    //TODO 清除应用缓存
+                    CacheUtil.clearAllCache(BaseApp.get());
+                    Toasty.normal(mContext, "清除完毕").show();
 
-                                            Message msg = new Message();
-                                            msg.what = MSG_UPDATE_CACHEMEM_UI;
-                                            mHandler.sendMessageDelayed(msg, 500);
-                                        } else if (flag == 2) {
-                                            //TODO 更新应用版本
-                                            Toasty.normal(mContext, "开始更新版本").show();
-                                        } else if (flag == 3) {
-                                            //TODO 退出应用
-                                        }
-                                    }
-                                }
-        );
+                    Message msg = new Message();
+                    msg.what = MSG_UPDATE_CACHEMEM_UI;
+                    mHandler.sendMessageDelayed(msg, 500);
+                } else if (flag == 2) {
+                    //TODO 更新应用版本
+                    Toasty.normal(mContext, "开始更新版本").show();
+                } else if (flag == 3) {
+                    //TODO 退出应用
+                }
+            }
+        });
     }
 }
