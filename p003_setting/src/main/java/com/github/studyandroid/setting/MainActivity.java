@@ -149,7 +149,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             Toasty.normal(this, "tv_about").show();
             HiosHelper.resolveAd(MainActivity.this, MainActivity.this, "http://pc.jiuzhidao.com/portal/page/index/id/9.html");
         } else if (id == R.id.tv_volume) {
-            startActivity(new Intent("hs.act.phone.RingActivity"));
+            startActivity(new Intent("hs.act.github.phone.RingActivity"));
         }
     }
 
