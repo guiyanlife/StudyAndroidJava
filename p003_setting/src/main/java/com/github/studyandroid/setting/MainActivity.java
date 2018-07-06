@@ -38,11 +38,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private TextView tvCheckUpdates;
     private TextView tvlogout;
     private boolean isUpdate = true;
-    private TextView tvAddress;
-    private TextView tvPay;
     private SwitchButton sbMsgNotice;
-    private SwitchButton sbOpenNotice;
-    private SwitchButton sbTroubleNotice;
     private SmoothCheckBox scbCenDegree;
     private SmoothCheckBox scbFahDegree;
     private TextView tvAbout;
@@ -76,8 +72,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     protected void setup(@Nullable Bundle savedInstanceState) {
         super.setup(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         mContext = MainActivity.this;
         initView();
@@ -89,16 +85,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         ivBack = f(R.id.iv_back);
         ivBack.setVisibility(View.VISIBLE);
         tvTitle = f(R.id.tv_title);
-        tvTitle.setText("设置");
+        tvTitle.setText(getResources().getText(R.string.app_name));
         tvClearMemory = f(R.id.tv_clear_memory);
         tvCheckUpdates = f(R.id.tv_check_updates);
-        tvAddress = f(R.id.tv_settings_address);
-        tvPay = f(R.id.tv_settings_pay);
         tvAbout = f(R.id.tv_about);
         tvCacheMem = f(R.id.tv_cache_memory);
         sbMsgNotice = f(R.id.sb_msg_notice);
-        sbOpenNotice = f(R.id.sb_open_notice);
-        sbTroubleNotice = f(R.id.sb_trouble_notice);
         scbCenDegree = f(R.id.scb_cen_degree);
         scbFahDegree = f(R.id.scb_fah_degree);
         tvCenDegree = f(R.id.tv_cen_degree);
@@ -111,15 +103,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         ivBack.setOnClickListener(this);
         tvClearMemory.setOnClickListener(this);
         tvCheckUpdates.setOnClickListener(this);
-        tvAddress.setOnClickListener(this);
-        tvPay.setOnClickListener(this);
         tvlogout.setOnClickListener(this);
         tvAbout.setOnClickListener(this);
         tvCenDegree.setOnClickListener(this);
         tvFahDegree.setOnClickListener(this);
         sbMsgNotice.setOnCheckedChangeListener(this);
-        sbOpenNotice.setOnCheckedChangeListener(this);
-        sbTroubleNotice.setOnCheckedChangeListener(this);
         scbCenDegree.setOnCheckedChangeListener(this);
         scbFahDegree.setOnCheckedChangeListener(this);
         tvVolume.setOnClickListener(this);
@@ -157,10 +145,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         } else if (id == R.id.tv_logout) {
 //            showAlert("你确定退出此账号", 3);
             startActivity(new Intent("hs.act.phone.uploadpic"));
-        } else if (id == R.id.tv_settings_address) {
-            startActivity(new Intent("hs.act.phone.AddressActivity"));
-        } else if (id == R.id.tv_settings_pay) {
-            startActivity(new Intent("hs.act.phone.PayActivity"));
         } else if (id == R.id.tv_about) {
             Toasty.normal(this, "tv_about").show();
             HiosHelper.resolveAd(MainActivity.this, MainActivity.this, "http://pc.jiuzhidao.com/portal/page/index/id/9.html");
@@ -177,18 +161,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 Toasty.normal(this, "sb_msg_notice: checked").show();
             } else {
                 Toasty.normal(this, "sb_msg_notice: unchecked").show();
-            }
-        } else if (id == R.id.sb_open_notice) {
-            if (isChecked) {
-                Toasty.normal(this, "sb_open_notice: checked").show();
-            } else {
-                Toasty.normal(this, "sb_open_notice: unchecked").show();
-            }
-        } else if (id == R.id.sb_trouble_notice) {
-            if (isChecked) {
-                Toasty.normal(this, "sb_trouble_notice: checked").show();
-            } else {
-                Toasty.normal(this, "sb_trouble_notice: unchecked").show();
             }
         }
     }
