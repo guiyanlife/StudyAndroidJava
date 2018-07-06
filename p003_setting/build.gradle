@@ -7,10 +7,11 @@ android {
     buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
+        applicationId "com.github.studyandroid.setting"
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
-        versionName "P003_Setting"
+        versionName "P003_Setting_" + config.versionCode
 
         multiDexEnabled true
         renderscriptTargetApi 19

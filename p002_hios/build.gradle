@@ -10,7 +10,7 @@ android {
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
-        versionName "P002_Hios"
+        versionName "P002_Hios_" + config.versionCode
     }
 
     buildTypes {

@@ -10,7 +10,11 @@ android {
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
-        versionName "P001_Retrofit"
+        versionName "P001_Retrofit_" + config.versionCode
+
+        multiDexEnabled true
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
     }
 
     buildTypes {

@@ -7,10 +7,10 @@ android {
     buildToolsVersion config.buildToolsVersion
     defaultConfig {
         applicationId "com.github.studyandroid.app"
-        minSdkVersion 22
-        targetSdkVersion 28
-        versionCode 1
-        versionName "App"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName "App_" + config.versionCode
     }
 
     buildTypes {
