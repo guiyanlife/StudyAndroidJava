@@ -4,7 +4,8 @@ include ':baselibrary'
 include ':commonlibs:libmvp',
         ':commonlibs:libretrofit',
         ':commonlibs:libutils',
-        ':commonlibs:libwebview'
+        ':commonlibs:libwebview',
+        ':commonlibs:libupdateapputils'
 //end commonlibs
 
 //start study APP Pxxx
