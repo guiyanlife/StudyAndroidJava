@@ -107,7 +107,7 @@ public class DemoUpdateAppMainActivity extends AppCompatActivity implements View
         UpdateAppUtils.from(this)
                 .serverVersionCode(getVersionCode(this))
                 .serverVersionName(getVersionName(this))
-                .downloadDirectory("studyandroid/retrofit/app/")
+                .downloadPath("studyandroid/retrofit/app/" + getPackageName() + ".apk")
                 .apkPath(apkPath)
                 .downloadBy(UpdateAppUtils.DOWNLOAD_BY_APP)    //default
                 .checkBy(UpdateAppUtils.CHECK_BY_VERSION_CODE) //default

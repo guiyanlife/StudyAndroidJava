@@ -10,8 +10,8 @@ android {
         applicationId "com.github.studyandroid.setting"
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        versionCode config.versionCode
-        versionName "P003_Setting_" + config.versionCode
+        versionCode 80
+        versionName "P003_Setting_" + 90
 
         multiDexEnabled true
         renderscriptTargetApi 19
@@ -34,4 +34,5 @@ dependencies {
     implementation librarys.multidexVersion
     implementation project(':baselibrary')
     implementation project(':commonlibs:libwebview')
+    implementation project(':commonlibs:libupdateapputils')
 }

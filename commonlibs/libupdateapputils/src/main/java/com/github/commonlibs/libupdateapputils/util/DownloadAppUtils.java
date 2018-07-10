@@ -37,7 +37,7 @@ class DownloadAppUtils {
 
 
 
-    public static void download(final Context context, String url, String downloadDirectory) {
+    public static void download(final Context context, String url, String downloadPath) {
 
         final String packageName = context.getPackageName();
         String filePath = null;
@@ -48,7 +48,7 @@ class DownloadAppUtils {
             return;
         }
 
-        String apkLocalPath = filePath + File.separator + downloadDirectory + File.separator + packageName + ".apk";
+        String apkLocalPath = filePath + File.separator + downloadPath;
 
         downloadUpdateApkFilePath = apkLocalPath;
 

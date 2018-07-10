@@ -33,7 +33,7 @@ public class UpdateAppUtils {
     private int downloadBy = DOWNLOAD_BY_APP;
     private int serverVersionCode = 0;
     private String apkPath="";
-    private String downloadDirectory="";
+    private String downloadPath="";
     private String serverVersionName="";
     private boolean isForce = false; //是否强制更新
     private int localVersionCode = 0;
@@ -51,6 +51,7 @@ public class UpdateAppUtils {
     private UpdateAppUtils(Activity activity) {
         this.activity = activity;
         getAPPLocalVersion(activity);
+        downloadPath = activity.getPackageName() + ".apk";
     }
 
     public static UpdateAppUtils from(Activity activity){
@@ -73,12 +74,12 @@ public class UpdateAppUtils {
     }
 
     /**
-     * 指定APK下载目录，base目录为/sdcard
-     * @param downloadDirectory
+     * 指定APK下载路径，base目录为/sdcard
+     * @param downloadPath
      * @return
      */
-    public UpdateAppUtils downloadDirectory(String downloadDirectory){
-        this.downloadDirectory = downloadDirectory;
+    public UpdateAppUtils downloadPath(String downloadPath){
+        this.downloadPath = downloadPath;
         return this;
     }
 
@@ -164,20 +165,19 @@ public class UpdateAppUtils {
                     case 1:  //sure
                         if (downloadBy == DOWNLOAD_BY_APP) {
                             if (isWifiConnected(activity)){
-                                DownloadAppUtils.download(activity, apkPath, downloadDirectory);
+                                DownloadAppUtils.download(activity, apkPath, downloadPath);
                             }else {
                                 new ConfirmDialogNew(activity, new Callback() {
                                     @Override
                                     public void callback(int position) {
                                         if (position==1){
-                                            DownloadAppUtils.download(activity, apkPath, downloadDirectory);
+                                            DownloadAppUtils.download(activity, apkPath, downloadPath);
                                         }else {
                                             if (isForce)activity.finish();
                                         }
                                     }
                                 }).setContent("目前手机不是WiFi状态\n确认是否继续下载更新？").setTitle("友情提示").show();
                             }
-
                         }else if (downloadBy == DOWNLOAD_BY_BROWSER){
                             DownloadAppUtils.downloadForWebView(activity,apkPath);
                         }
@@ -219,11 +219,10 @@ public class UpdateAppUtils {
     private void removeLocalApk(){
         int apkLocalVersionCode;
 
-        String packageName = activity.getPackageName();
         String filePath = "";
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) //外部存储卡
             filePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        String apkLocalPath = filePath + File.separator + downloadDirectory + File.separator + packageName + ".apk";
+        String apkLocalPath = filePath + File.separator + downloadPath;
 
         if(FileApkUtil.isFileExists(apkLocalPath)) {  //如果本地已经下载了安装包APP，并且该安装包APP的VersionCode小于服务器，则删除该APP
             apkLocalVersionCode = FileApkUtil.getApkVersionCode(activity, apkLocalPath);
