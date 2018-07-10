@@ -37,6 +37,24 @@ public final class FileApkUtil {
     }
 
     /**
+     * 获取指定路径下的apk的版本号(VersionCode)
+     *
+     * @param context
+     * @param lujing
+     * @return
+     */
+    public static int getApkVersionCode(Context context, String lujing) {
+        int versionCode = 0;
+        PackageManager pm = context.getPackageManager();
+        PackageInfo info = pm.getPackageArchiveInfo(lujing, PackageManager.GET_ACTIVITIES);
+        if (info != null) {
+            versionCode = info.versionCode;             //得到版本信息
+        }
+        return versionCode;
+    }
+
+
+    /**
      * Return the file by path.
      *
      * @param filePath The path of file.
@@ -75,5 +93,23 @@ public final class FileApkUtil {
             }
         }
         return true;
+    }
+
+    /**
+     * 删除单个文件
+     * @param fileName 要删除的文件的文件名
+     * @return 单个文件删除成功返回true，否则返回false
+     */
+    public static boolean deleteFile(String fileName) {
+        File file = new File(fileName);
+        if (file.exists() && file.isFile()) { // 如果文件路径所对应的文件存在，并且是一个文件，则直接删除
+            if (file.delete()) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }

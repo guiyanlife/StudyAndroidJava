@@ -37,9 +37,9 @@ class DownloadAppUtils {
 
 
 
-    public static void download(final Context context, String url, final String serverVersionName) {
+    public static void download(final Context context, String url, String downloadDirectory) {
 
-        String packageName = context.getPackageName();
+        final String packageName = context.getPackageName();
         String filePath = null;
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {//外部存储卡
             filePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -48,7 +48,7 @@ class DownloadAppUtils {
             return;
         }
 
-        String apkLocalPath= filePath + File.separator + packageName + "_"+serverVersionName+".apk";
+        String apkLocalPath = filePath + File.separator + downloadDirectory + File.separator + packageName + ".apk";
 
         downloadUpdateApkFilePath = apkLocalPath;
 
@@ -63,7 +63,7 @@ class DownloadAppUtils {
 
                     @Override
                     protected void progress(BaseDownloadTask task, long soFarBytes, long totalBytes) {
-                        send(context, (int) (soFarBytes*100.0/totalBytes),serverVersionName);
+                        send(context, (int) (soFarBytes*100.0/totalBytes),packageName);
                     }
 
                     @Override
@@ -72,7 +72,7 @@ class DownloadAppUtils {
 
                     @Override
                     protected void completed(BaseDownloadTask task) {
-                        send(context,100,serverVersionName);
+                        send(context,100,packageName);
                     }
 
                     @Override
@@ -85,9 +85,6 @@ class DownloadAppUtils {
                     }
                 }).start();
     }
-
-
-
 
     private static void send(Context context, int progress, String serverVersionName) {
         Intent intent = new Intent("teprinciple.update");

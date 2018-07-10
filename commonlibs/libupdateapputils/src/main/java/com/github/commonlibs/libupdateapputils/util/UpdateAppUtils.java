@@ -2,16 +2,20 @@ package com.github.commonlibs.libupdateapputils.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.github.commonlibs.libupdateapputils.customview.ConfirmDialogNew;
 import com.github.commonlibs.libupdateapputils.feature.Callback;
+
+import java.io.File;
 
 
 /**
@@ -29,6 +33,7 @@ public class UpdateAppUtils {
     private int downloadBy = DOWNLOAD_BY_APP;
     private int serverVersionCode = 0;
     private String apkPath="";
+    private String downloadDirectory="";
     private String serverVersionName="";
     private boolean isForce = false; //是否强制更新
     private int localVersionCode = 0;
@@ -64,6 +69,16 @@ public class UpdateAppUtils {
 
     public UpdateAppUtils downloadBy(int downloadBy){
         this.downloadBy = downloadBy;
+        return this;
+    }
+
+    /**
+     * 指定APK下载目录，base目录为/sdcard
+     * @param downloadDirectory
+     * @return
+     */
+    public UpdateAppUtils downloadDirectory(String downloadDirectory){
+        this.downloadDirectory = downloadDirectory;
         return this;
     }
 
@@ -133,6 +148,7 @@ public class UpdateAppUtils {
     }
 
     private void toUpdate() {
+        removeLocalApk();
         realUpdate();
     }
 
@@ -148,13 +164,13 @@ public class UpdateAppUtils {
                     case 1:  //sure
                         if (downloadBy == DOWNLOAD_BY_APP) {
                             if (isWifiConnected(activity)){
-                                DownloadAppUtils.download(activity, apkPath, serverVersionName);
+                                DownloadAppUtils.download(activity, apkPath, downloadDirectory);
                             }else {
                                 new ConfirmDialogNew(activity, new Callback() {
                                     @Override
                                     public void callback(int position) {
                                         if (position==1){
-                                            DownloadAppUtils.download(activity, apkPath, serverVersionName);
+                                            DownloadAppUtils.download(activity, apkPath, downloadDirectory);
                                         }else {
                                             if (isForce)activity.finish();
                                         }
@@ -200,5 +216,21 @@ public class UpdateAppUtils {
         return false;
     }
 
+    private void removeLocalApk(){
+        int apkLocalVersionCode;
+
+        String packageName = activity.getPackageName();
+        String filePath = "";
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) //外部存储卡
+            filePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        String apkLocalPath = filePath + File.separator + downloadDirectory + File.separator + packageName + ".apk";
+
+        if(FileApkUtil.isFileExists(apkLocalPath)) {  //如果本地已经下载了安装包APP，并且该安装包APP的VersionCode小于服务器，则删除该APP
+            apkLocalVersionCode = FileApkUtil.getApkVersionCode(activity, apkLocalPath);
+            if(apkLocalVersionCode < serverVersionCode) {
+                FileApkUtil.deleteFile(apkLocalPath);
+            }
+        }
+    }
 
 }

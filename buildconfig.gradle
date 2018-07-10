@@ -6,7 +6,7 @@ ext {
     targetSdkVersion = compileSdkVersion
     supportLibVersion = '27.1.0'
 
-    versionCode = 100
+    versionCode = 90
     versionNamePrefixT = "T_101_"
     versionNamePrefixY = "Y_101_"
     versionNamePrefixO = "O_101_"

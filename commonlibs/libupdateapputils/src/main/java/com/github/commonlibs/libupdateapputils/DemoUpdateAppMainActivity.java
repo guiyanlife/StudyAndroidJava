@@ -27,8 +27,8 @@ public class DemoUpdateAppMainActivity extends AppCompatActivity implements View
     private Button BtnCheckNameUpdate;
 
     //服务器apk path,这里放了百度云盘的apk 作为测试
-    //public static final String apkPath = "http://p.gdown.baidu.com/e1ab5af129ff62cba3836250ea3447eb08fd6c60f1fd9c963ae7847c8102c98c10a29889b721f49dcb3c945064dd2e9483aed1b7852354134e43779405e8baf93307c409488d014f8b565660f1d0606392ea7dc77c31ff80e8cc78971579434d78d61eac9e1379c3296efa6fe61f1077558a3e7e8db84983959d6ba6167d0b7a10037f1e31675a27c3379d13c6611b348739684a047bea914fb5d8fa68981f747f2c8c76783bdb7ed91752dd5a730c41409e6e530a24872e926a7e6678711e4c50fc22bc8741fc33c1250aa4f4faf971fecb50b13fa99f475555672eff782d2ad027f08cf25e8daac4522a25937b515fd1c39f6feeb5364f4d552b5f059b71c8f0135f840c72a47d57f8bb9db6125545c6a666a7b9e2ec26b8420f96f1a4d67c";
-    String apkPath = "http://issuecdn.baidupcs.com/issue/netdisk/apk/BaiduNetdisk_7.15.1.apk";
+    public static final String apkPath = "https://gzcu01.baidupcs.com/file/fbe04ab97ffc3f1a1df8f89b72c046be?bkt=p3-1400fbe04ab97ffc3f1a1df8f89b72c046be04caf4aa00000016cf8c&fid=949727843-250528-329376434616312&time=1531209429&sign=FDTAXGERLQBHSK-DCb740ccc5511e5e8fedcff06b081203-iyJs6pg%2FQgq%2FM1gGcO40CaJejXQ%3D&to=86&size=1494924&sta_dx=1494924&sta_cs=0&sta_ft=apk&sta_ct=0&sta_mt=0&fm2=MH%2CYangquan%2CAnywhere%2C%2Cshandong%2Ccnc&vuk=282335&iv=-2&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=1400fbe04ab97ffc3f1a1df8f89b72c046be04caf4aa00000016cf8c&sl=82640974&expires=8h&rt=sh&r=480562062&mlogid=9033738385069134932&vbdid=3161151419&fin=app-debug.apk&rtype=1&dp-logid=9033738385069134932&dp-callid=0.1.1&hps=1&tsl=50&csl=78&csign=0vnYzTYv2VV%2Ff%2FRkrbacf8q2JPs%3D&so=0&ut=8&uter=4&serv=0&uc=1093133633&ic=3776359306&ti=26fa64dbec2882241f1721f891ccd3f01d4a766ae094f7e8305a5e1275657320&by=themis";
+    //String apkPath = "http://issuecdn.baidupcs.com/issue/netdisk/apk/BaiduNetdisk_7.15.1.apk";
     private int code = 0;
 
     @Override
@@ -105,8 +105,9 @@ public class DemoUpdateAppMainActivity extends AppCompatActivity implements View
     //基本更新（使用本APP进行下载）
     private void update1() {
         UpdateAppUtils.from(this)
-                .serverVersionCode(getVersionCode(this)+1)
-                .serverVersionName(getVersionName(this)+"aaaa")
+                .serverVersionCode(getVersionCode(this))
+                .serverVersionName(getVersionName(this))
+                .downloadDirectory("studyandroid/retrofit/app/")
                 .apkPath(apkPath)
                 .downloadBy(UpdateAppUtils.DOWNLOAD_BY_APP)    //default
                 .checkBy(UpdateAppUtils.CHECK_BY_VERSION_CODE) //default
