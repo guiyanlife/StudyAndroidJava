@@ -134,16 +134,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             showAlert("确定要清除缓存吗？", 1);
         } else if (id == R.id.tv_check_updates) {
             UpdateAppUtils.from(this)
-                    .serverVersionCode(99)
-                    .serverVersionName("P003_Setting_90")
-                    .downloadPath("studyandroid/retrofit/app/" + "P003_Setting" + ".apk")
-                    .apkPath("https://gzcu01.baidupcs.com/file/fbe04ab97ffc3f1a1df8f89b72c046be?bkt=p3-1400fbe04ab97ffc3f1a1df8f89b72c046be04caf4aa00000016cf8c&fid=949727843-250528-329376434616312&time=1531209429&sign=FDTAXGERLQBHSK-DCb740ccc5511e5e8fedcff06b081203-iyJs6pg%2FQgq%2FM1gGcO40CaJejXQ%3D&to=86&size=1494924&sta_dx=1494924&sta_cs=0&sta_ft=apk&sta_ct=0&sta_mt=0&fm2=MH%2CYangquan%2CAnywhere%2C%2Cshandong%2Ccnc&vuk=282335&iv=-2&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=1400fbe04ab97ffc3f1a1df8f89b72c046be04caf4aa00000016cf8c&sl=82640974&expires=8h&rt=sh&r=480562062&mlogid=9033738385069134932&vbdid=3161151419&fin=app-debug.apk&rtype=1&dp-logid=9033738385069134932&dp-callid=0.1.1&hps=1&tsl=50&csl=78&csign=0vnYzTYv2VV%2Ff%2FRkrbacf8q2JPs%3D&so=0&ut=8&uter=4&serv=0&uc=1093133633&ic=3776359306&ti=26fa64dbec2882241f1721f891ccd3f01d4a766ae094f7e8305a5e1275657320&by=themis")
-                    .downloadBy(UpdateAppUtils.DOWNLOAD_BY_APP)    //default
-                    .checkBy(UpdateAppUtils.CHECK_BY_VERSION_CODE) //default
+                    .serverVersionCode(9999)
+                    .serverVersionName("P003_Setting")
+                    .downloadPath("updateapp/P003_Setting.apk")
+                    .apkPath("http://issuecdn.baidupcs.com/issue/netdisk/apk/BaiduNetdisk_7.15.1.apk")
                     .updateInfoTitle("新版本已准备好")
-                    .updateInfo("版本：7.42" + "    " + "大小：28.41M\n" + "1.商户加入群聊，在线沟通更方便\n2.配送费专属优惠，下单更便宜\n3.新客加大福利，更多优惠等你来")
-//                .showNotification(false)
-//                .needFitAndroidN(false)
+                    .updateInfo("版本：1.01" + "    " + "大小：2.41M\n" + "1.商户加入群聊，在线沟通更方便\n2.配送费专属优惠，下单更便宜\n3.新客加大福利，更多优惠等你来")
                     .update();
         } else if (id == R.id.tv_logout) {
 //            showAlert("你确定退出此账号", 3);

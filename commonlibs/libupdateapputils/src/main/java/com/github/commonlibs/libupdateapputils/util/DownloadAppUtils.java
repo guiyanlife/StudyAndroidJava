@@ -37,19 +37,9 @@ class DownloadAppUtils {
 
 
 
-    public static void download(final Context context, String url, String downloadPath) {
+    public static void download(final Context context, String url, String apkLocalPath) {
 
         final String packageName = context.getPackageName();
-        String filePath = null;
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {//外部存储卡
-            filePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        } else {
-            Log.i(TAG, "没有SD卡");
-            return;
-        }
-
-        String apkLocalPath = filePath + File.separator + downloadPath;
-
         downloadUpdateApkFilePath = apkLocalPath;
 
         FileDownloader.setup(context);
@@ -92,6 +82,4 @@ class DownloadAppUtils {
         intent.putExtra("title",serverVersionName);
         context.sendBroadcast(intent);
     }
-
-
 }

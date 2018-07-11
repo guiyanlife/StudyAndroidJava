@@ -10,8 +10,8 @@ android {
         applicationId "com.github.studyandroid.setting"
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        versionCode 80
-        versionName "P003_Setting_" + 90
+        versionCode config.versionCode
+        versionName "P003_Setting_" + config.versionCode
 
         multiDexEnabled true
         renderscriptTargetApi 19

@@ -34,6 +34,7 @@ public class UpdateAppUtils {
     private int serverVersionCode = 0;
     private String apkPath="";
     private String downloadPath="";
+    private String apkLocalPath = "";
     private String serverVersionName="";
     private boolean isForce = false; //是否强制更新
     private int localVersionCode = 0;
@@ -52,6 +53,7 @@ public class UpdateAppUtils {
         this.activity = activity;
         getAPPLocalVersion(activity);
         downloadPath = activity.getPackageName() + ".apk";
+        apkLocalPath = get_file_url(activity) + File.separator + downloadPath;
     }
 
     public static UpdateAppUtils from(Activity activity){
@@ -74,12 +76,13 @@ public class UpdateAppUtils {
     }
 
     /**
-     * 指定APK下载路径，base目录为/sdcard
+     * 指定APK下载路径，base目录为/sdcard/Android/data/<Package Name>/cache/
      * @param downloadPath
      * @return
      */
     public UpdateAppUtils downloadPath(String downloadPath){
         this.downloadPath = downloadPath;
+        this.apkLocalPath = get_file_url(activity) + File.separator + downloadPath;
         return this;
     }
 
@@ -165,13 +168,13 @@ public class UpdateAppUtils {
                     case 1:  //sure
                         if (downloadBy == DOWNLOAD_BY_APP) {
                             if (isWifiConnected(activity)){
-                                DownloadAppUtils.download(activity, apkPath, downloadPath);
+                                DownloadAppUtils.download(activity, apkPath, apkLocalPath);
                             }else {
                                 new ConfirmDialogNew(activity, new Callback() {
                                     @Override
                                     public void callback(int position) {
                                         if (position==1){
-                                            DownloadAppUtils.download(activity, apkPath, downloadPath);
+                                            DownloadAppUtils.download(activity, apkPath, apkLocalPath);
                                         }else {
                                             if (isForce)activity.finish();
                                         }
@@ -219,17 +222,28 @@ public class UpdateAppUtils {
     private void removeLocalApk(){
         int apkLocalVersionCode;
 
-        String filePath = "";
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) //外部存储卡
-            filePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        String apkLocalPath = filePath + File.separator + downloadPath;
-
         if(FileApkUtil.isFileExists(apkLocalPath)) {  //如果本地已经下载了安装包APP，并且该安装包APP的VersionCode小于服务器，则删除该APP
             apkLocalVersionCode = FileApkUtil.getApkVersionCode(activity, apkLocalPath);
             if(apkLocalVersionCode < serverVersionCode) {
                 FileApkUtil.deleteFile(apkLocalPath);
             }
         }
+    }
+
+    /**
+     * 获取assets路径bufen
+     *
+     * @return
+     */
+    public String get_file_url(Context context) {
+        String file_apk_url;
+        File file_apks = context.getExternalCacheDir();
+        if (file_apks != null) {
+            file_apk_url = file_apks.getAbsolutePath();
+        } else {
+            file_apk_url = Environment.getExternalStorageDirectory().getAbsolutePath();
+        }
+        return file_apk_url;
     }
 
 }
