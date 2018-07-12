@@ -5,10 +5,9 @@ import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.FileProvider;
+
+import com.github.commonlibs.libfileprovider.FileProvider7;
 
 import java.io.File;
 
@@ -44,16 +43,10 @@ public class UpdateAppReceiver extends BroadcastReceiver {
             if (nm != null) nm.cancel(notifyId);
 
             if (DownloadAppUtils.downloadUpdateApkFilePath != null) {
-                Intent i = new Intent(Intent.ACTION_VIEW);
                 File apkFile = new File(DownloadAppUtils.downloadUpdateApkFilePath);
-                if (UpdateAppUtils.needFitAndroidN && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    i.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    Uri contentUri = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", apkFile);
-                    i.setDataAndType(contentUri, "application/vnd.android.package-archive");
-                } else {
-                    i.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
-                }
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                FileProvider7.setIntentDataAndType(context, i, "application/vnd.android.package-archive", apkFile, true);
                 context.startActivity(i);
             }
         }

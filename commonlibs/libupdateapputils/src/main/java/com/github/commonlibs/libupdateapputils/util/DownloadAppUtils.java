@@ -3,16 +3,11 @@ package com.github.commonlibs.libupdateapputils.util;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Environment;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadLargeFileListener;
 import com.liulishuo.filedownloader.FileDownloader;
-
-import java.io.File;
-
 
 /**
  * Created by Teprinciple on 2016/12/13.

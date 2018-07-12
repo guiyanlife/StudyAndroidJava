@@ -5,7 +5,8 @@ include ':commonlibs:libmvp',
         ':commonlibs:libretrofit',
         ':commonlibs:libutils',
         ':commonlibs:libwebview',
-        ':commonlibs:libupdateapputils'
+        ':commonlibs:libupdateapputils',
+        ':commonlibs:libfileprovider'
 //end commonlibs
 
 //start study APP Pxxx
