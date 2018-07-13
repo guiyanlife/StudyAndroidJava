@@ -8,12 +8,14 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.github.commonlibs.libupdateapputils.customview.ConfirmDialogNew;
 import com.github.commonlibs.libupdateapputils.feature.Callback;
+import com.github.commonlibs.libupdateapputils.view.AppUpdateProgressDialog;
 
 import java.io.File;
 
@@ -41,8 +43,11 @@ public class UpdateAppUtils {
     private String localVersionName="";
     public static boolean needFitAndroidN = true; //提供给 整个工程不需要适配到7.0的项目 置为false
     public static boolean showNotification = true;
+    public static boolean showProgress = false;
     private String updateInfo = "";
     private String updateInfoTitle = "";
+
+    public static AppUpdateProgressDialog mProgressDialog = null;
 
     public UpdateAppUtils needFitAndroidN(boolean needFitAndroidN) {
         UpdateAppUtils.needFitAndroidN = needFitAndroidN;
@@ -88,6 +93,13 @@ public class UpdateAppUtils {
 
     public UpdateAppUtils showNotification(boolean showNotification){
         this.showNotification = showNotification;
+        return this;
+    }
+
+    public UpdateAppUtils showProgress(boolean showProgress){
+        this.showProgress = showProgress;
+        if (this.showNotification)
+            mProgressDialog = new AppUpdateProgressDialog(activity);
         return this;
     }
 

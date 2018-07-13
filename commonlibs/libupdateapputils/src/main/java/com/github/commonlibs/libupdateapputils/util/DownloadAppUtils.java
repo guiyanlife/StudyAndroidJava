@@ -9,6 +9,7 @@ import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadLargeFileListener;
 import com.liulishuo.filedownloader.FileDownloader;
 
+
 /**
  * Created by Teprinciple on 2016/12/13.
  */
@@ -37,6 +38,11 @@ class DownloadAppUtils {
         final String packageName = context.getPackageName();
         downloadUpdateApkFilePath = apkLocalPath;
 
+
+        if(!FileApkUtil.isFileExists(downloadUpdateApkFilePath)) {
+            if (UpdateAppUtils.showProgress)
+                UpdateAppUtils.mProgressDialog.show();
+        }
         FileDownloader.setup(context);
 
         FileDownloader.getImpl().create(url)

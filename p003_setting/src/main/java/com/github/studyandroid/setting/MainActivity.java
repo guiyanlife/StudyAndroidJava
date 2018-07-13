@@ -134,8 +134,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             showAlert("确定要清除缓存吗？", 1);
         } else if (id == R.id.tv_check_updates) {
             UpdateAppUtils.from(this)
-                    .serverVersionCode(9999)
+                    .serverVersionCode(100)
                     .serverVersionName("P003_Setting")
+                    .showProgress(true)
                     .downloadPath("updateapp/P003_Setting.apk")
                     .apkPath("http://issuecdn.baidupcs.com/issue/netdisk/apk/BaiduNetdisk_7.15.1.apk")
                     .updateInfoTitle("新版本已准备好")

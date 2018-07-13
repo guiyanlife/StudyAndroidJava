@@ -107,6 +107,7 @@ public class DemoUpdateAppMainActivity extends AppCompatActivity implements View
                 .serverVersionCode(getVersionCode(this) + 1)
                 .serverVersionName(getVersionName(this))
                 .downloadPath("updateapp/" + getPackageName() + ".apk")
+                .showProgress(true)
                 .apkPath(apkPath)
                 .downloadBy(UpdateAppUtils.DOWNLOAD_BY_APP)    //default
                 .checkBy(UpdateAppUtils.CHECK_BY_VERSION_CODE) //default

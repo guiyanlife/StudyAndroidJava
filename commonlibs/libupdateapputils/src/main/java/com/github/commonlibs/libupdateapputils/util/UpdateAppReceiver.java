@@ -12,6 +12,7 @@ import com.github.commonlibs.libfileprovider.FileProvider7;
 import java.io.File;
 
 
+
 /**
  * Created by Teprinciple on 2017/11/3.
  */
@@ -38,9 +39,14 @@ public class UpdateAppReceiver extends BroadcastReceiver {
             nm.notify(notifyId, notification);
         }
 
+        if(UpdateAppUtils.showProgress)
+            UpdateAppUtils.mProgressDialog.setProgress(progress);
 
         if (progress == 100) {
             if (nm != null) nm.cancel(notifyId);
+
+            if(UpdateAppUtils.showProgress)
+                UpdateAppUtils.mProgressDialog.dismiss();
 
             if (DownloadAppUtils.downloadUpdateApkFilePath != null) {
                 File apkFile = new File(DownloadAppUtils.downloadUpdateApkFilePath);
