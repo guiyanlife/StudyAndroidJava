@@ -11,7 +11,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glide38);
+        findView();
+        setListener();
+        doNetWork();
+    }
+
+    private void findView() {
+    }
+
+    private void setListener() {
         findViewById(R.id.tv_content).setOnClickListener(this);
+    }
+
+    private void doNetWork() {
     }
 
     @Override
