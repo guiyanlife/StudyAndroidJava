@@ -6,7 +6,8 @@ include ':commonlibs:libmvp',
         ':commonlibs:libutils',
         ':commonlibs:libwebview',
         ':commonlibs:libupdateapputils',
-        ':commonlibs:libfileprovider'
+        ':commonlibs:libfileprovider',
+        ':commonlibs:libglide38'
 //end commonlibs
 
 //start study APP Pxxx
@@ -14,5 +15,6 @@ include ':app'
 
 include ':p001_retrofit',
         ':p002_hios',
-        ':p003_setting'
+        ':p003_setting',
+        ':p004_glide38'
 //end study APP Pxxx

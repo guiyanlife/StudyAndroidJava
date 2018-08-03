@@ -1,17 +1,16 @@
 apply plugin: 'com.android.library'
 def config = rootProject.ext //配置
 def librarys = rootProject.ext.dependencies //依赖
+
 android {
     compileSdkVersion config.compileSdkVersion
     buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
-        multiDexEnabled true
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
-        multiDexEnabled true
     }
 
     buildTypes {
@@ -26,15 +25,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation librarys.design
     implementation librarys.appcompatV7
-    implementation librarys.supportannotations
     implementation librarys.recyclerviewv7
     implementation librarys.cardviewv7
 
-    implementation librarys.nineoldandroids
-    implementation librarys.zxing
     implementation librarys.glide38
-    implementation librarys.fastJson
-    implementation librarys.gsonJson
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'
 }

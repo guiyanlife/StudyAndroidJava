@@ -1,23 +1,28 @@
-apply plugin: 'com.android.library'
-def config = rootProject.ext //配置
-def librarys = rootProject.ext.dependencies //依赖
+apply plugin: 'com.android.application'
+def config = rootProject.ext
+def librarys = rootProject.ext.dependencies
+
 android {
     compileSdkVersion config.compileSdkVersion
     buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
-        multiDexEnabled true
+        applicationId "com.github.studyandroid.glide38"
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
-        versionName config.versionName
+        versionName "P004_Glide38_" + config.versionCode
+
         multiDexEnabled true
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
 
@@ -26,15 +31,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation librarys.design
     implementation librarys.appcompatV7
-    implementation librarys.supportannotations
-    implementation librarys.recyclerviewv7
-    implementation librarys.cardviewv7
-
-    implementation librarys.nineoldandroids
-    implementation librarys.zxing
-    implementation librarys.glide38
-    implementation librarys.fastJson
-    implementation librarys.gsonJson
+    implementation librarys.multidexVersion
+    implementation project(':commonlibs:libglide38')
 }
