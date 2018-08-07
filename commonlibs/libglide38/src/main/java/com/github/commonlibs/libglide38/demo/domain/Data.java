@@ -120,14 +120,16 @@ public class Data {
                 "http://img.my.csdn.net/uploads/201701/13/1484296286_7908.png",
                 "http://img.my.csdn.net/uploads/201701/13/1484296286_7013.png",
                 "http://img.my.csdn.net/uploads/201701/13/1484296286_6401.jpg",
-                "http://img.my.csdn.net/uploads/201701/13/1484296106_5671.png"
+                "http://img.my.csdn.net/uploads/201701/13/1484296106_5671.png",
+                "http://img.my.csdn.net/uploads/201701/13/1484296122_9613.jpg"
         );
         data6.pictureThumbList = Arrays.asList(
                 "http://img.my.csdn.net/uploads/201701/17/1484647898_9300.png",
                 "http://img.my.csdn.net/uploads/201701/17/1484647278_2143.png",
                 "http://img.my.csdn.net/uploads/201701/17/1484647816_4929.png",
                 "http://img.my.csdn.net/uploads/201701/17/1484647817_5319.jpg",
-                "http://img.my.csdn.net/uploads/201701/17/1484647818_3369.png"
+                "http://img.my.csdn.net/uploads/201701/17/1484647818_3369.png",
+                "http://img.my.csdn.net/uploads/201701/17/1484647818_9583.jpg"
         );
 
         dataList.add(data1);

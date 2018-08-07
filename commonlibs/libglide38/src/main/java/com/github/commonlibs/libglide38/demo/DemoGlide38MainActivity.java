@@ -1,6 +1,7 @@
 package com.github.commonlibs.libglide38.demo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -23,15 +25,17 @@ import com.github.commonlibs.libglide38.demo.domain.Data;
 import com.github.commonlibs.libglide38.base.util.Utils;
 
 
-public class DemoGlide38MainActivity extends Activity implements MessagePicturesLayout.Callback, ImageWatcher.OnPictureLongPressListener {
-
+public class DemoGlide38MainActivity extends Activity implements MessagePicturesLayout.Callback, ImageWatcher.OnPictureLongPressListener, View.OnClickListener {
     private ImageWatcher vImageWatcher;
 
     private RecyclerView vRecycler;
     private MessageAdapter adapter;
+    private TextView mTvTitle;
+    private ImageView mIvBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
         boolean isTranslucentStatus = false;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -44,6 +48,11 @@ public class DemoGlide38MainActivity extends Activity implements MessagePictures
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_glide38);
+
+        mTvTitle = findViewById(R.id.title);
+        mTvTitle.setText(intent.getStringExtra("title"));
+        mIvBack = findViewById(R.id.ic_back);
+        mIvBack.setOnClickListener(this);
 
         vRecycler = (RecyclerView) findViewById(R.id.v_recycler);
         vRecycler.setLayoutManager(new LinearLayoutManager(this));
@@ -79,5 +88,13 @@ public class DemoGlide38MainActivity extends Activity implements MessagePictures
             return;
         }
         super.onBackPressed();
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.ic_back) {
+            onBackPressed();
+        }
     }
 }

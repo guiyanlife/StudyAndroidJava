@@ -33,5 +33,6 @@ dependencies {
 
     implementation librarys.appcompatV7
     implementation librarys.multidexVersion
+    implementation project(':baselibrary')
     implementation project(':commonlibs:libglide38')
 }

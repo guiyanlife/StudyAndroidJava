@@ -8,17 +8,25 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
+        <include
+            layout="@layout/gilde38_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <com.github.commonlibs.libglide38.base.MessagePicturesLayout
+        <com.github.commonlibs.libglide38.base.MessagePicturesLayout
         android:id="@+id/mpl_pictures"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/t_content"
-        android:layout_marginTop="10dip" />
+        android:layout_margin="8dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="#E1E1E1"/>
 
     </LinearLayout>
 
