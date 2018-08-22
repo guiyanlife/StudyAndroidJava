@@ -19,5 +19,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".tagcloud.demo.DemoTagCloudMainActivity">
+            <intent-filter>
+                <action android:name="hs.act.github.phone.DemoTagCloudMainActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".tagcloud.demo.FragmentTestTagCloudActivity" />
+
     </application>
 </manifest>

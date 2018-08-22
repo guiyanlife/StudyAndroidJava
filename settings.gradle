@@ -1,5 +1,5 @@
 //start commonlibs
-include ':baselibrary'
+include ':baselibrary', ':p005_animation'
 
 include ':commonlibs:libmvp',
         ':commonlibs:libretrofit',

@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/p002_hios" />
             <option value="$PROJECT_DIR$/p003_setting" />
             <option value="$PROJECT_DIR$/p004_glide38" />
+            <option value="$PROJECT_DIR$/p005_animation" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

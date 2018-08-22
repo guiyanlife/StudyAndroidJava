@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/ly_top"
+        layout="@layout/top_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_top"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y53"
+                android:background="#EDEBE9">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/x28"
+                    android:paddingRight="@dimen/x28"
+                    android:text="TagCloud"
+                    android:textColor="#888580"
+                    android:textSize="@dimen/text_size_12" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_original_3d_tag_cloud"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y106"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawablePadding="@dimen/x20"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/x28"
+                android:paddingRight="@dimen/x28"
+                android:text="Original 3DTagCloud"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/text_size_16" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/x28"
+                android:layout_marginRight="@dimen/x28"
+                android:background="#DCDCDC" />
+
+            <TextView
+                android:id="@+id/tv_one_multiply_one"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y106"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawablePadding="@dimen/x20"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/x28"
+                android:paddingRight="@dimen/x28"
+                android:text="Sudoku 1x1"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/text_size_16" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/x28"
+                android:layout_marginRight="@dimen/x28"
+                android:background="#DCDCDC" />
+
+            <TextView
+                android:id="@+id/tv_one_multiply_two"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y106"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawablePadding="@dimen/x20"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/x28"
+                android:paddingRight="@dimen/x28"
+                android:text="Sudoku 1x2"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/text_size_16" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/x28"
+                android:layout_marginRight="@dimen/x28"
+                android:background="#DCDCDC" />
+
+            <TextView
+                android:id="@+id/tv_one_multiply_three"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y106"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawablePadding="@dimen/x20"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/x28"
+                android:paddingRight="@dimen/x28"
+                android:text="Sudoku 1x3"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/text_size_16" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/x28"
+                android:layout_marginRight="@dimen/x28"
+                android:background="#DCDCDC" />
+
+            <TextView
+                android:id="@+id/tv_two_multiply_two"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y106"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawablePadding="@dimen/x20"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/x28"
+                android:paddingRight="@dimen/x28"
+                android:text="Sudoku 2x2"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/text_size_16" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/x28"
+                android:layout_marginRight="@dimen/x28"
+                android:background="#DCDCDC" />
+
+            <TextView
+                android:id="@+id/tv_two_multiply_three"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y106"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawablePadding="@dimen/x20"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/x28"
+                android:paddingRight="@dimen/x28"
+                android:text="Sudoku 2x3"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/text_size_16" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/x28"
+                android:layout_marginRight="@dimen/x28"
+                android:background="#DCDCDC" />
+
+            <TextView
+                android:id="@+id/tv_three_multiply_three"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y106"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawablePadding="@dimen/x20"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/x28"
+                android:paddingRight="@dimen/x28"
+                android:text="Sudoku 3x3"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/text_size_16" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
