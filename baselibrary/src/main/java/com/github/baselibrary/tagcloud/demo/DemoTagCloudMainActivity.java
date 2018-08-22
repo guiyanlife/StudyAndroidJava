@@ -38,7 +38,7 @@ public class DemoTagCloudMainActivity extends AppCompatActivity implements View.
     }
 
     private void doNetWork() {
-        mTvTitle.setText("DemoTagCloudMainActivity");
+        mTvTitle.setText("Original 3DTagCloud");
         textTagsAdapter = new TextTagsAdapter(new String[20]);
         viewTagsAdapter = new ViewTagsAdapter();
         vectorTagsAdapter = new VectorTagsAdapter();

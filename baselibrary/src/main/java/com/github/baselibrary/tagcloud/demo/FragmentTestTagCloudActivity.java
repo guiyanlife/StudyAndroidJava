@@ -32,7 +32,7 @@ public class FragmentTestTagCloudActivity extends AppCompatActivity implements V
     }
 
     private void doNetWork() {
-        mTvTitle.setText("FragmentTestTagCloudActivity");
+        mTvTitle.setText("Using in Fragment");
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.container, TestTagCloudFragment.newInstance())
