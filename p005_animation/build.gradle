@@ -34,4 +34,5 @@ dependencies {
     implementation librarys.appcompatV7
     implementation librarys.multidexVersion
     implementation project(':baselibrary')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 }

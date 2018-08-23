@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_tagcloud_easyhome"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/activity_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/iv_device_bg"
+                android:layout_width="@dimen/x360"
+                android:layout_height="@dimen/y400"
+                android:src="@drawable/tagcloud_bx" />
+
+            <TextView
+                android:id="@+id/tv_device_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iv_device_bg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/y48"
+                android:gravity="center_horizontal"
+                android:text="3            -3            -8\n冷藏      变温      冷冻"
+                android:textColor="@color/colorTagCloudViewTagFont"
+                android:textSize="@dimen/text_size_12" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

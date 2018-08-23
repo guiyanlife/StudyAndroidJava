@@ -1,5 +1,5 @@
 //start commonlibs
-include ':baselibrary', ':p005_animation'
+include ':baselibrary'
 
 include ':commonlibs:libmvp',
         ':commonlibs:libretrofit',
@@ -13,8 +13,10 @@ include ':commonlibs:libmvp',
 //start study APP Pxxx
 include ':app'
 
-include ':p001_retrofit',
-        ':p002_hios',
-        ':p003_setting',
-        ':p004_glide38'
+include ':p005_animation'
+//include ':p001_retrofit',
+//        ':p002_hios',
+//        ':p003_setting',
+//        ':p004_glide38',
+//        ':p005_animation'
 //end study APP Pxxx

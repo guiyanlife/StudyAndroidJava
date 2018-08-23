@@ -12,7 +12,23 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.TagCloudEasyhomeActivity" />
+        <activity android:name=".activities.TagCloudDeviceBxActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="hs.act.github.phone.TagCloudDeviceBxActivity" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.TagCloudDeviceRqesqActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="hs.act.github.phone.TagCloudDeviceRqesqActivity" />
             </intent-filter>
         </activity>
     </application>

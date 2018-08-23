@@ -61,7 +61,7 @@
                 android:background="#DCDCDC" />
 
             <TextView
-                android:id="@+id/tv_one_multiply_one"
+                android:id="@+id/tv_easyhome_device_cloud"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y106"
                 android:background="@drawable/on_touch_bg"
@@ -71,7 +71,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/x28"
                 android:paddingRight="@dimen/x28"
-                android:text="Sudoku 1x1"
+                android:text="Easyhome Device Cloud"
                 android:textColor="@color/ff383837"
                 android:textSize="@dimen/text_size_16" />
 

@@ -18,10 +18,6 @@
             <option value="$PROJECT_DIR$/commonlibs/libupdateapputils" />
             <option value="$PROJECT_DIR$/commonlibs/libutils" />
             <option value="$PROJECT_DIR$/commonlibs/libwebview" />
-            <option value="$PROJECT_DIR$/p001_retrofit" />
-            <option value="$PROJECT_DIR$/p002_hios" />
-            <option value="$PROJECT_DIR$/p003_setting" />
-            <option value="$PROJECT_DIR$/p004_glide38" />
             <option value="$PROJECT_DIR$/p005_animation" />
           </set>
         </option>
