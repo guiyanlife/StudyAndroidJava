@@ -7,11 +7,11 @@ android {
     buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.github.studyandroid.animation"
+        applicationId "com.github.studyandroid.widget"
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
-        versionName "P005_Animation_" + config.versionCode
+        versionName "P006_Widget_" + config.versionCode
 
         multiDexEnabled true
         renderscriptTargetApi 19
@@ -25,7 +25,6 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-
 }
 
 dependencies {
@@ -33,5 +32,6 @@ dependencies {
 
     implementation librarys.appcompatV7
     implementation librarys.multidexVersion
+    implementation librarys.recyclerviewv7
     implementation project(':baselibrary')
 }

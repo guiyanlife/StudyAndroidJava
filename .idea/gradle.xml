@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/commonlibs/libutils" />
             <option value="$PROJECT_DIR$/commonlibs/libwebview" />
             <option value="$PROJECT_DIR$/p005_animation" />
+            <option value="$PROJECT_DIR$/p006_widget" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
