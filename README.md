@@ -3,3 +3,10 @@
 P001_Retrofit
 P002_Hios
 P003_Setting
+P004_glide38
+P005_Animation
+
+运行环境：
+Android Studio 3.1.4
+JRE 1.8.0_102-b14
+
