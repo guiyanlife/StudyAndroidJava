@@ -413,4 +413,10 @@ public class TagCloudView extends ViewGroup implements Runnable, TagsAdapter.OnD
     public interface OnTagClickListener {
         void onItemClick(ViewGroup parent, View view, int position);
     }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        this.getParent().requestDisallowInterceptTouchEvent(true);
+        return super.dispatchTouchEvent(ev);
+    }
 }
