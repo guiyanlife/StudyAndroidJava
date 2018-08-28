@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/x432"
+    android:layout_height="@dimen/y497"
+    android:background="@drawable/tagcloud_dialog_bg"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y203">
+
+        <ImageView
+            android:id="@+id/iv_tagcloud_dialog_device_close"
+            android:layout_width="@dimen/x19"
+            android:layout_height="@dimen/y21"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/x18"
+            android:layout_marginTop="@dimen/y20"
+            android:src="@drawable/tagcloud_dialog_close" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="@dimen/x176"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_tagcloud_dialog_device_icon"
+                    android:layout_width="@dimen/x133"
+                    android:layout_height="@dimen/y148"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="@dimen/y21"
+                    android:src="@drawable/tagcloud_dialog_xwj" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tagcloud_xwj"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/text_size_10" />
+
+                <TextView
+                    android:id="@+id/tv_tagcloud_dialog_device_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y4"
+                    android:text="@string/tagcloud_yxz"
+                    android:textColor="#1d82e8"
+                    android:textSize="@dimen/text_size_8" />
+
+                <TextView
+                    android:id="@+id/tv_tagcloud_dialog_device_lock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y4"
+                    android:text="@string/tagcloud_tskq"
+                    android:textColor="#1d82e8"
+                    android:textSize="@dimen/text_size_8"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/x25"
+        android:layout_marginRight="@dimen/x25"
+        android:background="#9fc1ed" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_tagcloud_dialog_device_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_marginTop="@dimen/y36"
+            android:text="@string/tagcloud_gzms_var"
+            android:textColor="#252525"
+            android:textSize="@dimen/text_size_8" />
+
+        <TextView
+            android:id="@+id/tv_tagcloud_dialog_device_sdsw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_marginTop="@dimen/y13"
+            android:text="@string/tagcloud_sdsw_var"
+            android:textColor="#252525"
+            android:textSize="@dimen/text_size_8" />
+
+        <TextView
+            android:id="@+id/tv_tagcloud_dialog_device_ysl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_marginTop="@dimen/y13"
+            android:text="@string/tagcloud_ysl_var"
+            android:textColor="#252525"
+            android:textSize="@dimen/text_size_8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y13"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_tagcloud_dialog_device_glj"
+                android:layout_width="@dimen/x111"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/x40"
+                android:text="@string/tagcloud_glj_var"
+                android:textColor="#252525"
+                android:textSize="@dimen/text_size_8" />
+
+            <ImageView
+                android:id="@+id/iv_tagcloud_dialog_device_glj_bh"
+                android:layout_width="@dimen/x67"
+                android:layout_height="@dimen/y24"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/tagcloud_dialog_bh_blue" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y13"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_tagcloud_dialog_device_rhy"
+                android:layout_width="@dimen/x111"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/x40"
+                android:text="@string/tagcloud_rhy_var"
+                android:textColor="#252525"
+                android:textSize="@dimen/text_size_8" />
+
+            <ImageView
+                android:id="@+id/iv_tagcloud_dialog_device_rhy_bh"
+                android:layout_width="@dimen/x67"
+                android:layout_height="@dimen/y24"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/tagcloud_dialog_bh_red" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

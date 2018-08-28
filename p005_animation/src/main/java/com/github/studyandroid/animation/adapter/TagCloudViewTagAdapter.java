@@ -2,7 +2,6 @@ package com.github.studyandroid.animation.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,9 @@ import android.widget.TextView;
 import com.github.baselibrary.tagcloud.base.TagsAdapter;
 import com.github.studyandroid.animation.R;
 import com.github.studyandroid.animation.domain.EasyhomeDeviceData;
+import com.github.studyandroid.animation.ui.dialog.DevicePbjDialog;
+import com.github.studyandroid.animation.ui.dialog.DeviceStateDialog;
+import com.github.studyandroid.animation.ui.dialog.DeviceXwjDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +22,12 @@ import java.util.List;
  * Created by guiyan on 18/8/22.
  */
 public class TagCloudViewTagAdapter extends TagsAdapter {
+    private Context mContext;
     private boolean mIsUpdateData = false;
     private List<EasyhomeDeviceData> m_Items;
 
-    public TagCloudViewTagAdapter(List items) {
+    public TagCloudViewTagAdapter(Context context, List items) {
+        mContext = context;
         m_Items = new ArrayList<>();
         m_Items.addAll(items);
     }
@@ -65,9 +69,30 @@ public class TagCloudViewTagAdapter extends TagsAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EasyhomeDeviceData.get().get(position).getDeviceAction());
-                if (intent.resolveActivity(context.getPackageManager()) != null)
-                    context.startActivity(intent);
+                Intent intent;
+                switch ((int) v.getTag()) {
+                    case 0: //冰箱
+                        intent = new Intent("hs.act.github.phone.TagCloudDeviceBxActivity");
+                        if (intent.resolveActivity(context.getPackageManager()) != null)
+                            context.startActivity(intent);
+                        break;
+                    case 2: //净水机
+                        new DeviceStateDialog(mContext).setDeviceType("净水机").setDeviceState("制作完成").show();
+                        break;
+                    case 5: //破壁机
+                        new DevicePbjDialog(mContext).setDeviceMode("果汁").setDeviceSpeed("4000").setDeviceTemp("80℃").show();
+                        break;
+                    case 6: //燃气热水器
+                        intent = new Intent("hs.act.github.phone.TagCloudDeviceRqesqActivity");
+                        if (intent.resolveActivity(context.getPackageManager()) != null)
+                            context.startActivity(intent);
+                        break;
+                    case 9: //洗碗机
+                        new DeviceXwjDialog(mContext).setDeviceState("运行中").setDeviceMode("智能洗").setDeviceSdsw("50℃").setDeviceYsl("8L").setDeviceGlj("充足").setDeviceRhy("缺少").show();
+                        break;
+                    default:
+                        break;
+                }
             }
         });
         return view;
@@ -92,8 +117,8 @@ public class TagCloudViewTagAdapter extends TagsAdapter {
         else
             alpha = alpha * (float) 0.5 + (float) 0.5;
         if (mIsUpdateData) {
-            tagBg.setImageResource(m_Items.get((int)view.getTag()).getDeviceImageId());
-            tagContent.setText(m_Items.get((int)view.getTag()).getDeviceStateInfo());
+            tagBg.setImageResource(m_Items.get((int) view.getTag()).getDeviceImageId());
+            tagContent.setText(m_Items.get((int) view.getTag()).getDeviceStateInfo());
             mIsUpdateData = false;
         }
         tagBg.setAlpha(alpha);

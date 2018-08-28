@@ -1,4 +1,4 @@
-package com.github.studyandroid.animation.activities;
+package com.github.studyandroid.animation.ui.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

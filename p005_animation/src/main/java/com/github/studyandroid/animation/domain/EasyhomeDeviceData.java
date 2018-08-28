@@ -9,7 +9,6 @@ public class EasyhomeDeviceData {
     private int deviceIndex;
     private int deviceImageId;
     private String deviceStateInfo;
-    private String deviceAction;
 
     public static List<EasyhomeDeviceData> get() {
         int[] deviceIndexs = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
@@ -44,28 +43,12 @@ public class EasyhomeDeviceData {
                 "烟机\n不在线"
         };
 
-        String[] deviceActions = new String[]{
-                "hs.act.github.phone.TagCloudDeviceBxActivity",
-                "hs.act.github.phone.TagCloudDeviceDrsqActivity",
-                "hs.act.github.phone.TagCloudDeviceJsjActivity",
-                "hs.act.github.phone.TagCloudDeviceKtActivity",
-                "hs.act.github.phone.TagCloudDeviceKxActivity",
-                "hs.act.github.phone.TagCloudDevicePbjActivity",
-                "hs.act.github.phone.TagCloudDeviceRqesqActivity",
-                "hs.act.github.phone.TagCloudDeviceRqzActivity",
-                "hs.act.github.phone.TagCloudDeviceXdgActivity",
-                "hs.act.github.phone.TagCloudDeviceXwjActivity",
-                "hs.act.github.phone.TagCloudDeviceXyjActivity",
-                "hs.act.github.phone.TagCloudDeviceYyjActivity"
-        };
-
         List<EasyhomeDeviceData> deviceDataList = new ArrayList<>();
         for (int index : deviceIndexs) {
             EasyhomeDeviceData data = new EasyhomeDeviceData();
             data.deviceIndex = index;
             data.deviceImageId = deviceImageIds[index];
             data.deviceStateInfo = deviceStateInfos[index];
-            data.deviceAction = deviceActions[index];
             deviceDataList.add(data);
         }
         return deviceDataList;
@@ -93,13 +76,5 @@ public class EasyhomeDeviceData {
 
     public void setDeviceStateInfo(String deviceStateInfo) {
         this.deviceStateInfo = deviceStateInfo;
-    }
-
-    public String getDeviceAction() {
-        return deviceAction;
-    }
-
-    public void setDeviceAction(String deviceAction) {
-        this.deviceAction = deviceAction;
     }
 }

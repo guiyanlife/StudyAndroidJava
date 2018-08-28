@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.studyandroid.animation.activities.TagCloudEasyhomeActivity;
+import com.github.studyandroid.animation.ui.activities.TagCloudEasyhomeActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView ivBack;

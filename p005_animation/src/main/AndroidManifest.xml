@@ -16,15 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TagCloudEasyhomeActivity" />
-        <activity android:name=".activities.TagCloudDeviceBxActivity">
+        <activity android:name=".ui.activities.TagCloudEasyhomeActivity" />
+        <activity android:name=".ui.activities.TagCloudDeviceBxActivity">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <action android:name="hs.act.github.phone.TagCloudDeviceBxActivity" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TagCloudDeviceRqesqActivity">
+        <activity android:name=".ui.activities.TagCloudDeviceRqesqActivity">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
 

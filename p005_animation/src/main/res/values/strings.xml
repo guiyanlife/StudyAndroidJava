@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">P005_Animation</string>
+    <string name="tagcloud_pbj">破壁机</string>
+    <string name="tagcloud_xwj">洗碗机</string>
+    <string name="tagcloud_yxz">运行中</string>
+    <string name="tagcloud_tskq">童锁开启</string>
+    <string name="tagcloud_pbms_var">破壁模式 :  %s</string>
+    <string name="tagcloud_pbzs_var">破壁转速 :  %s</string>
+    <string name="tagcloud_jrwd_var">加热温度 :  %s</string>
+    <string name="tagcloud_yypb_info">营养破壁 :\n冰箱联动破壁机的智能烹饪食谱，快点击尝试一下吧~</string>
+    <string name="tagcloud_gzms_var">工作模式 :  %s</string>
+    <string name="tagcloud_sdsw_var">设定水温 :  %s</string>
+    <string name="tagcloud_ysl_var">用水量 :  %s</string>
+    <string name="tagcloud_glj_var">光亮剂 :  %s</string>
+    <string name="tagcloud_rhy_var">软化盐 :  %s</string>
+    <string name="tagcloud_zzwc">制作完成</string>
 </resources>

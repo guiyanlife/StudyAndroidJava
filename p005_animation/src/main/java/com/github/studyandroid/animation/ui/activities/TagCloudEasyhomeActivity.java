@@ -1,4 +1,4 @@
-package com.github.studyandroid.animation.activities;
+package com.github.studyandroid.animation.ui.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,7 +44,7 @@ public class TagCloudEasyhomeActivity extends AppCompatActivity implements View.
 
     private void doNetWork() {
         mTvTitle.setText("Easyhome Device Cloud");
-        viewTagsAdapter = new TagCloudViewTagAdapter(EasyhomeDeviceData.get());
+        viewTagsAdapter = new TagCloudViewTagAdapter(this, EasyhomeDeviceData.get());
         tagCloudView.setAdapter(viewTagsAdapter);
         viewTagsAdapter.notifyDataSetChanged();
 
