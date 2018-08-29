@@ -13,7 +13,7 @@ include ':commonlibs:libmvp',
 //start study APP Pxxx
 include ':app'
 
-include ':p005_animation', ':p006_widget'
+include ':p006_widget'
 //include ':p001_retrofit',
 //        ':p002_hios',
 //        ':p003_setting',
