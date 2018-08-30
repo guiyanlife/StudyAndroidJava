@@ -44,8 +44,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 public class TagCloudView extends ViewGroup implements Runnable, TagsAdapter.OnDataSetChangeListener {
-    private static final float TOUCH_SCALE_FACTOR = .8f;
-    private static final float TRACKBALL_SCALE_FACTOR = 10;
+    private static final float TOUCH_SCALE_FACTOR = .4f;
+    private static final float TRACKBALL_SCALE_FACTOR = 5;
     private float speed = 2f;
     private TagCloud mTagCloud;
     private float mAngleX;
@@ -387,23 +387,23 @@ public class TagCloudView extends ViewGroup implements Runnable, TagsAdapter.OnD
     public void run() {
         if (!isOnTouch && mode != MODE_DISABLE) {
             if (mode == MODE_DECELERATE) {
-                if (mAngleX > 0.04f) {
+                if (mAngleX > 0.2f) {
                     mAngleX -= 0.02f;
                 }
-                if (mAngleY > 0.04f) {
+                if (mAngleY > 0.2f) {
                     mAngleY -= 0.02f;
                 }
-                if (mAngleX < -0.04f) {
+                if (mAngleX < -0.2f) {
                     mAngleX += 0.02f;
                 }
-                if (mAngleY < -0.04f) {
+                if (mAngleY < -0.2f) {
                     mAngleY += 0.02f;
                 }
             }
             processTouch();
         }
 
-        handler.postDelayed(this, 50);
+        handler.postDelayed(this, 20);
     }
 
     public void setOnTagClickListener(OnTagClickListener listener) {
