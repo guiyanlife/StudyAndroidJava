@@ -25,6 +25,12 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    sourceSets {
+        main{
+            jniLibs.srcDir = ['libs']
+        }
+    }
 }
 
 dependencies {
