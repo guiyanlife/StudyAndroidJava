@@ -6,6 +6,7 @@ P003_Setting
 P004_glide38
 P005_Animation
 P006_Widget
+P007_Map
 
 运行环境：
 Android Studio 3.1.4

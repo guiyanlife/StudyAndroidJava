@@ -13,11 +13,12 @@ include ':commonlibs:libmvp',
 //start study APP Pxxx
 include ':app'
 
-include ':p006_widget'
+include ':p006_widget', ':p007_map'
 //include ':p001_retrofit',
 //        ':p002_hios',
 //        ':p003_setting',
 //        ':p004_glide38',
 //        ':p005_animation',
-//        ':p006_widget'
+//        ':p006_widget',
+//        ':p007_map'
 //end study APP Pxxx
