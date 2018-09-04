@@ -211,7 +211,7 @@ public class WmapView extends View {
     /**
      * 清除水质地图数据
      */
-    public void clearWmapDates() {
+    public void clearWmapDatas() {
         mWmapData.clear();
         invalidate();
     }
