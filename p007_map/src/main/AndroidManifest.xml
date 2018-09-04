@@ -9,11 +9,31 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- 高德地图配置 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="86e7349b5736dc338a4712c8d88f8bb9" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.AmapBaseMapActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="hs.act.github.phone.AmapBaseMapActivity" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.WmapBaseMapActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="hs.act.github.phone.WmapBaseMapActivity" />
             </intent-filter>
         </activity>
     </application>

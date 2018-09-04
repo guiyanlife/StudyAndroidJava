@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">P007_Map</string>
     <string name="amap_gddt">高德地图</string>
-
+    <string name="amap_jbdt">基本地图</string>
+    <string name="amap_xsdw">显示定位</string>
+    <string name="wmap_zdyszdt">自定义水质地图</string>
+    <string name="wmap_jbszdt">基本水质地图</string>
+    <string name="wmap_qg168wsqszsj">全国168万社区水质数据</string>
 </resources>

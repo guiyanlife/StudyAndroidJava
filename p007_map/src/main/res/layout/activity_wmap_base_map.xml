@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wmap_bg"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/activity_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y34"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y40"
+        android:src="@drawable/wmap_title_qgszjcztt" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y11"
+        android:text="@string/wmap_qg168wsqszsj"
+        android:textColor="@color/white_translucent"
+        android:textSize="@dimen/text_size_5" />
+
+    <com.github.studyandroid.map.widget.WmapView
+        android:id="@+id/wv_water_map"
+        android:layout_width="@dimen/x524"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/y24"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
