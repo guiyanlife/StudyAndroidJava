@@ -126,7 +126,6 @@ public class WmapView extends View {
             wQuality = data.getQuality();
             pointX = latitude2PosX(data.getLatitude());
             pointY = longitude2PosY(data.getLongitude());
-            Log.e("aaaaaaaaaaaa", "" + pointX + ", " + pointY);
 
             //绘制水质坐标点
             if (wQuality < 300)      //wQuality < 300
