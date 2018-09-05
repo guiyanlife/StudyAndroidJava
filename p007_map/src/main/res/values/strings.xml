@@ -6,4 +6,6 @@
     <string name="wmap_zdyszdt">自定义水质地图</string>
     <string name="wmap_jbszdt">基本水质地图</string>
     <string name="wmap_qg168wsqszsj">全国168万社区水质数据</string>
+    <string name="wmap_szfx">水质分析</string>
+    <string name="wmap_yl">余氯</string>
 </resources>

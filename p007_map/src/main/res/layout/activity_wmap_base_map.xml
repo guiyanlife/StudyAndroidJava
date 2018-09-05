@@ -33,4 +33,38 @@
         android:layout_marginTop="@dimen/y24"
         android:layout_gravity="center_horizontal" />
 
+    <TextView
+        android:layout_width="@dimen/x524"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y24"
+        android:text="@string/wmap_szfx"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_10"
+        android:textStyle="bold"/>
+
+    <com.github.studyandroid.map.widget.WmapWqTdsView
+        android:id="@+id/wv_tds_scale"
+        android:layout_width="@dimen/x524"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y9"/>
+
+    <TextView
+        android:layout_width="@dimen/x524"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y24"
+        android:text="@string/wmap_yl"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_10"
+        android:textStyle="bold"/>
+
+    <com.github.studyandroid.map.widget.WmapWqYulvView
+        android:id="@+id/wv_yulv_scale"
+        android:layout_width="@dimen/x524"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y9"/>
+
 </LinearLayout>

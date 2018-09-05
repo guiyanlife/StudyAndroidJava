@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.github.studyandroid.map.R;
 import com.github.studyandroid.map.widget.WmapDataBean;
 import com.github.studyandroid.map.widget.WmapView;
+import com.github.studyandroid.map.widget.WmapWqTdsView;
+import com.github.studyandroid.map.widget.WmapWqYulvView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,9 @@ public class WmapBaseMapActivity extends AppCompatActivity implements View.OnCli
     private TextView mTvTitle;
     private ImageView mIvBack;
     private WmapView mWmMap;
+    private WmapWqTdsView mWmapWqTds;
+    private WmapWqYulvView mWmapWqYulv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,8 @@ public class WmapBaseMapActivity extends AppCompatActivity implements View.OnCli
         mTvTitle = findViewById(R.id.tv_toolbar_content);
         mIvBack = findViewById(R.id.iv_toolbar_back);
         mWmMap = findViewById(R.id.wv_water_map);
+        mWmapWqTds = findViewById(R.id.wv_tds_scale);
+        mWmapWqYulv = findViewById(R.id.wv_yulv_scale);
     }
 
     private void setListener() {
@@ -42,9 +49,12 @@ public class WmapBaseMapActivity extends AppCompatActivity implements View.OnCli
         Intent intent = getIntent();
         mTvTitle.setText(intent.getStringExtra("title"));
 
-        mWmMap.setRefPointA(684, 286, 122.7238674733, 37.4285460040);
-        mWmMap.setRefPointB(181, 473, 89.0167236328, 27.2497461568);
+        mWmMap.setRefPointA(634, 335, 122.7115353451, 37.4031411382);
+        mWmMap.setRefPointB(213, 485, 88.9782714844, 27.2204411301);
         mWmMap.setWmapDates(getWmapDatas());
+
+        mWmapWqTds.setTdsData(578);
+        mWmapWqYulv.setYulvData(0.3);
     }
 
     @Override
@@ -72,6 +82,16 @@ public class WmapBaseMapActivity extends AppCompatActivity implements View.OnCli
         data2.setLongitude(23.0948913850);
         data2.setQuality(20);
         list.add(data2);
+        WmapDataBean data3 = new WmapDataBean();
+        data3.setLatitude(125.9538617943); //通化市
+        data3.setLongitude(41.7400595853);
+        data3.setQuality(356);
+        list.add(data3);
+        WmapDataBean data4 = new WmapDataBean();
+        data4.setLatitude(87.6113430216); //乌鲁木齐
+        data4.setLongitude(43.8328524160);
+        data4.setQuality(89);
+        list.add(data4);
         return list;
     }
 }

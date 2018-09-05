@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.tv_wmap_jbszdt:
                 intent = new Intent("hs.act.github.phone.WmapBaseMapActivity");
-                intent.putExtra("title", getResources().getString(R.string.wmap_zdyszdt));
+                intent.putExtra("title", getResources().getString(R.string.wmap_jbszdt));
                 startActivity(intent);
                 break;
             case R.id.iv_back:
