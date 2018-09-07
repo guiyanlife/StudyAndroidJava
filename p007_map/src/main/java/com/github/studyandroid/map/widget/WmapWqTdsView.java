@@ -1,5 +1,6 @@
 package com.github.studyandroid.map.widget;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -97,7 +98,6 @@ public class WmapWqTdsView extends View {
             textHeight = bounds.height();
             canvas.drawText(tdsState, drawPosX(tdsData2PosX(mIntTdsValue)) - textWidth / 2, drawPosY(mIntPointerHeight / 3) + textHeight / 2, mPaintTextWstate);
 
-
             //画水质值指针的图片
             canvas.drawBitmap(mBmPointer, null, new Rect(drawPosX(tdsData2PosX(mIntTdsValue) - mIntPointerWidth / 2), 0, drawPosX(tdsData2PosX(mIntTdsValue) + mIntPointerWidth / 2), drawPosY(mIntPointerHeight)), null);
 
@@ -180,6 +180,22 @@ public class WmapWqTdsView extends View {
     public void setTdsData(int value) {
         mIntTdsValue = value;
         invalidate();
+    }
+
+    /**
+     * 设置水质TDS数据，带动画
+     */
+    public void setTdsDataAnim(int value, int ms) {
+        ObjectAnimator anim = ObjectAnimator.ofInt(this, "TdsData", getTdsData(), value);
+        anim.setDuration(ms);
+        anim.start();
+    }
+
+    /**
+     * 获取水质TDS数据
+     */
+    public int getTdsData() {
+        return mIntTdsValue;
     }
 
     /**

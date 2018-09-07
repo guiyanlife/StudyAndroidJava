@@ -1,5 +1,6 @@
 package com.github.studyandroid.map.widget;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,7 +16,7 @@ import com.github.studyandroid.map.R;
 public class WmapWqYulvView extends View {
     private int mIntScaleWidth, mIntScaleHeight, mIntPointerWidth, mIntPointerHeight, mIntViewDefaultWidth, mIntViewDefaultHeight;
     private Bitmap mBmScale, mBmPointer;
-    private double mDoubleYulvValue = -1;
+    private int mIntYulvValue10000 = -1;
 
     //画水质状态文字的画笔
     private Paint mPaintTextWstate = new Paint();
@@ -83,24 +84,24 @@ public class WmapWqYulvView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int textWidth, textHeight;
-        String tdsState;
+        String yulvState;
 
         //画余氯渐变尺图像
         canvas.drawBitmap(mBmScale, null, new Rect(drawPosX(mIntPointerWidth / 2 + 1), drawPosY(mIntPointerHeight + 3), drawPosX(mIntViewDefaultWidth - mIntPointerWidth / 2 - 1), getMeasuredHeight()), null);
 
-        if (mDoubleYulvValue > -0.00001 && mDoubleYulvValue <= 0.40001) {
+        if (mIntYulvValue10000 >= 0 && mIntYulvValue10000 <= 4000) {
             //画水质状态文字
             mPaintTextWstate.setTextSize(drawPosY(14)); //文字大小
             Rect bounds = new Rect();
-            tdsState = tdsData2State(mDoubleYulvValue);
-            mPaintTextWstate.getTextBounds(tdsState, 0, tdsState.length(), bounds);
+            //tdsState = tdsData2State(mDoubleYulvValue);
+            yulvState = yulv10000Data2State(mIntYulvValue10000);
+            mPaintTextWstate.getTextBounds(yulvState, 0, yulvState.length(), bounds);
             textWidth = bounds.width();
             textHeight = bounds.height();
-            canvas.drawText(tdsState, drawPosX(yulvData2PosX(mDoubleYulvValue)) - textWidth / 2, drawPosY(mIntPointerHeight / 3) + textHeight / 2, mPaintTextWstate);
-
+            canvas.drawText(yulvState, drawPosX(yulv10000Data2PosX(mIntYulvValue10000)) - textWidth / 2, drawPosY(mIntPointerHeight / 3) + textHeight / 2, mPaintTextWstate);
 
             //画水质值指针的图片
-            canvas.drawBitmap(mBmPointer, null, new Rect(drawPosX(yulvData2PosX(mDoubleYulvValue) - mIntPointerWidth / 2), 0, drawPosX(yulvData2PosX(mDoubleYulvValue) + mIntPointerWidth / 2), drawPosY(mIntPointerHeight)), null);
+            canvas.drawBitmap(mBmPointer, null, new Rect(drawPosX(yulv10000Data2PosX(mIntYulvValue10000) - mIntPointerWidth / 2), 0, drawPosX(yulv10000Data2PosX(mIntYulvValue10000) + mIntPointerWidth / 2), drawPosY(mIntPointerHeight)), null);
         }
     }
 
@@ -122,6 +123,28 @@ public class WmapWqYulvView extends View {
      */
     private int drawPosY(int defaultPosY) {
         return defaultPosY * getMeasuredHeight() / mIntViewDefaultHeight;
+    }
+
+    /**
+     * 余氯10000倍数据转换为余氯状态
+     *
+     * @param yulv10000 余氯数据
+     * @return 余氯状态
+     */
+    private String yulv10000Data2State(int yulv10000) {
+        String ret;
+        if (yulv10000 < 0) {
+            ret = "异常";
+        } else if (yulv10000 < 500) { //0<=yulv<0.05
+            ret = "很少";
+        } else if (yulv10000 < 1000) { //0.05<=yulv<0.1
+            ret = "较少";
+        } else if (yulv10000 < 2000) { //0.1<=yulv<0.2
+            ret = "正常";
+        } else { //0.2<=yulv
+            ret = "较多";
+        }
+        return ret;
     }
 
     /**
@@ -147,6 +170,26 @@ public class WmapWqYulvView extends View {
     }
 
     /**
+     * 余氯10000倍数据转换为View默认尺寸的横坐标位置
+     *
+     * @param yulv10000 余氯数据
+     * @return View默认尺寸的横坐标位置
+     */
+    private int yulv10000Data2PosX(int yulv10000) {
+        int ret;
+        if (yulv10000 < 0) {
+            ret = -mIntPointerWidth;
+        } else if (yulv10000 < 1000) { //0<=yulv<0.1
+            ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth * yulv10000 / 2000;
+        } else if (yulv10000 < 2000) { //0.1<=tds<0.2
+            ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth / 2 + mIntScaleWidth * (yulv10000 - 1000) / 4000;
+        } else { //0.2<=tds<0.4
+            ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth * 3 / 4 + mIntScaleWidth * (yulv10000 - 2000) / 8000;
+        }
+        return ret;
+    }
+
+    /**
      * 余氯数据转换为View默认尺寸的横坐标位置
      *
      * @param yulv 余氯数据
@@ -157,28 +200,59 @@ public class WmapWqYulvView extends View {
         if (yulv < 0) {
             ret = -mIntPointerWidth;
         } else if (yulv < 0.1) { //0<=yulv<0.1
-            ret = mIntPointerWidth / 2 + 1 + (int)(mIntScaleWidth * yulv * 5);
+            ret = mIntPointerWidth / 2 + 1 + (int) (mIntScaleWidth * yulv * 5);
         } else if (yulv < 0.2) { //0.1<=tds<0.2
-            ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth / 2 + (int)(mIntScaleWidth *  (yulv - 0.1) * 2.5);
+            ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth / 2 + (int) (mIntScaleWidth * (yulv - 0.1) * 2.5);
         } else { //0.2<=tds<0.4
-            ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth * 3 / 4 +(int)(mIntScaleWidth * (yulv - 0.2) * 1.25);
+            ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth * 3 / 4 + (int) (mIntScaleWidth * (yulv - 0.2) * 1.25);
         }
         return ret;
     }
 
     /**
-     * 清除水质余氯数据
+     * 设置水质余氯10000倍数据
+     */
+    public void setYulv10000Data(int value) {
+        mIntYulvValue10000 = value;
+        invalidate();
+    }
+
+    /**
+     * 获取水质余氯10000倍数据
+     */
+    public int getYulv10000Data() {
+        return mIntYulvValue10000;
+    }
+
+    /**
+     * 设置水质余氯数据
      */
     public void setYulvData(double value) {
-        mDoubleYulvValue = value;
+        mIntYulvValue10000 = (int) (value * 10000);
         invalidate();
+    }
+
+    /**
+     * 设置水质余氯数据，带动画
+     */
+    public void setYulvDataAnim(double value, int ms) {
+        ObjectAnimator anim = ObjectAnimator.ofInt(this, "Yulv10000Data", getYulv10000Data(), (int)(value * 10000));
+        anim.setDuration(ms);
+        anim.start();
+    }
+
+    /**
+     * 获取水质余氯数据
+     */
+    public double getYulvData() {
+        return mIntYulvValue10000 / 10000.0;
     }
 
     /**
      * 清除水质余氯数据
      */
     public void clearData() {
-        mDoubleYulvValue = -1;
+        mIntYulvValue10000 = -1;
         invalidate();
     }
 }

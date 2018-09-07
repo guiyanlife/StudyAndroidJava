@@ -1,5 +1,6 @@
 package com.github.studyandroid.map.activities;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -56,8 +57,11 @@ public class WmapBaseMapActivity extends AppCompatActivity implements View.OnCli
         mWmMap.setRefPointB(213, 485, 27.2204411301,88.9782714844);
         mWmMap.setWmapDates(getWmapDatas());
 
-        mWmapWqTds.setTdsData(578);
-        mWmapWqYulv.setYulvData(0.3);
+        //mWmapWqTds.setTdsData(578);
+        mWmapWqTds.setTdsDataAnim(578, 5000);
+
+        //mWmapWqYulv.setYulvData(0.3);
+        mWmapWqYulv.setYulvDataAnim(0.3, 5000);
     }
 
     @Override
