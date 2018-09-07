@@ -4,6 +4,10 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import com.github.studyandroid.map.R;
+import com.github.studyandroid.map.database.DBHelper;
+import com.github.studyandroid.map.utils.FileUtil;
+
 public class MyApplication extends MultiDexApplication {
     public static final String DIR_PROJECT = "/studyandroid/map/app/";
     public static final String DIR_CACHE = DIR_PROJECT + "cache/";   // 网页缓存路径
@@ -21,6 +25,10 @@ public class MyApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
+        initResource();
     }
 
+    private void initResource() {
+        FileUtil.copyDbFromRaw(R.raw.wmap, DBHelper.DB_NAME);
+    }
 }

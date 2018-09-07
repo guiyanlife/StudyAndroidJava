@@ -124,8 +124,8 @@ public class WmapView extends View {
             return;
         for (WmapDataBean data : mWmapData) {
             wQuality = data.getQuality();
-            pointX = latitude2PosX(data.getLatitude());
-            pointY = longitude2PosY(data.getLongitude());
+            pointX = longitude2PosX(data.getLongitude());
+            pointY = latitude2PosY(data.getLatitude());
 
             //绘制水质坐标点
             if (wQuality < 300)      //wQuality < 300
@@ -146,22 +146,22 @@ public class WmapView extends View {
     }
 
     /**
-     * 纬度转换为实际绘图横坐标位置
+     * 经度转换为实际绘图横坐标位置
      *
      * @param latitude 纬度
      * @return 横坐标位置
      */
-    private int latitude2PosX(double latitude) {
+    private int longitude2PosX(double latitude) {
         return Math.abs((int) ((latitude * (mRefaX - mRefbX) + mRefbX * mRefaLatitude - mRefaX * mRefbLatitude) / (mRefaLatitude - mRefbLatitude)) * getMeasuredWidth() / mIntBgWidth);
     }
 
     /**
-     * 经度转换为实际绘图纵坐标位置
+     * 纬度转换为实际绘图纵坐标位置
      *
      * @param longitude 经度
      * @return 纵坐标位置
      */
-    private int longitude2PosY(double longitude) {
+    private int latitude2PosY(double longitude) {
         return Math.abs((int) ((longitude * (mRefaY - mRefbY) + mRefbY * mRefaLongitude - mRefaY * mRefbLongitude) / (mRefaLongitude - mRefbLongitude)) * getMeasuredHeight() / mIntBgHeight);
     }
 
@@ -180,10 +180,10 @@ public class WmapView extends View {
      *
      * @param x         背景图片像素点横坐标（左上角为原点）
      * @param y         背景图片像素点纵坐标
-     * @param latitude  该像素点所对应的纬度
      * @param longitude 该像素点所对应的经度
+     * @param latitude  该像素点所对应的纬度
      */
-    public void setRefPointA(int x, int y, double latitude, double longitude) {
+    public void setRefPointA(int x, int y, double longitude, double latitude) {
         mRefaX = x;
         mRefaY = y;
         mRefaLatitude = latitude;
@@ -196,10 +196,10 @@ public class WmapView extends View {
      *
      * @param x         背景图片像素点横坐标（左上角为原点）
      * @param y         背景图片像素点纵坐标
-     * @param latitude  该像素点所对应的纬度
      * @param longitude 该像素点所对应的经度
+     * @param latitude  该像素点所对应的纬度
      */
-    public void setRefPointB(int x, int y, double latitude, double longitude) {
+    public void setRefPointB(int x, int y, double longitude, double latitude) {
         mRefbX = x;
         mRefbY = y;
         mRefbLatitude = latitude;

@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by hanho on 2016/8/15.
  */
 public class DBHelper extends SQLiteOpenHelper {
-    private static final String DB_NAME = "wmap.db"; // 创建数据库的文件
+    public static final String DB_NAME = "wmap.db"; // 创建数据库的文件
     private static final int VERSION = 1;            // 数据库版本,版本是更新的依据
 
     public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

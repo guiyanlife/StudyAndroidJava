@@ -124,14 +124,16 @@ public class AreaGpsDbMgr {
             AreaGpsInfoEntry entry = null;
             Cursor c = sdb.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE code = " + code, null);
             if (c != null && c.getCount() >= 0) {
-                entry = new AreaGpsInfoEntry();
-                entry.id = c.getInt(c.getColumnIndex("id"));
-                entry.code = c.getString(c.getColumnIndex("code"));
-                entry.parentCode = c.getString(c.getColumnIndex("parentCode"));
-                entry.level = c.getInt(c.getColumnIndex("level"));
-                entry.name = c.getString(c.getColumnIndex("name"));
-                entry.latitude = c.getDouble(c.getColumnIndex("latitude"));
-                entry.longitude = c.getDouble(c.getColumnIndex("longitude"));
+                if(c.moveToNext()) {
+                    entry = new AreaGpsInfoEntry();
+                    entry.id = c.getInt(c.getColumnIndex("id"));
+                    entry.code = c.getString(c.getColumnIndex("code"));
+                    entry.parentCode = c.getString(c.getColumnIndex("parentCode"));
+                    entry.level = c.getInt(c.getColumnIndex("level"));
+                    entry.name = c.getString(c.getColumnIndex("name"));
+                    entry.latitude = c.getDouble(c.getColumnIndex("latitude"));
+                    entry.longitude = c.getDouble(c.getColumnIndex("longitude"));
+                }
                 c.close();
             }
             return entry;

@@ -3,7 +3,7 @@ package com.github.studyandroid.map.database;
 import com.github.studyandroid.map.application.MyApplication;
 
 /**
- * Created by hanho on 2016/8/15.
+ * Created by guiyan on 2018/9/7.
  */
 public class DBOperation {
     public static DBOperation mInstance;
@@ -33,5 +33,4 @@ public class DBOperation {
     public DBHelper getDbHelper() {
         return mDbHelper;
     }
-
 }
