@@ -10,6 +10,7 @@ public class MyApplication extends MultiDexApplication {
     public static final String IMG_CACHE = DIR_PROJECT + "image/";   // image缓存路径
     public static final String VIDEO_CACHE = DIR_PROJECT + "video/"; // video缓存路径
     public static final String MUSIC_CACHE = DIR_PROJECT + "music/"; // music缓存路径
+    public static Context mContext;
 
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -19,6 +20,7 @@ public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getApplicationContext();
     }
 
 }
