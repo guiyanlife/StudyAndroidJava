@@ -127,11 +127,11 @@ public class WmapView extends View {
             pointY = latitude2PosY(data.getLatitude());
 
             //绘制水质坐标点
-            if (wQuality < 300)      //wQuality < 300
-                canvas.drawBitmap(mBmPointGreen, null, new Rect(pointX - pointDrawSize / 2, pointY - pointDrawSize / 2, pointX + pointDrawSize / 2, pointY + pointDrawSize / 2), null);
-            else if (wQuality < 700) //700 <= wQuality < 300
+            if (wQuality < 200)      //wQuality < 200
                 canvas.drawBitmap(mBmPointBlue, null, new Rect(pointX - pointDrawSize / 2, pointY - pointDrawSize / 2, pointX + pointDrawSize / 2, pointY + pointDrawSize / 2), null);
-            else                     //wQuality > 700
+            else if (wQuality < 450) //200 <= wQuality < 450
+                canvas.drawBitmap(mBmPointGreen, null, new Rect(pointX - pointDrawSize / 2, pointY - pointDrawSize / 2, pointX + pointDrawSize / 2, pointY + pointDrawSize / 2), null);
+            else                     //wQuality > 450
                 canvas.drawBitmap(mBmPointRed, null, new Rect(pointX - pointDrawSize / 2, pointY - pointDrawSize / 2, pointX + pointDrawSize / 2, pointY + pointDrawSize / 2), null);
 
             //绘制水质值的文字
@@ -210,7 +210,8 @@ public class WmapView extends View {
      * 清除水质地图数据
      */
     public void clearWmapDatas() {
-        mWmapData.clear();
+        if (mWmapData != null && mWmapData.size() > 0)
+            mWmapData.clear();
         invalidate();
     }
 
