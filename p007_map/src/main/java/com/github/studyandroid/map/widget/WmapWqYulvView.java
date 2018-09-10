@@ -93,7 +93,6 @@ public class WmapWqYulvView extends View {
             //画水质状态文字
             mPaintTextWstate.setTextSize(drawPosY(14)); //文字大小
             Rect bounds = new Rect();
-            //tdsState = tdsData2State(mDoubleYulvValue);
             yulvState = yulv10000Data2State(mIntYulvValue10000);
             mPaintTextWstate.getTextBounds(yulvState, 0, yulvState.length(), bounds);
             textWidth = bounds.width();
@@ -148,28 +147,6 @@ public class WmapWqYulvView extends View {
     }
 
     /**
-     * 余氯数据转换为余氯状态
-     *
-     * @param yulv 余氯数据
-     * @return 余氯状态
-     */
-    private String tdsData2State(double yulv) {
-        String ret;
-        if (yulv < 0) {
-            ret = "异常";
-        } else if (yulv < 0.05) { //0<=yulv<0.05
-            ret = "很少";
-        } else if (yulv < 0.1) { //0.05<=yulv<0.1
-            ret = "较少";
-        } else if (yulv < 0.2) { //0.1<=yulv<0.2
-            ret = "正常";
-        } else { //0.2<=yulv
-            ret = "较多";
-        }
-        return ret;
-    }
-
-    /**
      * 余氯10000倍数据转换为View默认尺寸的横坐标位置
      *
      * @param yulv10000 余氯数据
@@ -185,26 +162,6 @@ public class WmapWqYulvView extends View {
             ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth / 2 + mIntScaleWidth * (yulv10000 - 1000) / 4000;
         } else { //0.2<=tds<0.4
             ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth * 3 / 4 + mIntScaleWidth * (yulv10000 - 2000) / 8000;
-        }
-        return ret;
-    }
-
-    /**
-     * 余氯数据转换为View默认尺寸的横坐标位置
-     *
-     * @param yulv 余氯数据
-     * @return View默认尺寸的横坐标位置
-     */
-    private int yulvData2PosX(double yulv) {
-        int ret;
-        if (yulv < 0) {
-            ret = -mIntPointerWidth;
-        } else if (yulv < 0.1) { //0<=yulv<0.1
-            ret = mIntPointerWidth / 2 + 1 + (int) (mIntScaleWidth * yulv * 5);
-        } else if (yulv < 0.2) { //0.1<=tds<0.2
-            ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth / 2 + (int) (mIntScaleWidth * (yulv - 0.1) * 2.5);
-        } else { //0.2<=tds<0.4
-            ret = mIntPointerWidth / 2 + 1 + mIntScaleWidth * 3 / 4 + (int) (mIntScaleWidth * (yulv - 0.2) * 1.25);
         }
         return ret;
     }
