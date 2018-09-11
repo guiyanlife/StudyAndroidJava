@@ -8,4 +8,5 @@
     <string name="wmap_qg168wsqszsj">全国168万社区水质数据</string>
     <string name="wmap_szfx">水质分析</string>
     <string name="wmap_yl">余氯</string>
+    <string name="wmap_szybp">水质仪表盘</string>
 </resources>

@@ -28,23 +28,45 @@ public class FileUtil {
      * 复制raw资源文件到指定目录
      *
      * @param srcRawId    res/raw下的资源文件id
-     * @param dstFilePath 复制到目标目录
+     * @param newPath 复制到目标目录
      */
-    public static void copyFileFromRaw(int srcRawId, String dstFilePath) {
-        InputStream inputStream = MyApplication.mContext.getResources().openRawResource(srcRawId);
+    public static boolean copyFileFromRaw(int srcRawId, String newPath) {
+        boolean flag = false;
+        InputStream is = null;
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream(dstFilePath);
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = inputStream.read(buffer)) > 0) {
-                fos.write(buffer, 0, length);
+            int byteread = 0;
+            File newfile = new File(newPath);
+            File parent = newfile.getParentFile();
+            if (!parent.exists()) {
+                parent.mkdirs();
             }
-            fos.close();
-            inputStream.close();
+            if (!newfile.exists()) {
+                newfile.createNewFile();
+            }
+            is = MyApplication.mContext.getResources().openRawResource(srcRawId);
+            fos = new FileOutputStream(newPath);
+            byte[] buffer = new byte[1024];
+            while ((byteread = is.read(buffer)) != -1) {
+                fos.write(buffer, 0, byteread);
+            }
+            flag = true;
         } catch (Exception e) {
             e.printStackTrace();
+            flag = false;
+        } finally {
+            try {
+                if (fos != null) {
+                    fos.close();
+                }
+                if (is != null) {
+                    is.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        return flag;
     }
 
     /**

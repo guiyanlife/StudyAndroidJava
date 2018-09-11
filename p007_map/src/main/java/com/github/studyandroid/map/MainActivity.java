@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView ivBack;
-    private TextView tvJbdt, tvJbszdt;
+    private TextView tvJbdt, tvJbszdt, tvSzybp;
 
 
     @Override
@@ -25,12 +25,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ivBack = findViewById(R.id.iv_back);
         tvJbdt = findViewById(R.id.tv_amap_jbdt);
         tvJbszdt = findViewById(R.id.tv_wmap_jbszdt);
+        tvSzybp = findViewById(R.id.tv_wmap_szybp);
     }
 
     private void setListener() {
         ivBack.setOnClickListener(this);
         tvJbdt.setOnClickListener(this);
         tvJbszdt.setOnClickListener(this);
+        tvSzybp.setOnClickListener(this);
     }
 
     private void doNetWork() {
@@ -49,6 +51,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.tv_wmap_jbszdt:
                 intent = new Intent("hs.act.github.phone.WmapBaseMapActivity");
                 intent.putExtra("title", getResources().getString(R.string.wmap_jbszdt));
+                startActivity(intent);
+                break;
+            case R.id.tv_wmap_szybp:
+                intent = new Intent("hs.act.github.phone.WmapYbpActivity");
+                intent.putExtra("title", getResources().getString(R.string.wmap_szybp));
                 startActivity(intent);
                 break;
             case R.id.iv_back:

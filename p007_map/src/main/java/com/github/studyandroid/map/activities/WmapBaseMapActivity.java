@@ -1,10 +1,8 @@
 package com.github.studyandroid.map.activities;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,7 +24,6 @@ public class WmapBaseMapActivity extends AppCompatActivity implements View.OnCli
     private WmapView mWmMap;
     private WmapWqTdsView mWmapWqTds;
     private WmapWqYulvView mWmapWqYulv;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -36,6 +36,13 @@
                 <action android:name="hs.act.github.phone.WmapBaseMapActivity" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.WmapYbpActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="hs.act.github.phone.WmapYbpActivity" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

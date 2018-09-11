@@ -115,7 +115,7 @@
                 android:background="#DCDCDC" />
 
             <TextView
-                android:id="@+id/tv_animation2"
+                android:id="@+id/tv_wmap_szybp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y106"
                 android:background="@drawable/on_touch_bg"
@@ -125,7 +125,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/x28"
                 android:paddingRight="@dimen/x28"
-                android:text="Animation 2"
+                android:text="@string/wmap_szybp"
                 android:textColor="@color/ff383837"
                 android:textSize="@dimen/text_size_16" />
             <View
