@@ -5,8 +5,8 @@
 
     <ImageView
         android:id="@+id/iv_view_tag_bg"
-        android:layout_width="@dimen/x107"
-        android:layout_height="@dimen/y119"
+        android:layout_width="@dimen/x111"
+        android:layout_height="@dimen/y123"
         android:src="@drawable/tagcloud_bx" />
 
     <TextView
@@ -15,9 +15,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/iv_view_tag_bg"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/y16"
+        android:layout_marginBottom="@dimen/y31"
         android:gravity="center_horizontal"
-        android:text="3            -3            -8\n冷藏      变温      冷冻"
+        android:text="3          -8\n冷藏      冷冻"
         android:textColor="@color/colorTagCloudViewTagFont"
         android:textSize="@dimen/text_size_3" />
 

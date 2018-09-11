@@ -35,7 +35,7 @@ public class TagCloudDeviceBxActivity extends AppCompatActivity implements View.
     private void doNetWork() {
         mTvTitle.setText("TagCloudDeviceBxActivity");
         mIvDeviceBg.setImageResource(R.drawable.tagcloud_bx);
-        mTvDeviceContent.setText("3           -3           -8\n冷藏      变温      冷冻");
+        mTvDeviceContent.setText("3          -8\n冷藏      冷冻");
     }
 
     @Override

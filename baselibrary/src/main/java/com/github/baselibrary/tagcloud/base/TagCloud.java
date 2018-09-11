@@ -161,8 +161,10 @@ public class TagCloud {
         //when adding a new tag, just place it at some random location
         //this is in fact why adding too many elements make TagCloud ugly
         //after many add, do one reset to rearrange all tags
-        phi = Math.random() * (Math.PI);
-        theta = Math.random() * (2 * Math.PI);
+        if(!distrEven) {
+            phi = Math.random() * (Math.PI);
+            theta = Math.random() * (2 * Math.PI);
+        }
         //coordinate conversion:
         newTag.setLocX((int) (radius * Math.cos(theta) * Math.sin(phi)));
         newTag.setLocY((int) (radius * Math.sin(theta) * Math.sin(phi)));
