@@ -87,10 +87,11 @@ public class WmapWqTdsYbpView extends View {
         //绘制仪表盘的指针
         if (mIntTdsValue >= 0 && mIntTdsValue <= 1000) {
             Matrix matrix = new Matrix();
-            matrix.postScale(getMeasuredWidth() / mIntViewDefaultWidth, getMeasuredHeight() / mIntViewDefaultWidth);
-//            matrix.postTranslate(-drawPosX(mIntPointSize - 100) / 2, -drawPosX(mIntPointSize) / 2);
-//            matrix.postRotate(tdsData2Angle(mIntTdsValue)); //根据Tds的值，进行相应的旋转
-//            matrix.postTranslate(drawPosX(mIntViewDefaultWidth) / 2, drawPosY(mIntViewDefaultHeight) / 2);
+            matrix.reset();
+            matrix.postTranslate(-mIntPointSize / 2, -mIntPointSize / 2);
+            matrix.postRotate(tdsData2Angle(mIntTdsValue)); //根据Tds的值，进行相应的旋转
+            matrix.postScale((float) getMeasuredWidth() / mIntPointSize, (float) getMeasuredHeight() / mIntPointSize);
+            matrix.postTranslate(getMeasuredWidth() / 2, getMeasuredWidth() / 2);
             canvas.drawBitmap(mBmPointer, matrix, null);
         }
     }
@@ -102,7 +103,7 @@ public class WmapWqTdsYbpView extends View {
      * @return 旋转角度
      */
     private float tdsData2Angle(int tds) {
-        return tds;
+        return tds * 283 / 1000;
     }
 
     /**

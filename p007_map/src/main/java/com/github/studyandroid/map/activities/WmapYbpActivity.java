@@ -38,7 +38,7 @@ public class WmapYbpActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = getIntent();
         mTvTitle.setText(intent.getStringExtra("title"));
 
-        mWmapWqTdsYbp.setTdsData(90);
+        mWmapWqTdsYbp.setTdsDataAnim(700, 5000);
     }
 
     @Override
