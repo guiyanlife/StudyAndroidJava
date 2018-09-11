@@ -23,8 +23,8 @@ import java.util.List;
  */
 public class TagCloudViewTagAdapter extends TagsAdapter {
     private Context mContext;
-    private boolean mIsUpdateData = false;
     private List<EasyhomeDeviceData> m_Items;
+    private ViewGroup parent;
 
     public TagCloudViewTagAdapter(Context context, List items) {
         mContext = context;
@@ -41,16 +41,31 @@ public class TagCloudViewTagAdapter extends TagsAdapter {
         m_Items.addAll(items);
     }
 
-    public void setItemDeviceStateInfo(int index, String deviceInfo) {
-        m_Items.get(index).setDeviceStateInfo(deviceInfo);
+    public void setItemDeviceStateInfo(int deviceIndex, String deviceInfo) {
+        for (EasyhomeDeviceData bean : m_Items) {
+            if (deviceIndex == bean.getDeviceIndex()) {
+                bean.setDeviceStateInfo(deviceInfo);
+                refView(bean.getDeviceIndex(), deviceInfo);
+                break;
+            }
+        }
+    }
+
+    private void refView(int index, String deviceInfo) {
+        if (parent == null) {
+            return;
+        }
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View view = parent.getChildAt(i);
+            if (view.getTag() != null && index == (int) view.getTag()) {
+                ((TextView) view.findViewById(R.id.tv_view_tag_content)).setText(deviceInfo);
+                break;
+            }
+        }
     }
 
     public void clear() {
         m_Items.clear();
-    }
-
-    public void notifyUpdateData() {
-        mIsUpdateData = true;
     }
 
     @Override
@@ -60,6 +75,7 @@ public class TagCloudViewTagAdapter extends TagsAdapter {
 
     @Override
     public View getView(final Context context, final int position, ViewGroup parent) {
+        this.parent = parent;
         View view = LayoutInflater.from(context).inflate(R.layout.tagcloud_view_tag_item, parent, false);
         ImageView tagBg = view.findViewById(R.id.iv_view_tag_bg);
         TextView tagContent = view.findViewById(R.id.tv_view_tag_content);
@@ -116,11 +132,6 @@ public class TagCloudViewTagAdapter extends TagsAdapter {
             alpha = alpha * (float) 1.5;
         else
             alpha = alpha * (float) 0.5 + (float) 0.5;
-        if (mIsUpdateData) {
-            tagBg.setImageResource(m_Items.get((int) view.getTag()).getDeviceImageId());
-            tagContent.setText(m_Items.get((int) view.getTag()).getDeviceStateInfo());
-            mIsUpdateData = false;
-        }
         tagBg.setAlpha(alpha);
         tagContent.setAlpha(alpha);
     }

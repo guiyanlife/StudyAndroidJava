@@ -1,5 +1,6 @@
 package com.github.studyandroid.animation.ui.activities;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,12 +24,18 @@ public class TagCloudEasyhomeActivity extends AppCompatActivity implements View.
     private static final int DEALY_TIME = 1;  //定时延时间隔 1s
     private ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;  //定时器任务
     private int mWorkTime = 0;
+    private Handler mHandler = new Handler();
+
     private Runnable timerRunnable = new Runnable() {
         @Override
         public void run() {
-            viewTagsAdapter.setItemDeviceStateInfo(4, "烤箱\n已工作" + mWorkTime + "秒");
-            viewTagsAdapter.notifyUpdateData();
-            mWorkTime++;
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    viewTagsAdapter.setItemDeviceStateInfo(4, "烤箱\n已工作" + mWorkTime + "秒");
+                    mWorkTime++;
+                }
+            });
         }
     };
 
