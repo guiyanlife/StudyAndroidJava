@@ -1,3 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">P006_Widget</string>
+
+    <string name="password_instructions">"Enter password"</string>
+    <string name="dialog_password">*</string>
+    <string name="save_logs">Save logs</string>
+
+    <!-- Reboot password dialog -->
+    <string name="kg_password_instructions">Enter Password</string>
+    <string name="kg_wrong_password">Wrong Password</string>
+    <string name="yes">OK</string>
+    <string name="no">Cancel</string>
 </resources>

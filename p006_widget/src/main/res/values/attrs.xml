@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  -->
+    <declare-styleable name="CustomPasswordDialog">
+        <!--et number-->
+        <attr name="icv_et_number" format="integer" />
+        <!--et width-->
+        <attr name="icv_et_width" format="dimension|reference" />
+        <!--et divider-->
+        <attr name="icv_et_divider_drawable" format="reference" />
+        <!--et text color-->
+        <attr name="icv_et_text_color" format="color|reference" />
+        <!--et text size-->
+        <attr name="icv_et_text_size" format="dimension|reference" />
+        <!--et focus-->
+        <attr name="icv_et_bg_focus" format="reference" />
+        <!--et normal-->
+        <attr name="icv_et_bg_normal" format="reference" />
+    </declare-styleable>
+</resources>

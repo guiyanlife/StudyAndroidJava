@@ -7,4 +7,11 @@
     <color name="colorToolbarFont">#FFFFFF</color>
     <color name="colorTextFont">#373B3E</color>
     <color name="colorTagCloudViewTagFont">#FFFFFFFF</color>
+
+    <!--shutdown system dialog-->
+    <color name="color_head_right">#3AB1FF</color>
+    <color name="color_title">#484848</color>
+    <color name="line">#ededed</color>
+    <color name="red">#e60012</color>
+    <color name="error_hint_color">#E93A3A</color>
 </resources>
