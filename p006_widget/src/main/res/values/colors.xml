@@ -11,7 +11,7 @@
     <!--shutdown system dialog-->
     <color name="color_head_right">#3AB1FF</color>
     <color name="color_title">#484848</color>
-    <color name="line">#ededed</color>
+    <color name="line">#e5e5e5</color>
     <color name="red">#e60012</color>
-    <color name="error_hint_color">#E93A3A</color>
+    <color name="error_hint_color">#F76060</color>
 </resources>

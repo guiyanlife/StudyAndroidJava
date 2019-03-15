@@ -1,12 +1,8 @@
 package com.github.studyandroid.widget;
 
-import android.app.Dialog;
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,46 +43,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.tv_pwddialog:
-                inputPassword();
+                showCustomPasswordDialog();
                 break;
             default:
                 break;
         }
     }
 
-    private void inputPassword() {
-        final LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.dialog_reboot_password, null);
-        final CustomPasswordDialog etPassword = view.findViewById(R.id.et_password);
-        final TextView tvHint = view.findViewById(R.id.tv_hint);
-        Dialog sPasswordDialog = new Dialog(this, R.style.alertdialog);
-        Button btn_no = view.findViewById(R.id.btn_no);
-        Button btn_yes = view.findViewById(R.id.btn_yes);
-
-        etPassword.setInputStartListener(new CustomPasswordDialog.InputStartListener() {
+    private void showCustomPasswordDialog() {
+        CustomPasswordDialog dialog = new CustomPasswordDialog(this, R.style.alertdialog);
+        dialog.setYesButton(new CustomPasswordDialog.OnClickListenerInterface() {
             @Override
-            public void startInput() {
-                tvHint.setVisibility(View.INVISIBLE);
+            public void onClick() {
+                Toast.makeText(getApplicationContext(), "Pass", Toast.LENGTH_SHORT).show();
             }
         });
-
-        btn_yes.setOnClickListener(new View.OnClickListener() {
+        dialog.setNoButton(new CustomPasswordDialog.OnClickListenerInterface() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "True", Toast.LENGTH_SHORT).show();
+            public void onClick() {
+                Toast.makeText(getApplicationContext(), "Cancel", Toast.LENGTH_SHORT).show();
             }
         });
-
-        btn_no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        sPasswordDialog.setContentView(view);
-        sPasswordDialog.setCanceledOnTouchOutside(true);
-        //sPasswordDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG); //锁屏时显示的对话框
-        sPasswordDialog.show();
+        dialog.show();
     }
 }
