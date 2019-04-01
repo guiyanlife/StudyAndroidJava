@@ -1,5 +1,6 @@
 package com.github.studyandroid.widget;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.github.studyandroid.widget.ui.dialog.CustomPasswordDialog;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView ivBack;
     private TextView tvPwddialog;
+    private TextView tvSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void findView() {
         ivBack = findViewById(R.id.iv_back);
         tvPwddialog = findViewById(R.id.tv_pwddialog);
+        tvSpinner = findViewById(R.id.tv_spinner);
     }
 
     private void setListener() {
         ivBack.setOnClickListener(this);
         tvPwddialog.setOnClickListener(this);
+        tvSpinner.setOnClickListener(this);
     }
 
     private void doNetWork() {
@@ -44,6 +48,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.tv_pwddialog:
                 showCustomPasswordDialog();
+                break;
+            case R.id.tv_spinner:
+                Intent intent = new Intent("com.github.studyandroid.widget.activity.SpinnerActivity");
+                intent.putExtra("title", tvSpinner.getText());
+                startActivity(intent);
                 break;
             default:
                 break;

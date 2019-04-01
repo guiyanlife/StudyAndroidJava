@@ -32,7 +32,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/x28"
                     android:paddingRight="@dimen/x28"
-                    android:text="Dialog"
+                    android:text="Dialogs"
                     android:textColor="#888580"
                     android:textSize="@dimen/text_size_12" />
             </RelativeLayout>
@@ -61,7 +61,7 @@
                 android:background="#DCDCDC" />
 
             <TextView
-                android:id="@+id/tv_recyclerview2"
+                android:id="@+id/tv_dialog2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y106"
                 android:background="@drawable/on_touch_bg"
@@ -71,7 +71,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/x28"
                 android:paddingRight="@dimen/x28"
-                android:text="Recyclerview 2"
+                android:text="Dialog 2"
                 android:textColor="@color/ff383837"
                 android:textSize="@dimen/text_size_16" />
 
@@ -86,13 +86,13 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/x28"
                     android:paddingRight="@dimen/x28"
-                    android:text="Animation"
+                    android:text="Containers"
                     android:textColor="#888580"
                     android:textSize="@dimen/text_size_12" />
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_animation1"
+                android:id="@+id/tv_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y106"
                 android:background="@drawable/on_touch_bg"
@@ -102,7 +102,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/x28"
                 android:paddingRight="@dimen/x28"
-                android:text="Animation 1"
+                android:text="Spinner"
                 android:textColor="@color/ff383837"
                 android:textSize="@dimen/text_size_16" />
 

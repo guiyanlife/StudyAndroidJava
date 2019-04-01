@@ -57,7 +57,6 @@
     <style name="alertdialog" parent="base_alertdialog">
         <item name="android:backgroundDimAmount">0.5</item>
     </style>
-
     <style name="base_alertdialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowFrame">@null</item>
@@ -68,5 +67,28 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+    <!-- Container spinner -->
+    <style name="first_size"> <!--一号字体-->
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+    <style name="second_size"> <!--二号字体-->
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+    <style name="layout_first">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="default_font_first"> <!--各类设置LinearLayout一级标题-->
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textColor">@color/color_title</item>
+        <item name="android:layout_marginLeft">@dimen/x28</item>
     </style>
 </resources>
