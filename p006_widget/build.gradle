@@ -34,4 +34,5 @@ dependencies {
     implementation librarys.multidexVersion
     implementation librarys.recyclerviewv7
     implementation project(':baselibrary')
+    implementation project(':commonlibs:libglide38')
 }

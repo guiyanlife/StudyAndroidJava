@@ -8,12 +8,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.studyandroid.widget.ui.activity.Glide38Activity;
 import com.github.studyandroid.widget.ui.dialog.CustomPasswordDialog;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView ivBack;
     private TextView tvPwddialog;
     private TextView tvSpinner;
+    private TextView tvGlide38;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +30,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ivBack = findViewById(R.id.iv_back);
         tvPwddialog = findViewById(R.id.tv_pwddialog);
         tvSpinner = findViewById(R.id.tv_spinner);
+        tvGlide38 = findViewById(R.id.tv_glide38);
     }
 
     private void setListener() {
         ivBack.setOnClickListener(this);
         tvPwddialog.setOnClickListener(this);
         tvSpinner.setOnClickListener(this);
+        tvGlide38.setOnClickListener(this);
     }
 
     private void doNetWork() {
@@ -50,9 +54,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showCustomPasswordDialog();
                 break;
             case R.id.tv_spinner:
-                Intent intent = new Intent("com.github.studyandroid.widget.activity.SpinnerActivity");
-                intent.putExtra("title", tvSpinner.getText());
-                startActivity(intent);
+                Intent intentSpinner = new Intent("com.github.studyandroid.widget.activity.SpinnerActivity");
+                intentSpinner.putExtra("title", tvSpinner.getText());
+                startActivity(intentSpinner);
+                break;
+            case R.id.tv_glide38:
+                Intent intentGlide38 = new Intent(this, Glide38Activity.class);
+                intentGlide38.putExtra("title", tvGlide38.getText());
+                startActivity(intentGlide38);
                 break;
             default:
                 break;
