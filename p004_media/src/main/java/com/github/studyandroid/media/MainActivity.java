@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.studyandroid.media.ui.activity.CameraTranslucentEffectActivity;
 import com.github.studyandroid.media.ui.activity.VideoOrgEffectActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private ImageView ivBack;
     private TextView tvOrginalEffect;
+    private TextView tvCameraTranslucentEffect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void findView() {
         ivBack = findViewById(R.id.iv_back);
         tvOrginalEffect = findViewById(R.id.tv_video_original_effect);
+        tvCameraTranslucentEffect = findViewById(R.id.tv_camera_translucent_effect);
     }
 
     private void setListener() {
         ivBack.setOnClickListener(this);
         tvOrginalEffect.setOnClickListener(this);
+        tvCameraTranslucentEffect.setOnClickListener(this);
     }
 
     private void doNetWork() {
@@ -46,6 +50,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Intent intentVideoOrgEffect = new Intent(this, VideoOrgEffectActivity.class);
                 intentVideoOrgEffect.putExtra("title", tvOrginalEffect.getText());
                 startActivity(intentVideoOrgEffect);
+                break;
+            case R.id.tv_camera_translucent_effect:
+                Intent intentCameraTransEffect = new Intent(this, CameraTranslucentEffectActivity.class);
+                intentCameraTransEffect.putExtra("title", tvCameraTranslucentEffect.getText());
+                startActivity(intentCameraTransEffect);
                 break;
             default:
                 break;

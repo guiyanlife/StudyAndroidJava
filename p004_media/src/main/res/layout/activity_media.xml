@@ -115,7 +115,7 @@
                 android:background="#DCDCDC" />
 
             <TextView
-                android:id="@+id/tv_camera2"
+                android:id="@+id/tv_camera_translucent_effect"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y106"
                 android:background="@drawable/on_touch_bg"
@@ -125,7 +125,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/x28"
                 android:paddingRight="@dimen/x28"
-                android:text="Camera 2"
+                android:text="Camera Translucent Effect"
                 android:textColor="@color/ff383837"
                 android:textSize="@dimen/text_size_16" />
 
