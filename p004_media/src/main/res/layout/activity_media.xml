@@ -38,7 +38,7 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_orginaleffect"
+                android:id="@+id/tv_video_original_effect"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y106"
                 android:background="@drawable/on_touch_bg"
@@ -48,7 +48,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/x28"
                 android:paddingRight="@dimen/x28"
-                android:text="Original Effect"
+                android:text="Video Original Effect"
                 android:textColor="@color/ff383837"
                 android:textSize="@dimen/text_size_16" />
 
@@ -72,6 +72,60 @@
                 android:paddingLeft="@dimen/x28"
                 android:paddingRight="@dimen/x28"
                 android:text="video 2"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/text_size_16" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y53"
+                android:background="#EDEBE9">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/x28"
+                    android:paddingRight="@dimen/x28"
+                    android:text="Camera"
+                    android:textColor="#888580"
+                    android:textSize="@dimen/text_size_12" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_camera_original_effect"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y106"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawablePadding="@dimen/x20"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/x28"
+                android:paddingRight="@dimen/x28"
+                android:text="Camera Original Effect"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/text_size_16" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/x28"
+                android:layout_marginRight="@dimen/x28"
+                android:background="#DCDCDC" />
+
+            <TextView
+                android:id="@+id/tv_camera2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y106"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawablePadding="@dimen/x20"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/x28"
+                android:paddingRight="@dimen/x28"
+                android:text="Camera 2"
                 android:textColor="@color/ff383837"
                 android:textSize="@dimen/text_size_16" />
 

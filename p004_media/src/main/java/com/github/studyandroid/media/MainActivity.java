@@ -24,7 +24,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void findView() {
         ivBack = findViewById(R.id.iv_back);
-        tvOrginalEffect = findViewById(R.id.tv_orginaleffect);
+        tvOrginalEffect = findViewById(R.id.tv_video_original_effect);
     }
 
     private void setListener() {
@@ -42,10 +42,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.iv_back:
                 finish();
                 break;
-            case R.id.tv_orginaleffect:
-                Intent intentOrgEffect = new Intent(this, VideoOrgEffectActivity.class);
-                intentOrgEffect.putExtra("title", tvOrginalEffect.getText());
-                startActivity(intentOrgEffect);
+            case R.id.tv_video_original_effect:
+                Intent intentVideoOrgEffect = new Intent(this, VideoOrgEffectActivity.class);
+                intentVideoOrgEffect.putExtra("title", tvOrginalEffect.getText());
+                startActivity(intentVideoOrgEffect);
                 break;
             default:
                 break;
