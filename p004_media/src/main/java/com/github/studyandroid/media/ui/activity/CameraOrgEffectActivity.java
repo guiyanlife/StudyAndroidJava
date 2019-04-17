@@ -1,11 +1,15 @@
 package com.github.studyandroid.media.ui.activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.PixelFormat;
+import android.hardware.Camera;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
@@ -13,22 +17,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.studyandroid.media.R;
+import com.github.studyandroid.media.helper.CameraHelper;
 import com.github.studyandroid.media.helper.MediaPlayerHelper;
 
 import java.io.IOException;
 
-public class VideoOrgEffectActivity extends Activity implements View.OnClickListener {
+public class CameraOrgEffectActivity extends Activity implements View.OnClickListener {
     private ImageView ivToolbarBack;
     private TextView tvToolbarContent;
-    private Button btnPlay, btnPause, btnStop;
-    private SurfaceView svVideoDisplay;
+    private Button btnStart, btnStop;
+    private SurfaceView svCameraDisplay;
 
-    private MediaPlayerHelper mVideoPlayer;
+    private CameraHelper mCamera;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video_org_effect);
+        setContentView(R.layout.activity_camera_org_effect);
         findView();
         setListener();
         doNetWork();
@@ -37,16 +42,14 @@ public class VideoOrgEffectActivity extends Activity implements View.OnClickList
     private void findView() {
         ivToolbarBack = findViewById(R.id.iv_toolbar_back);
         tvToolbarContent = findViewById(R.id.tv_toolbar_content);
-        svVideoDisplay = findViewById(R.id.sv_video_display);
-        btnPlay = findViewById(R.id.btn_video_play);
-        btnPause = findViewById(R.id.btn_video_pause);
-        btnStop = findViewById(R.id.btn_video_stop);
+        svCameraDisplay = findViewById(R.id.sv_camera_display);
+        btnStart = findViewById(R.id.btn_camera_start);
+        btnStop = findViewById(R.id.btn_camera_stop);
     }
 
     private void setListener() {
         ivToolbarBack.setOnClickListener(this);
-        btnPlay.setOnClickListener(this);
-        btnPause.setOnClickListener(this);
+        btnStart.setOnClickListener(this);
         btnStop.setOnClickListener(this);
     }
 
@@ -56,17 +59,11 @@ public class VideoOrgEffectActivity extends Activity implements View.OnClickList
         tvToolbarContent.setText(intent.getStringExtra("title"));
 
         // Set surface background is transparent
-        svVideoDisplay.setZOrderOnTop(true);
-        svVideoDisplay.getHolder().setFormat(PixelFormat.TRANSPARENT);
+        svCameraDisplay.setZOrderOnTop(true);
+        svCameraDisplay.getHolder().setFormat(PixelFormat.TRANSPARENT);
 
-        mVideoPlayer = new MediaPlayerHelper(svVideoDisplay, null, null);
-        try {
-            AssetManager assetMg = this.getApplicationContext().getAssets();
-            AssetFileDescriptor fileDescriptor = assetMg.openFd("video_720x480_1mb.mp4");
-            mVideoPlayer.initVideo(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        mCamera = new CameraHelper(svCameraDisplay);
+        mCamera.initCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
     }
 
     @Override
@@ -87,7 +84,7 @@ public class VideoOrgEffectActivity extends Activity implements View.OnClickList
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mVideoPlayer.onDestroy();
+        mCamera.onDestroy();
     }
 
     @Override
@@ -96,15 +93,11 @@ public class VideoOrgEffectActivity extends Activity implements View.OnClickList
             case R.id.iv_toolbar_back:
                 finish();
                 break;
-            case R.id.btn_video_play:
-                mVideoPlayer.onStartPlay();
+            case R.id.btn_camera_start:
+                mCamera.onStartPreview();
                 break;
-            case R.id.btn_video_pause:
-                if (mVideoPlayer.isPlaying())
-                    mVideoPlayer.onPause();
-                break;
-            case R.id.btn_video_stop:
-                mVideoPlayer.onStop();
+            case R.id.btn_camera_stop:
+                mCamera.onStopPreview();
                 break;
             default:
                 break;

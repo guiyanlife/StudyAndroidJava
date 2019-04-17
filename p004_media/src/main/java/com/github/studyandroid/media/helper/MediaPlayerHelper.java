@@ -1,4 +1,4 @@
-package com.github.studyandroid.media.util;
+package com.github.studyandroid.media.helper;
 
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
@@ -13,12 +13,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.github.studyandroid.media.util.ScreenUtil;
+
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Hashtable;
 
-public class MediaUtil {
-    private String TAG = "MediaUtil";
+public class MediaPlayerHelper {
+    private String TAG = "MediaPlayerHelper";
     private SurfaceHolder mHolder;
     private MediaPlayer mPlayer;
 
@@ -35,7 +37,7 @@ public class MediaUtil {
      * @param thumbnail 视频缩略图（可选）
      * @param play      视频播放按钮（可选）
      */
-    public MediaUtil(SurfaceView surface, ImageView thumbnail, ImageView play) {
+    public MediaPlayerHelper(SurfaceView surface, ImageView thumbnail, ImageView play) {
         this.mSurface = surface;
         this.mThumbnail = thumbnail;
         this.mPlay = play;
@@ -219,8 +221,8 @@ public class MediaUtil {
             int surfaceViewWidth = mSurface.getWidth();
             int surfaceViewHeight = mSurface.getHeight();
 
-            Log.e(TAG, "Video Width: " + videoWidth + ", " + "Video Height: " + videoHeight);
-            Log.e(TAG, "Surface Width: " + surfaceViewWidth + ", " + "Surface Height: " + surfaceViewHeight);
+            Log.d(TAG, "Video Width: " + videoWidth + ", " + "Video Height: " + videoHeight);
+            Log.d(TAG, "Surface Width: " + surfaceViewWidth + ", " + "Surface Height: " + surfaceViewHeight);
 //        mHolder.setFixedSize(mSurfaceViewWidth, mSurfaceViewHeight);
             RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
             int marginHorizontal, marginVertical;

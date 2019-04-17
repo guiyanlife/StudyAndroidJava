@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.studyandroid.media.ui.activity.CameraOrgEffectActivity;
 import com.github.studyandroid.media.ui.activity.CameraTranslucentEffectActivity;
 import com.github.studyandroid.media.ui.activity.VideoOrgEffectActivity;
 
@@ -14,6 +15,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private ImageView ivBack;
     private TextView tvOrginalEffect;
     private TextView tvCameraTranslucentEffect;
+    private TextView tvCameraOrgEffect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +30,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ivBack = findViewById(R.id.iv_back);
         tvOrginalEffect = findViewById(R.id.tv_video_original_effect);
         tvCameraTranslucentEffect = findViewById(R.id.tv_camera_translucent_effect);
+        tvCameraOrgEffect = findViewById(R.id.tv_camera_original_effect);
     }
 
     private void setListener() {
         ivBack.setOnClickListener(this);
         tvOrginalEffect.setOnClickListener(this);
         tvCameraTranslucentEffect.setOnClickListener(this);
+        tvCameraOrgEffect.setOnClickListener(this);
     }
 
     private void doNetWork() {
@@ -55,6 +59,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Intent intentCameraTransEffect = new Intent(this, CameraTranslucentEffectActivity.class);
                 intentCameraTransEffect.putExtra("title", tvCameraTranslucentEffect.getText());
                 startActivity(intentCameraTransEffect);
+                break;
+            case R.id.tv_camera_original_effect:
+                Intent intentCameraOrgEffect = new Intent(this, CameraOrgEffectActivity.class);
+                intentCameraOrgEffect.putExtra("title", tvCameraOrgEffect.getText());
+                startActivity(intentCameraOrgEffect);
                 break;
             default:
                 break;

@@ -19,8 +19,8 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <com.github.studyandroid.media.ui.view.CameraGLSurfaceView
-                android:id="@+id/gv_camera_display"
+            <com.github.studyandroid.media.ui.view.CameraSurfaceView
+                android:id="@+id/sv_camera_display"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </RelativeLayout>
@@ -32,30 +32,22 @@
             android:orientation="horizontal"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
-            android:weightSum="3">
+            android:weightSum="2">
 
             <Button
-                android:id="@+id/btn_camera_red"
+                android:id="@+id/btn_camera_start"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Red"
+                android:text="Start"
                 android:textColor="#EA0000" />
 
             <Button
-                android:id="@+id/btn_camera_grey"
+                android:id="@+id/btn_camera_stop"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Grey"
-                android:textColor="#606060" />
-
-            <Button
-                android:id="@+id/btn_camera_dead"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Dead" />
+                android:text="Stop" />
         </LinearLayout>
     </LinearLayout>
 

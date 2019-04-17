@@ -2,22 +2,18 @@ package com.github.studyandroid.media.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
-import android.graphics.PixelFormat;
+import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.studyandroid.media.R;
-import com.github.studyandroid.media.util.MediaUtil;
-
-import java.io.IOException;
 
 public class CameraTranslucentEffectActivity extends Activity implements View.OnClickListener {
     private ImageView ivToolbarBack;
     private TextView tvToolbarContent;
+    private GLSurfaceView gvCameraDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +27,7 @@ public class CameraTranslucentEffectActivity extends Activity implements View.On
     private void findView() {
         ivToolbarBack = findViewById(R.id.iv_toolbar_back);
         tvToolbarContent = findViewById(R.id.tv_toolbar_content);
+        gvCameraDisplay = findViewById(R.id.gv_camera_display);
     }
 
     private void setListener() {
