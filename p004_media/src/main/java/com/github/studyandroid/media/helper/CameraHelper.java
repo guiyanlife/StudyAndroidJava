@@ -105,6 +105,7 @@ public class CameraHelper {
 
     /**
      * 设置Camera的监听，外部接口用于获取Camera每帧的数据
+     *
      * @param listener Camera的监听类，监听Camera返回的每帧数据
      */
     public void setOnCameraListener(CameraHelper.OnCameraListener listener) {
