@@ -9,7 +9,7 @@ import android.content.res.AssetManager;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
@@ -18,9 +18,7 @@ import android.widget.TextView;
 
 import com.github.studyandroid.media.R;
 import com.github.studyandroid.media.helper.CameraHelper;
-import com.github.studyandroid.media.helper.MediaPlayerHelper;
 
-import java.io.IOException;
 
 public class CameraOrgEffectActivity extends Activity implements View.OnClickListener {
     private ImageView ivToolbarBack;

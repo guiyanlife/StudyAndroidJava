@@ -1,12 +1,8 @@
 package com.github.studyandroid.media.helper;
 
-
-import android.Manifest;
-import android.app.Activity;
-import android.content.pm.PackageManager;
+import android.graphics.ImageFormat;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -19,6 +15,8 @@ public class CameraHelper {
     private SurfaceHolder mHolder;
     private SurfaceView mSurface;
     private Camera mCamera = null;
+
+    private CameraHelper.OnCameraListener listener;
 
     /**
      * 构造函数
@@ -65,6 +63,13 @@ public class CameraHelper {
             onAdaptiveSize(true);
             try {
                 mCamera.setPreviewDisplay(holder);
+
+                // 设置预览回调buffer
+                int size = mCamera.getParameters().getPreviewSize().width * mCamera.getParameters().getPreviewSize().height * ImageFormat.getBitsPerPixel(mCamera.getParameters().getPreviewFormat()) / 8;
+                byte[] previewBuffer = new byte[size];
+                mCamera.addCallbackBuffer(previewBuffer);
+                mCamera.setPreviewCallbackWithBuffer(mPreviewCallback);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -81,6 +86,34 @@ public class CameraHelper {
 
         }
     };
+
+    Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() {
+        @Override
+        public void onPreviewFrame(byte[] data, Camera camera) {
+            if (listener != null) {
+                listener.onPreviewFrame(data, camera);
+            }
+
+            //每一次回调函数onPreviewFrame()调用后都必须调用addCallbackBuffer()
+            synchronized (CameraHelper.this) {
+                if (camera != null && data != null) {
+                    camera.addCallbackBuffer(data);
+                }
+            }
+        }
+    };
+
+    /**
+     * 设置Camera的监听，外部接口用于获取Camera每帧的数据
+     * @param listener Camera的监听类，监听Camera返回的每帧数据
+     */
+    public void setOnCameraListener(CameraHelper.OnCameraListener listener) {
+        this.listener = listener;
+    }
+
+    public interface OnCameraListener {
+        void onPreviewFrame(byte[] data, Camera camera);
+    }
 
     /**
      * 适应控件的高度或宽度显示视频的大小
@@ -100,8 +133,8 @@ public class CameraHelper {
             int surfaceViewWidth = mSurface.getWidth();
             int surfaceViewHeight = mSurface.getHeight();
 
-            Log.e(TAG, "Camera Preview Width: " + cameraWidth + ", " + "Camera Preview Height: " + cameraHeight);
-            Log.e(TAG, "Surface Width: " + surfaceViewWidth + ", " + "Surface Height: " + surfaceViewHeight);
+            Log.d(TAG, "Camera Preview Width: " + cameraWidth + ", " + "Camera Preview Height: " + cameraHeight);
+            Log.d(TAG, "Surface Width: " + surfaceViewWidth + ", " + "Surface Height: " + surfaceViewHeight);
 //        mHolder.setFixedSize(mSurfaceViewWidth, mSurfaceViewHeight);
             RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
             int marginHorizontal, marginVertical;
