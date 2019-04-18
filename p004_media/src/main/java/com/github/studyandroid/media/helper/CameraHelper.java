@@ -87,6 +87,9 @@ public class CameraHelper {
         }
     };
 
+    /**
+     * Camera 开始预览后触发该接口，用于获取预览图像的每帧图像
+     */
     Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() {
         @Override
         public void onPreviewFrame(byte[] data, Camera camera) {
@@ -94,7 +97,7 @@ public class CameraHelper {
                 listener.onPreviewFrame(data, camera);
             }
 
-            //每一次回调函数onPreviewFrame()调用后都必须调用addCallbackBuffer()
+            //buffer复用，每一次回调函数onPreviewFrame()调用后都必须调用addCallbackBuffer()
             synchronized (CameraHelper.this) {
                 if (camera != null && data != null) {
                     camera.addCallbackBuffer(data);
@@ -104,7 +107,7 @@ public class CameraHelper {
     };
 
     /**
-     * 设置Camera的监听，外部接口用于获取Camera每帧的数据
+     * 设置Camera的预览回调，外部接口用于获取Camera每帧的数据
      *
      * @param listener Camera的监听类，监听Camera返回的每帧数据
      */
