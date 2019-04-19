@@ -1,4 +1,4 @@
-package com.github.studyandroid.media.helper;
+package com.github.studyandroid.media.media;
 
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;

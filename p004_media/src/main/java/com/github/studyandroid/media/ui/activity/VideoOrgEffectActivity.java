@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.studyandroid.media.R;
-import com.github.studyandroid.media.helper.MediaPlayerHelper;
+import com.github.studyandroid.media.media.MediaPlayerHelper;
 
 import java.io.IOException;
 

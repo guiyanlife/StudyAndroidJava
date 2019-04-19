@@ -17,12 +17,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/icon">
 
             <com.github.studyandroid.media.ui.view.CameraGLSurfaceView
                 android:id="@+id/gv_camera_display"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_width="300dp"
+                android:layout_height="300dp"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -32,30 +33,36 @@
             android:orientation="horizontal"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
-            android:weightSum="3">
+            android:weightSum="4">
 
             <Button
-                android:id="@+id/btn_camera_red"
+                android:id="@+id/btn_camera_trans_start"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Red"
+                android:text="Start"
                 android:textColor="#EA0000" />
 
             <Button
-                android:id="@+id/btn_camera_grey"
+                android:id="@+id/btn_camera_trans_alpha_inc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Grey"
-                android:textColor="#606060" />
+                android:text="Alpha +" />
 
             <Button
-                android:id="@+id/btn_camera_dead"
+                android:id="@+id/btn_camera_trans_alpha_dec"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Dead" />
+                android:text="Alpha -" />
+
+            <Button
+                android:id="@+id/btn_camera_trans_stop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Stop" />
         </LinearLayout>
     </LinearLayout>
 

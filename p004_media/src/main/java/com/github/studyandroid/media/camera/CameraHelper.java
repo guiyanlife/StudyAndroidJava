@@ -1,8 +1,12 @@
-package com.github.studyandroid.media.helper;
+package com.github.studyandroid.media.camera;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -38,6 +42,13 @@ public class CameraHelper {
         }
 
         try {
+            mHolder = mSurface.getHolder();
+            mHolder.addCallback(callback);
+            mHolder.setFormat(PixelFormat.RGBA_8888);
+
+            // 请求Camera的权限
+            requestCameraPermission();
+
             mCamera = Camera.open(cameraId);
             Camera.Parameters parameters = mCamera.getParameters();
             parameters.set("orientation", "portrait");
@@ -45,10 +56,6 @@ public class CameraHelper {
             parameters.setPreviewSize(1280, 720);
             mCamera.setDisplayOrientation(90);
             mCamera.setParameters(parameters);
-
-            mHolder = mSurface.getHolder();
-            mHolder.addCallback(callback);
-            mHolder.setFormat(PixelFormat.RGBA_8888);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,6 +93,12 @@ public class CameraHelper {
 
         }
     };
+
+    private void requestCameraPermission() {
+        if (ActivityCompat.checkSelfPermission(mSurface.getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions((Activity) mSurface.getContext(), new String[]{Manifest.permission.CAMERA}, 0);
+        }
+    }
 
     /**
      * Camera 开始预览后触发该接口，用于获取预览图像的每帧图像
