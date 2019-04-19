@@ -15,7 +15,6 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-
 import static android.opengl.GLES20.glClearColor;
 
 public class CameraTranslucentTriangle {
@@ -136,8 +135,8 @@ public class CameraTranslucentTriangle {
         // 圆形
         mPosCoordinate = getCirclePosCoordinate(360); //圆形坐标
         //mTexCoordinate = getCircleTexCoordinate(360, 90, false, previewWidth, previewHeight); //圆形纹理坐标，适用手机前置摄像头，逆时针90度旋转
-        mTexCoordinate = getCircleTexCoordinate(360, -90, false, previewWidth, previewHeight); //圆形纹理坐标，适用蜂盒前置摄像头，顺时针90度旋转
-        //mTexCoordinate = getCircleTexCoordinate(360, -90, true, previewWidth, previewHeight);  //圆形纹理坐标，适用手机后置摄像头，顺时针90度旋转并沿Y轴旋转
+        //mTexCoordinate = getCircleTexCoordinate(360, -90, false, previewWidth, previewHeight); //圆形纹理坐标，适用蜂盒前置摄像头，顺时针90度旋转
+        mTexCoordinate = getCircleTexCoordinate(360, -90, true, previewWidth, previewHeight);  //圆形纹理坐标，适用手机后置摄像头，顺时针90度旋转并沿Y轴旋转
 
         mPosBuffer = convertToFloatBuffer(mPosCoordinate);
         mTexBuffer = convertToFloatBuffer(mTexCoordinate);

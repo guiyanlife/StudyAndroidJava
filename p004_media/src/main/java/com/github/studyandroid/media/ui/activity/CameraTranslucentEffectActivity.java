@@ -2,6 +2,7 @@ package com.github.studyandroid.media.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.hardware.Camera;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -57,8 +58,7 @@ public class CameraTranslucentEffectActivity extends Activity implements View.On
         tvToolbarContent.setText(intent.getStringExtra("title"));
 
         mCamera = new CameraRenderManager(gvCameraDisplay);
-//        mCamera.initCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
-        mCamera.initCamera(0);
+        mCamera.initCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
         mCamera.onStartPreview();
     }
 

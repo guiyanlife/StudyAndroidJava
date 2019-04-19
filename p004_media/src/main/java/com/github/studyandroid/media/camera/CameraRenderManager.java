@@ -15,9 +15,6 @@ import java.io.IOException;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import static java.security.AccessController.getContext;
-
-
 public class CameraRenderManager {
     private String TAG = "CameraRenderManager";
 
