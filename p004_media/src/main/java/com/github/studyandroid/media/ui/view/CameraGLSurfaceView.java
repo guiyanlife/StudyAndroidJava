@@ -10,12 +10,10 @@ import javax.microedition.khronos.opengles.GL10;
 public class CameraGLSurfaceView extends GLSurfaceView implements GLSurfaceView.Renderer {
     public CameraGLSurfaceView(Context context) {
         super(context);
-//        this.setRenderer(this);
     }
 
     public CameraGLSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
-//        this.setRenderer(this);
     }
 
 

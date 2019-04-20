@@ -46,9 +46,7 @@ public class CameraHelper {
             mHolder.addCallback(callback);
             mHolder.setFormat(PixelFormat.RGBA_8888);
 
-            // 请求Camera的权限
             requestCameraPermission();
-
             mCamera = Camera.open(cameraId);
             Camera.Parameters parameters = mCamera.getParameters();
             parameters.set("orientation", "portrait");
@@ -94,6 +92,9 @@ public class CameraHelper {
         }
     };
 
+    /**
+     * 请求Camera的权限
+     */
     private void requestCameraPermission() {
         if (ActivityCompat.checkSelfPermission(mSurface.getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions((Activity) mSurface.getContext(), new String[]{Manifest.permission.CAMERA}, 0);
@@ -128,6 +129,9 @@ public class CameraHelper {
         this.listener = listener;
     }
 
+    /**
+     * Camera的预览回调监听接口，用于外部类获取Camera的帧图像数据
+     */
     public interface OnCameraListener {
         void onPreviewFrame(byte[] data, Camera camera);
     }

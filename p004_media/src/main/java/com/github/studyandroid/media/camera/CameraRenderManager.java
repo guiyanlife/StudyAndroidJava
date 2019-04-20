@@ -55,9 +55,7 @@ public class CameraRenderManager {
             // set render mode: when execute GLSurfaceView.requestRender() or GLSurfaceView.onResume() process rendering
             mGLSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 
-            // 请求Camera的权限
             requestCameraPermission();
-
             mCamera = Camera.open(cameraId);
             Camera.Parameters parameters = mCamera.getParameters();
             parameters.set("orientation", "portrait");
@@ -119,6 +117,9 @@ public class CameraRenderManager {
         }
     };
 
+    /**
+     * 请求Camera的权限
+     */
     private void requestCameraPermission() {
         if (ActivityCompat.checkSelfPermission(mGLSurfaceView.getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions((Activity) mGLSurfaceView.getContext(), new String[]{Manifest.permission.CAMERA}, 0);
