@@ -66,6 +66,9 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
         ivToolbarBack.setVisibility(View.VISIBLE);
         tvToolbarContent.setText(intent.getStringExtra("title"));
         rlBackground.setBackgroundColor(getResources().getColor(R.color.colorPrimaryHalfHalfTrans));
+        btnMultiPlay.setAlpha(0.7f);
+        btnMultiPause.setAlpha(0.7f);
+        btnMultiStop.setAlpha(0.7f);
 
         mVideoPlayer1 = new MediaPlayerHelper(svVideoDisplay1, null, null);
         mVideoPlayer2 = new MediaPlayerHelper(svVideoDisplay2, null, null);
