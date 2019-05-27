@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">p004_Media</string>
+    <string name="video">视频</string>
+    <string name="video_original_effect">视频原始效果</string>
+    <string name="video_translucent_effect">视频半透明效果</string>
+    <string name="video_multi_decode_effect">视频多路解码效果</string>
+    <string name="camera">摄像头</string>
+    <string name="camera_original_effect">摄像头原始效果</string>
+    <string name="camera_translucent_effect">摄像头半透明效果</string>
+    <string name="audio">音频</string>
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="stop">停止</string>
 </resources>

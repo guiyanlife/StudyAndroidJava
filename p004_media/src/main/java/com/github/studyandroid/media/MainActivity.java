@@ -9,11 +9,13 @@ import android.widget.TextView;
 
 import com.github.studyandroid.media.ui.activity.CameraOrgEffectActivity;
 import com.github.studyandroid.media.ui.activity.CameraTranslucentEffectActivity;
+import com.github.studyandroid.media.ui.activity.VideoMultiDecEffectActivity;
 import com.github.studyandroid.media.ui.activity.VideoOrgEffectActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private ImageView ivBack;
     private TextView tvOrginalEffect;
+    private TextView tvVideoMultiDecEffect;
     private TextView tvCameraTranslucentEffect;
     private TextView tvCameraOrgEffect;
 
@@ -29,6 +31,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void findView() {
         ivBack = findViewById(R.id.iv_back);
         tvOrginalEffect = findViewById(R.id.tv_video_original_effect);
+        tvVideoMultiDecEffect  = findViewById(R.id.tv_video_multi_decode_effect);
         tvCameraTranslucentEffect = findViewById(R.id.tv_camera_translucent_effect);
         tvCameraOrgEffect = findViewById(R.id.tv_camera_original_effect);
     }
@@ -36,6 +39,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void setListener() {
         ivBack.setOnClickListener(this);
         tvOrginalEffect.setOnClickListener(this);
+        tvVideoMultiDecEffect.setOnClickListener(this);
         tvCameraTranslucentEffect.setOnClickListener(this);
         tvCameraOrgEffect.setOnClickListener(this);
     }
@@ -55,15 +59,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 intentVideoOrgEffect.putExtra("title", tvOrginalEffect.getText());
                 startActivity(intentVideoOrgEffect);
                 break;
-            case R.id.tv_camera_translucent_effect:
-                Intent intentCameraTransEffect = new Intent(this, CameraTranslucentEffectActivity.class);
-                intentCameraTransEffect.putExtra("title", tvCameraTranslucentEffect.getText());
-                startActivity(intentCameraTransEffect);
+            case R.id.tv_video_multi_decode_effect:
+                Intent intentVideoMultiDecEffect = new Intent(this, VideoMultiDecEffectActivity.class);
+                intentVideoMultiDecEffect.putExtra("title", tvVideoMultiDecEffect.getText());
+                startActivity(intentVideoMultiDecEffect);
                 break;
             case R.id.tv_camera_original_effect:
                 Intent intentCameraOrgEffect = new Intent(this, CameraOrgEffectActivity.class);
                 intentCameraOrgEffect.putExtra("title", tvCameraOrgEffect.getText());
                 startActivity(intentCameraOrgEffect);
+                break;
+            case R.id.tv_camera_translucent_effect:
+                Intent intentCameraTransEffect = new Intent(this, CameraTranslucentEffectActivity.class);
+                intentCameraTransEffect.putExtra("title", tvCameraTranslucentEffect.getText());
+                startActivity(intentCameraTransEffect);
                 break;
             default:
                 break;

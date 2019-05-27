@@ -11,12 +11,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.CameraOrgEffectActivity"></activity>
+        <activity android:name=".ui.activity.VideoMultiDecEffectActivity" />
+        <activity android:name=".ui.activity.CameraOrgEffectActivity" />
         <activity android:name=".ui.activity.CameraTranslucentEffectActivity" />
         <activity android:name=".ui.activity.VideoOrgEffectActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
