@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
-import android.graphics.PixelFormat;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.SurfaceView;
 import android.view.View;
@@ -28,6 +28,7 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
     private Button btnMultiPlay, btnMultiPause, btnMultiStop;
 
     private MediaPlayerHelper mVideoPlayer1, mVideoPlayer2, mVideoPlayer3, mVideoPlayer4;
+    private MediaPlayerHelper.OnMediaListener mMediaListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,14 +77,46 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
         mVideoPlayer4 = new MediaPlayerHelper(svVideoDisplay4, null, null);
         try {
             AssetManager assetMg = this.getApplicationContext().getAssets();
-            AssetFileDescriptor fileDescriptor = assetMg.openFd("video_1280x720_1mb.mp4");
-            mVideoPlayer1.initVideo(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
-            mVideoPlayer2.initVideo(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
-            mVideoPlayer3.initVideo(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
-            mVideoPlayer4.initVideo(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
+            AssetFileDescriptor assetFd1mb = assetMg.openFd("video_1280x720_1mb.mp4");
+            AssetFileDescriptor assetFd3mb = assetMg.openFd("video_1920x1080_3mb.mp4");
+            AssetFileDescriptor assetFd6mb = assetMg.openFd("video_1920x1080_6mb.mp4");
+            AssetFileDescriptor assetFd7mb = assetMg.openFd("video_1920x1080_7mb.mp4");
+            mVideoPlayer1.initVideo(assetFd1mb.getFileDescriptor(), assetFd1mb.getStartOffset(), assetFd1mb.getLength());
+            mVideoPlayer2.initVideo(assetFd3mb.getFileDescriptor(), assetFd3mb.getStartOffset(), assetFd3mb.getLength());
+            mVideoPlayer3.initVideo(assetFd6mb.getFileDescriptor(), assetFd6mb.getStartOffset(), assetFd6mb.getLength());
+            mVideoPlayer4.initVideo(assetFd7mb.getFileDescriptor(), assetFd7mb.getStartOffset(), assetFd7mb.getLength());
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //设置自动循环播放
+        mMediaListener = new MediaPlayerHelper.OnMediaListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+            }
+
+            @Override
+            public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
+            }
+
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mp.start();
+            }
+        };
+        mVideoPlayer1.setOnMediaListener(mMediaListener);
+        mVideoPlayer2.setOnMediaListener(mMediaListener);
+        mVideoPlayer3.setOnMediaListener(mMediaListener);
+        mVideoPlayer4.setOnMediaListener(mMediaListener);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mVideoPlayer1.onDestroy();
+        mVideoPlayer2.onDestroy();
+        mVideoPlayer3.onDestroy();
+        mVideoPlayer4.onDestroy();
     }
 
     @Override

@@ -67,6 +67,7 @@ public class VideoOrgEffectActivity extends Activity implements View.OnClickList
         } catch (IOException e) {
             e.printStackTrace();
         }
+        mVideoPlayer.isAdaptiveSize(true);
     }
 
     @Override

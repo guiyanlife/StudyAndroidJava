@@ -23,6 +23,7 @@ public class MediaPlayerHelper {
     private String TAG = "MediaPlayerHelper";
     private SurfaceHolder mHolder;
     private MediaPlayer mPlayer;
+    private boolean mAdaptiveSize = false;
 
     private SurfaceView mSurface;
     private ImageView mThumbnail;
@@ -77,7 +78,8 @@ public class MediaPlayerHelper {
     private SurfaceHolder.Callback callback = new SurfaceHolder.Callback() {
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
-            onAdaptiveSize();
+            if(mAdaptiveSize)
+                onAdaptiveSize();
             mPlayer.setDisplay(holder);
         }
 
@@ -112,6 +114,13 @@ public class MediaPlayerHelper {
 
     }
 
+    /**
+     * 是否适应控件的高度或宽度显示视频的大小
+     * @param adaptiveSize 设置是否适应控件的高度或宽度显示视频的大小
+     */
+    public void isAdaptiveSize(boolean adaptiveSize) {
+        mAdaptiveSize = adaptiveSize;
+    }
 
     /**
      * 开始播放
