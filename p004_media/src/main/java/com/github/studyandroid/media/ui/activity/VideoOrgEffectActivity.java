@@ -83,6 +83,8 @@ public class VideoOrgEffectActivity extends Activity implements View.OnClickList
     @Override
     protected void onPause() {
         super.onPause();
+        if (mVideoPlayer.isPlaying())
+            mVideoPlayer.onPause();
     }
 
     @Override
