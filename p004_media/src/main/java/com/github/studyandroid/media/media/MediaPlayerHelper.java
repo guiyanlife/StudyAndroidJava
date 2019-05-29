@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -226,8 +227,8 @@ public class MediaPlayerHelper {
             int videoWidth = mPlayer.getVideoWidth();
             int videoHeight = mPlayer.getVideoHeight();
 
-            int surfaceViewWidth = mSurface.getWidth();
-            int surfaceViewHeight = mSurface.getHeight();
+            int surfaceViewWidth = ((ViewGroup) mSurface.getParent()).getWidth();
+            int surfaceViewHeight = ((ViewGroup) mSurface.getParent()).getHeight();
 
             Log.d(TAG, "Video Width: " + videoWidth + ", " + "Video Height: " + videoHeight);
             Log.d(TAG, "Surface Width: " + surfaceViewWidth + ", " + "Surface Height: " + surfaceViewHeight);
