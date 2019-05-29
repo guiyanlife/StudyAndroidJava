@@ -2,6 +2,7 @@ package com.github.studyandroid.media.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
@@ -30,6 +31,8 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
     private MediaPlayerHelper mVideoPlayer1, mVideoPlayer2, mVideoPlayer3, mVideoPlayer4;
     private MediaPlayerHelper.OnMediaListener mMediaListener;
 
+    private int mOrgOrientation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,10 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_video_multi_dec_effect);
+        //Set Activity orientation is landscape
+        mOrgOrientation = getRequestedOrientation();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
         findView();
         setListener();
         doNetWork();
@@ -77,9 +84,9 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
         mVideoPlayer4 = new MediaPlayerHelper(svVideoDisplay4, null, null);
         try {
             AssetManager assetMg = this.getApplicationContext().getAssets();
-            AssetFileDescriptor assetFd1mb = assetMg.openFd("video_1280x720_1mb.mp4");
+            AssetFileDescriptor assetFd1mb = assetMg.openFd("video_1920x1080_6mb.mp4");
             AssetFileDescriptor assetFd3mb = assetMg.openFd("video_1920x1080_3mb.mp4");
-            AssetFileDescriptor assetFd6mb = assetMg.openFd("video_1920x1080_6mb.mp4");
+            AssetFileDescriptor assetFd6mb = assetMg.openFd("video_1280x720_1mb.mp4");
             AssetFileDescriptor assetFd7mb = assetMg.openFd("video_1920x1080_7mb.mp4");
             mVideoPlayer1.initVideo(assetFd1mb.getFileDescriptor(), assetFd1mb.getStartOffset(), assetFd1mb.getLength());
             mVideoPlayer2.initVideo(assetFd3mb.getFileDescriptor(), assetFd3mb.getStartOffset(), assetFd3mb.getLength());
@@ -117,6 +124,7 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
         mVideoPlayer2.onDestroy();
         mVideoPlayer3.onDestroy();
         mVideoPlayer4.onDestroy();
+        setRequestedOrientation(mOrgOrientation);
     }
 
     @Override

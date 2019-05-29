@@ -3,7 +3,7 @@
     <string name="video">视频</string>
     <string name="video_original_effect">视频原始效果</string>
     <string name="video_translucent_effect">视频半透明效果</string>
-    <string name="video_multi_decode_effect">视频多路解码效果</string>
+    <string name="video_multi_decode_effect">多路视频解码效果</string>
     <string name="camera">摄像头</string>
     <string name="camera_original_effect">摄像头原始效果</string>
     <string name="camera_translucent_effect">摄像头半透明效果</string>
