@@ -99,10 +99,12 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
         mMediaListener = new MediaPlayerHelper.OnMediaListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
+
             }
 
             @Override
             public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
+
             }
 
             @Override
