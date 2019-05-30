@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.SurfaceView;
@@ -31,8 +32,6 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
     private MediaPlayerHelper mVideoPlayer1, mVideoPlayer2, mVideoPlayer3, mVideoPlayer4;
     private MediaPlayerHelper.OnMediaListener mMediaListener;
 
-    private int mOrgOrientation;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +40,9 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_video_multi_dec_effect);
         //Set Activity orientation is landscape
-        mOrgOrientation = getRequestedOrientation();
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
         findView();
         setListener();
         doNetWork();
@@ -124,7 +123,6 @@ public class VideoMultiDecEffectActivity extends Activity implements View.OnClic
         mVideoPlayer2.onDestroy();
         mVideoPlayer3.onDestroy();
         mVideoPlayer4.onDestroy();
-        setRequestedOrientation(mOrgOrientation);
     }
 
     @Override
