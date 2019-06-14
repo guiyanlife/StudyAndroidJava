@@ -5,8 +5,8 @@ import android.os.Environment;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
-import com.github.commonlibs.libretrofit.RetrofitNetNew;
 import com.github.commonlibs.libwebview.hios2.HiosHelper;
+import com.github.studyandroid.network.retrofit.RetrofitNetNew;
 
 public class MyApplication extends MultiDexApplication {
     public static final String DIR_PROJECT = "/studyandroid/network/app/";

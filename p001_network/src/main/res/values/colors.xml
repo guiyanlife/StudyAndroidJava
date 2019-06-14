@@ -7,6 +7,10 @@
     <color name="colorToolbarFont">#FFFFFF</color>
     <color name="colorTextFont">#373B3E</color>
     <color name="colorTagCloudViewTagFont">#FFFFFFFF</color>
-
     <color name="colorTranslucent">#00000000</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="ff383837">#FF383837</color>
+    <color name="gray8">#DCDCDC</color>
+    <color name="font_fff">#ffffff</color>
 </resources>

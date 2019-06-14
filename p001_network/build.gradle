@@ -38,7 +38,5 @@ dependencies {
     implementation librarys.okhttpVersion
     implementation librarys.okhttploggerinter
 
-    implementation project(':baselibrary')
     implementation project(':commonlibs:libwebview')
-    implementation project(':commonlibs:libretrofit')
 }

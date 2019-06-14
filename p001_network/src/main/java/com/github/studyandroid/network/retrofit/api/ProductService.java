@@ -2,7 +2,7 @@ package com.github.studyandroid.network.retrofit.api;
 
 
 import com.github.studyandroid.network.retrofit.bean.SearchProductsBean;
-import com.github.studyandroid.network.retrofit.net.NetConfig;
+import com.github.studyandroid.network.util.NetConfigUtil;
 
 import java.util.Map;
 
@@ -18,10 +18,10 @@ public interface ProductService {
     //POST
     //https://www.zhaoapi.cn/product/searchProducts?key1=val1&key2=val2&key3=val3&key4=val4
     @FormUrlEncoded
-    @POST(NetConfig.SERVER_ZHAO + "product/searchProducts")
+    @POST(NetConfigUtil.SERVER_ZHAO + "product/searchProducts")
     Call<ResponseBody> getProducts(@FieldMap Map<String, String> map);
 
     @FormUrlEncoded
-    @POST(NetConfig.SERVER_ZHAO + "product/{action}")
+    @POST(NetConfigUtil.SERVER_ZHAO + "product/{action}")
     Call<SearchProductsBean> getBeanProducts(@Path("action") String action, @Field("keywords") String value);
 }

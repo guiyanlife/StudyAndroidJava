@@ -9,5 +9,10 @@
     <dimen name="title_icon_height">26dp</dimen>
     <dimen name="title_icon_width">26dp</dimen>
     <dimen name="title_font_size">18sp</dimen>
-
+    <dimen name="list_type_font_size">12sp</dimen>
+    <dimen name="list_item_font_size">16sp</dimen>
+    <dimen name="list_type_height">24dp</dimen>
+    <dimen name="list_item_height">48dp</dimen>
+    <dimen name="list_padding_horizontal">12dp</dimen>
+    <dimen name="list_item_drawable_padding">4dp</dimen>
 </resources>

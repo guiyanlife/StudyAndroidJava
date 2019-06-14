@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.commonlibs.libretrofit.RetrofitNetNew;
 import com.github.studyandroid.network.R;
+import com.github.studyandroid.network.retrofit.RetrofitNetNew;
 import com.github.studyandroid.network.retrofit.api.ListService;
 import com.github.studyandroid.network.retrofit.api.ProductService;
 import com.github.studyandroid.network.retrofit.bean.GetListBean;

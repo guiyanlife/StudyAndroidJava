@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">p001_Network</string>
+    <string name="retrofit">Retrofit</string>
+    <string name="okhttp">OkHttp</string>
+    <string name="hios">Hios</string>
+
+    <string name="synchronous">同步请求</string>
+    <string name="asynchronous">异步请求</string>
+    <string name="get_text">GetText</string>
+    <string name="get_json">GetJson</string>
+    <string name="post_json">PostJson</string>
+    <string name="get_gson">GetGson</string>
+    <string name="post_gson">PostGson</string>
+    <string name="post_file">PostFile</string>
+    <string name="get_file">GetFile</string>
+    <string name="post_image">PostImage</string>
+    <string name="exit">退出</string>
 </resources>

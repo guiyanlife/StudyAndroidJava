@@ -17,139 +17,140 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rl_top"
+            android:background="@color/white"
             android:orientation="vertical"
-            android:showDividers="middle"
-            android:background="@color/white">
+            android:showDividers="middle">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y53"
+                android:layout_height="@dimen/list_type_height"
                 android:background="#EDEBE9">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/x28"
-                    android:paddingRight="@dimen/x28"
+                    android:paddingLeft="@dimen/list_padding_horizontal"
+                    android:paddingRight="@dimen/list_padding_horizontal"
                     android:text="Network"
                     android:textColor="#888580"
-                    android:textSize="@dimen/text_size_12" />
+                    android:textSize="@dimen/list_type_font_size" />
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_retrofit"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y106"
+                android:layout_height="@dimen/list_item_height"
                 android:background="@drawable/on_touch_bg"
                 android:clickable="true"
-                android:drawablePadding="@dimen/x20"
                 android:drawableRight="@drawable/icon_arrow"
+                android:drawablePadding="@dimen/list_item_drawable_padding"
                 android:gravity="center_vertical"
-                android:paddingLeft="@dimen/x28"
-                android:paddingRight="@dimen/x28"
-                android:text="Retrofit"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal"
+                android:text="@string/retrofit"
                 android:textColor="@color/ff383837"
-                android:textSize="@dimen/text_size_16" />
+                android:textSize="@dimen/list_item_font_size" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/x28"
-                android:layout_marginRight="@dimen/x28"
+                android:layout_marginLeft="@dimen/list_padding_horizontal"
+                android:layout_marginRight="@dimen/list_padding_horizontal"
                 android:background="#DCDCDC" />
 
             <TextView
-                android:id="@+id/tv_network2"
+                android:id="@+id/tv_okhttp"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y106"
+                android:layout_height="@dimen/list_item_height"
                 android:background="@drawable/on_touch_bg"
                 android:clickable="true"
-                android:drawablePadding="@dimen/x20"
                 android:drawableRight="@drawable/icon_arrow"
+                android:drawablePadding="@dimen/list_item_drawable_padding"
                 android:gravity="center_vertical"
-                android:paddingLeft="@dimen/x28"
-                android:paddingRight="@dimen/x28"
-                android:text="Network 2"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal"
+                android:text="@string/okhttp"
                 android:textColor="@color/ff383837"
-                android:textSize="@dimen/text_size_16" />
+                android:textSize="@dimen/list_item_font_size" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y53"
+                android:layout_height="@dimen/list_type_height"
                 android:background="#EDEBE9">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/x28"
-                    android:paddingRight="@dimen/x28"
+                    android:paddingLeft="@dimen/list_padding_horizontal"
+                    android:paddingRight="@dimen/list_padding_horizontal"
                     android:text="WebView"
                     android:textColor="#888580"
-                    android:textSize="@dimen/text_size_12" />
+                    android:textSize="@dimen/list_type_font_size" />
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_hios"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y106"
+                android:layout_height="@dimen/list_item_height"
                 android:background="@drawable/on_touch_bg"
                 android:clickable="true"
-                android:drawablePadding="@dimen/x20"
                 android:drawableRight="@drawable/icon_arrow"
+                android:drawablePadding="@dimen/list_item_drawable_padding"
                 android:gravity="center_vertical"
-                android:paddingLeft="@dimen/x28"
-                android:paddingRight="@dimen/x28"
-                android:text="Hios"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal"
+                android:text="@string/hios"
                 android:textColor="@color/ff383837"
-                android:textSize="@dimen/text_size_16" />
+                android:textSize="@dimen/list_item_font_size" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/x28"
-                android:layout_marginRight="@dimen/x28"
+                android:layout_marginLeft="@dimen/list_padding_horizontal"
+                android:layout_marginRight="@dimen/list_padding_horizontal"
                 android:background="#DCDCDC" />
 
             <TextView
                 android:id="@+id/tv_webview2"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y106"
+                android:layout_height="@dimen/list_item_height"
                 android:background="@drawable/on_touch_bg"
                 android:clickable="true"
-                android:drawablePadding="@dimen/x20"
                 android:drawableRight="@drawable/icon_arrow"
+                android:drawablePadding="@dimen/list_item_drawable_padding"
                 android:gravity="center_vertical"
-                android:paddingLeft="@dimen/x28"
-                android:paddingRight="@dimen/x28"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal"
                 android:text="WebView 2"
                 android:textColor="@color/ff383837"
-                android:textSize="@dimen/text_size_16" />
+                android:textSize="@dimen/list_item_font_size" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/x28"
-                android:layout_marginRight="@dimen/x28"
+                android:layout_marginLeft="@dimen/list_padding_horizontal"
+                android:layout_marginRight="@dimen/list_padding_horizontal"
                 android:background="#DCDCDC" />
 
             <TextView
                 android:id="@+id/tv_webview3"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y106"
+                android:layout_height="@dimen/list_item_height"
                 android:background="@drawable/on_touch_bg"
                 android:clickable="true"
-                android:drawablePadding="@dimen/x20"
                 android:drawableRight="@drawable/icon_arrow"
+                android:drawablePadding="@dimen/list_item_drawable_padding"
                 android:gravity="center_vertical"
-                android:paddingLeft="@dimen/x28"
-                android:paddingRight="@dimen/x28"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal"
                 android:text="WebView 3"
                 android:textColor="@color/ff383837"
-                android:textSize="@dimen/text_size_16" />
+                android:textSize="@dimen/list_item_font_size" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

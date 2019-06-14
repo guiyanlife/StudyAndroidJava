@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:id="@+id/rlToolbarTop"
         android:layout_width="match_parent"
@@ -27,7 +29,7 @@
             android:text="返回"
             android:textColor="@color/colorToolbarFont"
             android:textSize="20sp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/iv_toolbar_close"
@@ -38,7 +40,7 @@
             android:layout_marginRight="12dp"
             android:scaleType="fitXY"
             android:src="@drawable/ic_toolbar_close"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/tv_toolbar_content"

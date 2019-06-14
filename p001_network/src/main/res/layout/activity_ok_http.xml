@@ -11,88 +11,117 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:padding="4dp">
 
         <TextView
-            android:id="@+id/tv_content"
+            android:id="@+id/tv_okhttp_response"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="14sp" />
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="vertical" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:paddingTop="4dp"
+        android:paddingRight="4dp"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical"
+        android:text="@string/synchronous"
+        android:textColor="@color/colorTextFont"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
         android:weightSum="4">
 
         <Button
-            android:id="@+id/demo1_button"
+            android:id="@+id/btn_okhttp_sync_get_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Demo1" />
+            android:text="@string/get_text" />
 
         <Button
-            android:id="@+id/demo2_button"
+            android:id="@+id/btn_okhttp_sync_get_json"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Demo2" />
+            android:text="@string/get_json" />
 
         <Button
-            android:id="@+id/demo3_button"
+            android:id="@+id/btn_okhttp_sync_post_json"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Demo3" />
+            android:text="@string/post_json" />
 
         <Button
-            android:id="@+id/demo4_button"
+            android:id="@+id/btn_okhttp_sync_post_file"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Demo4" />
+            android:text="@string/post_file" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:paddingTop="4dp"
+        android:paddingRight="4dp"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical"
+        android:text="@string/asynchronous"
+        android:textColor="@color/colorTextFont"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="bottom"
         android:orientation="horizontal"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
         android:weightSum="4">
 
         <Button
-            android:id="@+id/demo5_button"
+            android:id="@+id/btn_okhttp_async_get_gson"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Demo5" />
+            android:text="@string/get_gson" />
 
         <Button
-            android:id="@+id/demo6_button"
+            android:id="@+id/btn_okhttp_async_post_gson"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Demo6" />
+            android:text="@string/post_gson" />
 
         <Button
-            android:id="@+id/demo7_button"
+            android:id="@+id/btn_okhttp_async_get_file"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Demo7" />
+            android:text="@string/get_file" />
 
         <Button
-            android:id="@+id/demo8_button"
+            android:id="@+id/exit_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button"
-            android:visibility="invisible" />
-
+            android:text="@string/exit"
+            android:textColor="#EA0000" />
     </LinearLayout>
 
 </LinearLayout>

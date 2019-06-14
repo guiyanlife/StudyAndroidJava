@@ -8,11 +8,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.studyandroid.network.ui.activity.HiosActivity;
+import com.github.studyandroid.network.ui.activity.OkHttpActivity;
 import com.github.studyandroid.network.ui.activity.RetrofitActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private ImageView ivBack;
-    private TextView tvRetrofit, tvHios;
+    private TextView tvRetrofit, tvHios, tvOkhttp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +28,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ivBack = findViewById(R.id.iv_back);
         tvRetrofit = findViewById(R.id.tv_retrofit);
         tvHios = findViewById(R.id.tv_hios);
+        tvOkhttp = findViewById(R.id.tv_okhttp);
     }
 
     private void setListener() {
         ivBack.setOnClickListener(this);
         tvRetrofit.setOnClickListener(this);
         tvHios.setOnClickListener(this);
+        tvOkhttp.setOnClickListener(this);
     }
 
     private void doNetWork() {
@@ -49,6 +52,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Intent intentRetrofit = new Intent(this, RetrofitActivity.class);
                 intentRetrofit.putExtra("title", tvRetrofit.getText());
                 startActivity(intentRetrofit);
+                break;
+            case R.id.tv_okhttp:
+                Intent intentOkHttp = new Intent(this, OkHttpActivity.class);
+                intentOkHttp.putExtra("title", tvHios.getText());
+                startActivity(intentOkHttp);
                 break;
             case R.id.tv_hios:
                 Intent intentHios = new Intent(this, HiosActivity.class);
