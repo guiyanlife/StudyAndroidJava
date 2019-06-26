@@ -1,9 +1,12 @@
 package com.github.studyandroid.network.retrofit;
 
 import android.app.Application;
+import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.UnsupportedCharsetException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -11,9 +14,15 @@ import okhttp3.Call;
 import okhttp3.Dispatcher;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okhttp3.internal.http.HttpHeaders;
+import okio.Buffer;
+import okio.BufferedSource;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -37,9 +46,9 @@ public class RetrofitNetNew {
                 .addInterceptor(addHeaderInterceptor())         //添加header。例如，token过滤等
                 .addInterceptor(new LoggingInterceptor())       //添加Log拦截器，用于打印请求与响应的日志
                 .cache(cache)  //添加缓存
-                .connectTimeout(30l, TimeUnit.SECONDS)
-                .readTimeout(30l, TimeUnit.SECONDS)
-                .writeTimeout(30l, TimeUnit.SECONDS)
+                .connectTimeout(30L, TimeUnit.SECONDS)
+                .readTimeout(30L, TimeUnit.SECONDS)
+                .writeTimeout(30L, TimeUnit.SECONDS)
                 .build();
 
         //client.dispatcher().runningCalls().get(0).request().tag()
@@ -122,9 +131,10 @@ public class RetrofitNetNew {
     }
 
     /**
-     * 设置公共参数
+     * 请求参数拦截器，在URL中增加请求参数
+     *     http://localhost/param?phoneSystem=13246363399&phoneModel=mi
      *
-     * @return
+     * @return 请求参数拦截器
      */
     private static Interceptor addQueryParameterInterceptor() {
         Interceptor addQueryParameterInterceptor = new Interceptor() {
@@ -134,8 +144,8 @@ public class RetrofitNetNew {
                 Request request;
                 HttpUrl modifiedUrl = originalRequest.url().newBuilder()
                         // Provide your custom parameter here
-                        //.addQueryParameter("phoneSystem", "")
-                        //.addQueryParameter("phoneModel", "")
+                        //.addQueryParameter("phoneSystem", "13246363399")
+                        //.addQueryParameter("phoneModel", "mi")
                         .build();
                 request = originalRequest.newBuilder().url(modifiedUrl).build();
                 return chain.proceed(request);
@@ -145,9 +155,9 @@ public class RetrofitNetNew {
     }
 
     /**
-     * 设置Header
+     * Header拦截器，在请求中增加Header内容
      *
-     * @return
+     * @return Header拦截器
      */
     private static Interceptor addHeaderInterceptor() {
         Interceptor headerInterceptor = new Interceptor() {
@@ -163,6 +173,54 @@ public class RetrofitNetNew {
             }
         };
         return headerInterceptor;
+    }
+
+    /**
+     * Log拦截器，用于打印请求与响应的日志
+     */
+    private class LoggingInterceptor implements Interceptor {
+        private static final String TAG = "HTTP_LOG";
+        private final Charset UTF8 = Charset.forName("UTF-8");
+
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            Request request = chain.request();
+            RequestBody requestBody = request.body();
+            String body = null;
+            if (requestBody != null) {
+                Buffer buffer = new Buffer();
+                requestBody.writeTo(buffer);
+                Charset charset = UTF8;
+                MediaType contentType = requestBody.contentType();
+                if (contentType != null) {
+                    charset = contentType.charset(UTF8);
+                }
+                body = buffer.readString(charset);
+            }
+            Log.d(TAG, String.format("Send request\nmethod: %s\nurl: %s\nheaders: %s\nbody: %s", request.method(), request.url(), request.headers(), body));
+            long startNs = System.nanoTime();
+            Response response = chain.proceed(request);
+            long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
+            ResponseBody responseBody = response.body();
+            String rBody = null;
+            if (HttpHeaders.hasBody(response)) {
+                BufferedSource source = responseBody.source();
+                source.request(Long.MAX_VALUE); // Buffer the entire body.
+                Buffer buffer = source.buffer();
+                Charset charset = UTF8;
+                MediaType contentType = responseBody.contentType();
+                if (contentType != null) {
+                    try {
+                        charset = contentType.charset(UTF8);
+                    } catch (UnsupportedCharsetException e) {
+                        e.printStackTrace();
+                    }
+                }
+                rBody = buffer.clone().readString(charset);
+            }
+            Log.d(TAG, String.format("Receive response\ncode: %s\nmessage: %s\ntime: %sms\nbody: %s", response.code(), response.message(), tookMs, rBody));
+            return response;
+        }
     }
 
     private static Application sInstanceApp;
