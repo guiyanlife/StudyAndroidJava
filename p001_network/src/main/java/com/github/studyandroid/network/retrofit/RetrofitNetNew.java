@@ -38,7 +38,7 @@ public class RetrofitNetNew {
         //httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         //设置 请求的缓存的大小跟位置
-        File cacheFile = new File(getApp().getCacheDir(), "network");
+        File cacheFile = new File(getApp().getCacheDir(), "retrofit");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 50); //50Mb 缓存的大小
         client = new OkHttpClient
                 .Builder()
