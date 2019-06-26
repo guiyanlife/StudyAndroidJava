@@ -27,11 +27,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitNetNew {
-    private static RetrofitNetNew sInstance;
-    private static Retrofit retrofit;
-    private OkHttpClient client;
+    private static OkHttpClient mClient;
+    private static Retrofit mRetrofit;
 
-    public Retrofit init() {
+    public static Retrofit createRetrofit() {
+        if (mRetrofit != null) {
+            return mRetrofit;
+        }
         // 添加一个log拦截器,打印所有的log
         //HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         // 可以设置请求过滤的水平,body,basic,headers
@@ -40,7 +42,7 @@ public class RetrofitNetNew {
         //设置 请求的缓存的大小跟位置
         File cacheFile = new File(getApp().getCacheDir(), "retrofit");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 50); //50Mb 缓存的大小
-        client = new OkHttpClient
+        mClient = new OkHttpClient
                 .Builder()
                 .addInterceptor(addQueryParameterInterceptor()) //添加公共参数
                 .addInterceptor(addHeaderInterceptor())         //添加header。例如，token过滤等
@@ -50,38 +52,15 @@ public class RetrofitNetNew {
                 .readTimeout(30L, TimeUnit.SECONDS)
                 .writeTimeout(30L, TimeUnit.SECONDS)
                 .build();
-
         //client.dispatcher().runningCalls().get(0).request().tag()
 
-        retrofit = new Retrofit.Builder()
+        mRetrofit = new Retrofit.Builder()
                 .baseUrl("https://www.baidu.com")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
+                .client(mClient)
                 .build();
 
-        return retrofit;
-
-    }
-
-    private RetrofitNetNew() {
-        init();
-    }
-
-    public static void config() {
-        sInstance = new RetrofitNetNew();
-    }
-
-    public static RetrofitNetNew getInstance() {
-        return sInstance;
-    }
-
-    /**
-     * 获取网络框架
-     *
-     * @return
-     */
-    public Retrofit get() {
-        return retrofit;
+        return mRetrofit;
     }
 
     /**
@@ -92,30 +71,16 @@ public class RetrofitNetNew {
      * @return
      */
     public static <T> T build(Class<T> convertClass) {
-        return getInstance().get().create(convertClass);
-    }
-
-    /**
-     * 创建一个业务请求
-     *
-     * @param convertClass
-     * @param tag
-     * @param <T>
-     * @return
-     */
-    public static <T> T build(Class<T> convertClass, Object tag) {
-        return getInstance().get().create(convertClass);
-//        return (T) Proxy.newProxyInstance(convertClass.getClassLoader(),
-//                new Class<?>[] {convertClass}, new Handler(tag));
+        return RetrofitNetNew.createRetrofit().create(convertClass);
     }
 
     public void cancelAll() {
-        client.dispatcher().cancelAll();
+        mClient.dispatcher().cancelAll();
 
     }
 
     public void cancel(Object tag) {
-        Dispatcher dispatcher = client.dispatcher();
+        Dispatcher dispatcher = mClient.dispatcher();
         synchronized (dispatcher) {
             for (Call call : dispatcher.queuedCalls()) {
                 if (tag.equals(call.request().tag())) {
@@ -132,7 +97,7 @@ public class RetrofitNetNew {
 
     /**
      * 请求参数拦截器，在URL中增加请求参数
-     *     http://localhost/param?phoneSystem=13246363399&phoneModel=mi
+     * http://localhost/param?phoneSystem=13246363399&phoneModel=mi
      *
      * @return 请求参数拦截器
      */
@@ -178,7 +143,7 @@ public class RetrofitNetNew {
     /**
      * Log拦截器，用于打印请求与响应的日志
      */
-    private class LoggingInterceptor implements Interceptor {
+    private static class LoggingInterceptor implements Interceptor {
         private static final String TAG = "HTTP_LOG";
         private final Charset UTF8 = Charset.forName("UTF-8");
 
@@ -223,6 +188,9 @@ public class RetrofitNetNew {
         }
     }
 
+    /**
+     * 通过反射机制，获取当前APP的Application
+     */
     private static Application sInstanceApp;
 
     private static Application getApp() {

@@ -96,7 +96,7 @@ public class RetrofitActivity extends AppCompatActivity implements View.OnClickL
         tvToolbarContent.setText(intent.getStringExtra("title"));
 
         mResponseTextview.setMovementMethod(ScrollingMovementMethod.getInstance());
-        mListService = RetrofitNetNew.getInstance().get().create(ListService.class);
+        mListService = RetrofitNetNew.createRetrofit().create(ListService.class);
         mProductService = RetrofitNetNew.build(ProductService.class);
     }
 

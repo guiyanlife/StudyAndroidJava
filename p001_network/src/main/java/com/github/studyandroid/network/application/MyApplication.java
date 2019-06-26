@@ -1,12 +1,10 @@
 package com.github.studyandroid.network.application;
 
 import android.content.Context;
-import android.os.Environment;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.github.commonlibs.libwebview.hios2.HiosHelper;
-import com.github.studyandroid.network.retrofit.RetrofitNetNew;
 
 public class MyApplication extends MultiDexApplication {
     public static final String DIR_PROJECT = "/studyandroid/network/app/";
@@ -23,18 +21,10 @@ public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        configRetrofit();
         configHios();
     }
 
     private void configHios() {
         HiosHelper.config("ad.github.web.page", "github.web.page");
     }
-
-    private void configRetrofit() {
-        String cacheDir = Environment.getExternalStorageDirectory() + DIR_CACHE;
-        RetrofitNetNew.config();
-    }
-
-
 }
