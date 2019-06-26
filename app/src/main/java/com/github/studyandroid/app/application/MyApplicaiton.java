@@ -20,12 +20,5 @@ public class MyApplicaiton extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        configMyRetrofit();
     }
-
-    private void configMyRetrofit() {
-        String cacheDir = Environment.getExternalStorageDirectory() + DIR_CACHE;
-    }
-
-
 }
