@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">P002_OpenGL</string>
+    <string name="opengl">OpenGL</string>
+    <string name="opengles20">OpenGL ES 2.0</string>
+    <string name="render_bitmap">Render Bitmap</string>
+    <string name="opengles11">OpenGL ES 1.1</string>
+    <string name="alpha_add">透明度+</string>
+    <string name="alpha_dec">透明度-</string>
+    <string name="start">开始</string>
+    <string name="stop">停止</string>
+</resources>

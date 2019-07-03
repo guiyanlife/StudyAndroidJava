@@ -13,8 +13,9 @@ include ':commonlibs:libmvp',
 //start study APP Pxxx
 include ':app'
 
-include ':p004_media'
+include ':p001_network', ':p002_opengl', ':p004_media'
 //include ':p001_network',
+//        ':p002_opengl',
 //        ':p003_setting',
 //        ':p004_media',
 //        ':p005_animation',
