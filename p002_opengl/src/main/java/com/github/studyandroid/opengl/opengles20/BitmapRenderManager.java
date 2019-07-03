@@ -115,6 +115,7 @@ public class BitmapRenderManager {
      * 开始预览
      */
     public void onStartPreview() {
+        mHandler.removeMessages(MSG_BITMAP_RENDER);
         mHandler.sendEmptyMessage(MSG_BITMAP_RENDER);
     }
 
