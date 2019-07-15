@@ -35,6 +35,6 @@
             android:layout_height="@dimen/title_icon_height"
             android:layout_marginRight="8dp"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/exit" />
+            android:background="@drawable/exit" />
     </LinearLayout>
 </RelativeLayout>
