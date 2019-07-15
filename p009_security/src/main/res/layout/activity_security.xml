@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/ly_top"
+        layout="@layout/top_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_type_height"
+                android:background="#EDEBE9">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="0dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/list_padding_horizontal"
+                    android:paddingRight="@dimen/list_padding_horizontal"
+                    android:text="@string/info_security"
+                    android:textColor="#888580"
+                    android:textSize="@dimen/list_type_font_size" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_asym_encrypt_btlock_conf"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawableRight="@drawable/icon_arrow"
+                android:drawablePadding="@dimen/list_item_drawable_padding"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal"
+                android:text="@string/key_unsym_encrypt_btlock"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/list_item_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/list_padding_horizontal"
+                android:layout_marginRight="@dimen/list_padding_horizontal"
+                android:background="#DCDCDC" />
+
+            <TextView
+                android:id="@+id/tv_data_item2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawableRight="@drawable/icon_arrow"
+                android:drawablePadding="@dimen/list_item_drawable_padding"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal"
+                android:text="Item 2"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/list_item_font_size" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_type_height"
+                android:background="#EDEBE9">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/list_padding_horizontal"
+                    android:paddingRight="@dimen/list_padding_horizontal"
+                    android:text="@string/openssl"
+                    android:textColor="#888580"
+                    android:textSize="@dimen/list_type_font_size" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_openssl_item1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawableRight="@drawable/icon_arrow"
+                android:drawablePadding="@dimen/list_item_drawable_padding"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal"
+                android:text="Item 1"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/list_item_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/list_padding_horizontal"
+                android:layout_marginRight="@dimen/list_padding_horizontal"
+                android:background="#DCDCDC" />
+
+            <TextView
+                android:id="@+id/tv_openssl_item2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawableRight="@drawable/icon_arrow"
+                android:drawablePadding="@dimen/list_item_drawable_padding"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal"
+                android:text="Item 2"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/list_item_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/list_padding_horizontal"
+                android:layout_marginRight="@dimen/list_padding_horizontal"
+                android:background="#DCDCDC" />
+
+            <TextView
+                android:id="@+id/tv_openssl_item3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@drawable/on_touch_bg"
+                android:clickable="true"
+                android:drawableRight="@drawable/icon_arrow"
+                android:drawablePadding="@dimen/list_item_drawable_padding"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal"
+                android:text="Item 3"
+                android:textColor="@color/ff383837"
+                android:textSize="@dimen/list_item_font_size" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

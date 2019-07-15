@@ -1,5 +1,5 @@
 //start commonlibs
-include ':baselibrary'
+include ':baselibrary', ':p009_security'
 
 include ':commonlibs:libmvp',
         ':commonlibs:libretrofit',
@@ -13,7 +13,7 @@ include ':commonlibs:libmvp',
 //start study APP Pxxx
 include ':app'
 
-include ':p001_network', ':p002_opengl', ':p004_media'
+include ':p001_network', ':p009_security'
 //include ':p001_network',
 //        ':p002_opengl',
 //        ':p003_setting',
@@ -21,5 +21,7 @@ include ':p001_network', ':p002_opengl', ':p004_media'
 //        ':p005_animation',
 //        ':p006_widget',
 //        ':p007_map',
-//        ':p008_base'
+//        ':p008_base',
+//        ':p009_security'
+
 //end study APP Pxxx

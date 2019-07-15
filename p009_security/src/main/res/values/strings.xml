@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">P009_Security</string>
+    <string name="info_security">信息安全</string>
+    <string name="key_unsym_encrypt_btlock">私钥加密公钥解密锁配置信息</string>
+    <string name="gen_lock_dat_file">生成锁配置文件</string>
+    <string name="import_lock_dat_file">导入锁配置文件</string>
+    <string name="openssl">OpenSSL</string>
+    <string name="exit">退出</string>
+</resources>
