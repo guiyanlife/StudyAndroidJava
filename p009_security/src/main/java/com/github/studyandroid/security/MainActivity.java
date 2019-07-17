@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.studyandroid.security.ui.activity.LicenseSignVerifyActivity;
 import com.github.studyandroid.security.ui.activity.LockConfigAsymEncActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private ImageView ivBack;
     private TextView tvAsymEncBtLock;
+    private TextView tvSignVerifyLicense;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void findView() {
         ivBack = findViewById(R.id.iv_back);
         tvAsymEncBtLock = findViewById(R.id.tv_asym_encrypt_btlock_conf);
+        tvSignVerifyLicense  = findViewById(R.id.tv_sign_verify_license);
     }
 
     private void setListener() {
         ivBack.setOnClickListener(this);
         tvAsymEncBtLock.setOnClickListener(this);
+        tvSignVerifyLicense.setOnClickListener(this);
     }
 
     private void doNetWork() {
@@ -43,9 +47,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.tv_asym_encrypt_btlock_conf:
-                Intent intentGL20RenderBitmap = new Intent(this, LockConfigAsymEncActivity.class);
-                intentGL20RenderBitmap.putExtra("title", tvAsymEncBtLock.getText());
-                startActivity(intentGL20RenderBitmap);
+                Intent intentLockConfigAsymEnc = new Intent(this, LockConfigAsymEncActivity.class);
+                intentLockConfigAsymEnc.putExtra("title", tvAsymEncBtLock.getText());
+                startActivity(intentLockConfigAsymEnc);
+                break;
+            case R.id.tv_sign_verify_license:
+                Intent intentLicenseSignVerify = new Intent(this, LicenseSignVerifyActivity.class);
+                intentLicenseSignVerify.putExtra("title", tvSignVerifyLicense.getText());
+                startActivity(intentLicenseSignVerify);
                 break;
             default:
                 break;

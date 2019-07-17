@@ -61,7 +61,7 @@
                 android:background="#DCDCDC" />
 
             <TextView
-                android:id="@+id/tv_data_item2"
+                android:id="@+id/tv_sign_verify_license"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/list_item_height"
                 android:background="@drawable/on_touch_bg"
@@ -71,7 +71,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/list_padding_horizontal"
                 android:paddingRight="@dimen/list_padding_horizontal"
-                android:text="Item 2"
+                android:text="@string/prikey_sign_pubkey_verify_license"
                 android:textColor="@color/ff383837"
                 android:textSize="@dimen/list_item_font_size" />
 
