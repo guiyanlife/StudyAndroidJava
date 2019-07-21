@@ -1,5 +1,5 @@
-# StudyPython
-Python开发学习，包含常用Python框架与使用样例程序
+# StudyAndroid
+安卓开发学习，包含常用安卓框架与使用样例程序
 
 ## 代码结构
 1. P001_Network
