@@ -1,5 +1,5 @@
 //start commonlibs
-include ':baselibrary', ':p009_security'
+include ':baselibrary'
 
 include ':commonlibs:libmvp',
         ':commonlibs:libretrofit',
