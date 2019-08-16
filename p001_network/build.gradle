@@ -37,6 +37,7 @@ dependencies {
     implementation librarys.retrofitgconverter
     implementation librarys.okhttpVersion
     implementation librarys.okhttploggerinter
+    implementation files('libs/nanohttpd.jar')
 
     implementation project(':commonlibs:libwebview')
 }
