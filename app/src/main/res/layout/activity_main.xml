@@ -9,9 +9,102 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_type_height"
+                android:background="@color/tv_list_type_background"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/tv_list_padding_horizontal"
+                android:paddingRight="@dimen/tv_list_padding_horizontal"
+                android:text="Type 1"
+                android:textColor="@color/tv_list_type_text"
+                android:textSize="@dimen/tv_list_type_font_size" />
+
+            <TextView
+                android:id="@+id/tv_item"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_item_height"
+                android:background="@drawable/on_touch_bg"
+                android:drawableEnd="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/tv_list_padding_horizontal"
+                android:paddingRight="@dimen/tv_list_padding_horizontal"
+                android:text="Item 1"
+                android:textColor="@color/tv_list_item_text"
+                android:textSize="@dimen/tv_list_item_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_list_item_divide_line_height"
+                android:layout_marginLeft="@dimen/tv_list_padding_horizontal"
+                android:layout_marginRight="@dimen/tv_list_padding_horizontal"
+                android:background="@color/v_list_item_divide_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_item_height"
+                android:background="@drawable/on_touch_bg"
+                android:drawableEnd="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/tv_list_padding_horizontal"
+                android:paddingRight="@dimen/tv_list_padding_horizontal"
+                android:text="Item 2"
+                android:textColor="@color/tv_list_item_text"
+                android:textSize="@dimen/tv_list_item_font_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_type_height"
+                android:background="@color/tv_list_type_background"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/tv_list_padding_horizontal"
+                android:paddingRight="@dimen/tv_list_padding_horizontal"
+                android:text="Type 2"
+                android:textColor="@color/tv_list_type_text"
+                android:textSize="@dimen/tv_list_type_font_size" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_item_height"
+                android:background="@drawable/on_touch_bg"
+                android:drawableEnd="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/tv_list_padding_horizontal"
+                android:paddingRight="@dimen/tv_list_padding_horizontal"
+                android:text="Item 3"
+                android:textColor="@color/tv_list_item_text"
+                android:textSize="@dimen/tv_list_item_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_list_item_divide_line_height"
+                android:layout_marginLeft="@dimen/tv_list_padding_horizontal"
+                android:layout_marginRight="@dimen/tv_list_padding_horizontal"
+                android:background="@color/v_list_item_divide_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_item_height"
+                android:background="@drawable/on_touch_bg"
+                android:drawableEnd="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/tv_list_padding_horizontal"
+                android:paddingRight="@dimen/tv_list_padding_horizontal"
+                android:text="Item 4"
+                android:textColor="@color/tv_list_item_text"
+                android:textSize="@dimen/tv_list_item_font_size" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

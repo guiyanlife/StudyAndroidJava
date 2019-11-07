@@ -4,9 +4,20 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="indicator_circle_radius">10dp</dimen>
-    <dimen name="title_bar_height">48dp</dimen>
-    <dimen name="title_icon_height">26dp</dimen>
-    <dimen name="title_icon_width">26dp</dimen>
-    <dimen name="title_font_size">18sp</dimen>
+    <!-- top_layout toolbar_layout Layout -->
+    <dimen name="fl_title_bar_height">48dp</dimen>
+    <dimen name="iv_title_bar_app_icon_size">26dp</dimen>
+    <dimen name="iv_title_bar_app_icon_margin_start">12dp</dimen>
+    <dimen name="iv_title_bar_title_margin_start">12dp</dimen>
+    <dimen name="tv_title_bar_title_size">18sp</dimen>
+    <dimen name="iv_title_bar_exit_size">26dp</dimen>
+    <dimen name="iv_title_bar_exit_margin_end">12dp</dimen>
+
+    <!-- MainActivity Activity -->
+    <dimen name="tv_list_type_height">24dp</dimen>
+    <dimen name="tv_list_type_font_size">12sp</dimen>
+    <dimen name="tv_list_item_font_size">16sp</dimen>
+    <dimen name="tv_list_item_height">48dp</dimen>
+    <dimen name="tv_list_padding_horizontal">12dp</dimen>
+    <dimen name="v_list_item_divide_line_height">0.5dp</dimen>
 </resources>

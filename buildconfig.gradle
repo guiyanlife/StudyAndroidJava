@@ -27,8 +27,8 @@ ext {
             recyclerviewv7       : "com.android.support:recyclerview-v7:${supportLibVersion}",
             multidexVersion      : "com.android.support:multidex:1.0.3",
 
-            junit                : "junit:junit:4.12",
             //------------- 测试 -------------
+            junit                : "junit:junit:4.12",
             espresso             : "com.android.support.test.espresso:espresso-core:2.2.2",
 
             // ------------- 网络请求 -------------
@@ -78,10 +78,9 @@ ext {
             // ------------- 高德地图 -------------
             gaode3d              : 'com.amap.api:3dmap:latest.integration',
             gaode2d              : 'com.amap.api:map2d:latest.integration',
-            //定位功能
-            gaodelocation        : 'com.amap.api:location:latest.integration',
-            //搜索功能
-            gaodesearch          : 'com.amap.api:search:latest.integration',
+            gaodelocation        : 'com.amap.api:location:latest.integration', //定位功能
+            gaodesearch          : 'com.amap.api:search:latest.integration',   //搜索功能
+
             // ------------- BaseRecyclerViewAdapterHelper -------------
             baseadapter          : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22',
     ]
