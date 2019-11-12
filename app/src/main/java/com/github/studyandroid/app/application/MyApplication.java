@@ -10,7 +10,7 @@ import androidx.multidex.MultiDexApplication;
  * Description: Application
  * Author(s): Gui Yan (guiyanwork@163.com)
  */
-public class MyApplicaiton extends MultiDexApplication {
+public class MyApplication extends MultiDexApplication {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);

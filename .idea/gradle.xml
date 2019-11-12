@@ -3,24 +3,13 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/baselibrary" />
-            <option value="$PROJECT_DIR$/commonlibs" />
-            <option value="$PROJECT_DIR$/commonlibs/libfileprovider" />
-            <option value="$PROJECT_DIR$/commonlibs/libglide38" />
-            <option value="$PROJECT_DIR$/commonlibs/libmvp" />
-            <option value="$PROJECT_DIR$/commonlibs/libretrofit" />
-            <option value="$PROJECT_DIR$/commonlibs/libupdateapputils" />
-            <option value="$PROJECT_DIR$/commonlibs/libutils" />
-            <option value="$PROJECT_DIR$/commonlibs/libwebview" />
+            <option value="$PROJECT_DIR$/p011_okhttp" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

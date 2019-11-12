@@ -3,7 +3,7 @@
     package="com.github.studyandroid.app">
 
     <application
-        android:name=".application.MyApplicaiton"
+        android:name=".application.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"

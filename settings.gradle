@@ -1,19 +1,19 @@
 //start commonlibs
-include ':baselibrary'
+//include ':baselibrary',
 
-include ':commonlibs:libmvp',
-        ':commonlibs:libretrofit',
-        ':commonlibs:libutils',
-        ':commonlibs:libwebview',
-        ':commonlibs:libupdateapputils',
-        ':commonlibs:libfileprovider',
-        ':commonlibs:libglide38'
+//include ':commonlibs:libmvp',
+//        ':commonlibs:libretrofit',
+//        ':commonlibs:libutils',
+//        ':commonlibs:libwebview',
+//        ':commonlibs:libupdateapputils',
+//        ':commonlibs:libfileprovider',
+//        ':commonlibs:libglide38'
 //end commonlibs
 
 //start study APP Pxxx
-include ':app'
+include ':app',':p011_okhttp'
 
-include ':p001_network', ':p009_security'
+//include ':p001_network', ':p009_security'
 //include ':p001_network',
 //        ':p002_opengl',
 //        ':p003_setting',
