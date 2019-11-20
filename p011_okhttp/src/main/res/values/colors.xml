@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#373b3e</color>
+    <color name="colorPrimaryDark">#373B3E</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Common -->
+    <color name="white">#FFFFFF</color>
+    <color name="gray8">#DCDCDC</color>
+
+    <!-- MainActivity Activity -->
+    <color name="tv_list_type_background">#EDEBE9</color>
+    <color name="tv_list_type_text">#888580</color>
+    <color name="tv_list_item_text">#FF383837</color>
+    <color name="v_list_item_divide_line">#DCDCDC</color>
+</resources>
